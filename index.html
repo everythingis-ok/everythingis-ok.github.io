@@ -69,6 +69,100 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-这个压缩包有点麻烦" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/12/05/%E8%BF%99%E4%B8%AA%E5%8E%8B%E7%BC%A9%E5%8C%85%E6%9C%89%E7%82%B9%E9%BA%BB%E7%83%A6/" class="article-date">
+  <time class="dt-published" datetime="2024-12-05T04:21:03.000Z" itemprop="datePublished">2024-12-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/12/05/%E8%BF%99%E4%B8%AA%E5%8E%8B%E7%BC%A9%E5%8C%85%E6%9C%89%E7%82%B9%E9%BA%BB%E7%83%A6/">这个压缩包有点麻烦</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="wp"><a href="#wp" class="headerlink" title="wp"></a>wp</h1><h2 id="1-这个压缩包有点麻烦"><a href="#1-这个压缩包有点麻烦" class="headerlink" title="1.这个压缩包有点麻烦"></a>1.这个压缩包有点麻烦</h2><p>下载压缩包可以看到有注释，提示是六位数字的暴力破解</p>
+<p>暴力破解得到密码</p>
+<p>密码为 483279</p>
+<p>打开文档后看到提示</p>
+<p>可以确定是使用字典爆破</p>
+<p>​    得到压缩包密码    &amp;-&#96;;qpCKliw2yTR\</p>
+<p>zip压缩包里面还有一个文件和之前的readme是一样的文件（已知部分明文），所以直接明文攻击<br>根据提示：注意将明文压缩时，压缩包的属性要设置为<strong>仅储存</strong></p>
+<p>确保压缩后的zip与同名文档CRC32码一致</p>
+<h3 id="已知明文攻击的方法"><a href="#已知明文攻击的方法" class="headerlink" title="已知明文攻击的方法"></a>已知明文攻击的方法</h3><p>已知明文攻击的特点是已知一个ZIP压缩包中某个文件的原文件（也就是明文），利用已知文件和其压缩加密后的数据获取到压缩包的解压密码或者能对其解压。</p>
+<p>常规已知明文攻击要想成功，需要具备3个条件：</p>
+<p> 1）完整的明文文件。</p>
+<p> 2）明文文件需要被相同的压缩算法标准压缩（也可理解为被相同压缩工具压缩）。</p>
+<p> 3）明文对应文件的加密算法是ZipCrypto Store。</p>
+<p>只需要记住，即使在没有压缩密码的情况下，只要能获取3个密钥，就能实现解密。如果我们已知压缩包中的某个文件，就可以利用算法获取这3个密钥</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/image-20241205005520726.png" alt="image-20241205005520726"></p>
+<p>单击“开始”按钮后，破解开始。使用ARCHPR进行已 知明文攻击时有一个重大BUG，即使工具已经恢复出3个密钥，程序也不会自动停止，需要我们手动暂停。根据比赛经验，一般程序运行20 ～30分钟就可以手动停止，如果ARCHPR找到了3个密钥，也就是图 1.5.23中的加密密钥，那么单击“停止”后会自动弹出窗口</p>
+<p>单击“确定”后，会弹出新的保存文件窗口</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/image-20241205013556922.png" alt="image-20241205013556922"></p>
+<p>压缩包里只有一张ipg格式的文件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/image-20241205014603949.png" alt="image-20241205014603949"></p>
+<h3 id="分离图片中的隐藏文件"><a href="#分离图片中的隐藏文件" class="headerlink" title="分离图片中的隐藏文件"></a>分离图片中的隐藏文件</h3><h4 id="图片分析"><a href="#图片分析" class="headerlink" title="图片分析"></a>图片分析</h4><p>首先对图片进行分析，用binwalk（<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=kali&spm=1001.2101.3001.7020">kali</a>中是自带的，也可以下载到windows中使用）。</p>
+<p>使用方法：binwalk + 文件路径&#x2F;文件名</p>
+<p>执行命令后，binwalk就会自动分析这个jpg文件：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/image-20241205015107323.png" alt="image-20241205015107323"></p>
+<p>从分析的结果看，这个jpg文件隐藏着一个zip文件</p>
+<h4 id="图片分离"><a href="#图片分离" class="headerlink" title="图片分离"></a>图片分离</h4><p>1,binwalk分离</p>
+<p>还是使用binwalk工具，使用dd命令分离出隐藏文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=flag.jpg of=1.zip skip=20421 bs=1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>解释：if 指定输入文件，of 指定输出文件，skip 指定从输入文件开头跳过20421个块后开始复制，bs设置每次读写块的大小为1字节</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/image-20241205020021102.png" alt="image-20241205020021102"></p>
+<p>执行后会得到一个1.zip文件。</p>
+<p>2.hex编辑器分类</p>
+<p>经过分析ipg文件里隐藏了一个zip压缩包</p>
+<p>搜索十六进制数值确定zip文件头</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/image-20241205113642931.png" alt="image-20241205113642931"></p>
+<p>作为选块起始位置</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/image-20241205113826881.png" alt="image-20241205113826881"></p>
+<p>最后作为选块结束位置</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/image-20241205113938357.png" alt="image-20241205113938357"></p>
+<p>复制选块至新文件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/image-20241205114028296.png" alt="image-20241205114028296"></p>
+<p>得到一个zip压缩包</p>
+<p>打开发现里面有一张ipg图片 需要输入密码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/image-20241205114206621.png" alt="image-20241205114206621"></p>
+<h3 id="zip伪加密"><a href="#zip伪加密" class="headerlink" title="zip伪加密"></a>zip伪加密</h3><p>伪加密的原理是：ZIP压缩包生成时没有加密，手工修 改“frFlags”或“deFlags”的值，使得同一个文件的这两个字段中 至少一个 为奇数，这样在解压时会弹出密码输入框，无论输入什么密码都会报 错。这种原压缩包没有加密，但通过人工修改造成解压时需要输入密 码的现象，就叫作伪加密。</p>
+<p>破解ZIP伪加密的方法十分简单。</p>
+<p>如果“frFlags”和“deFlags”的值不相 同，例如，“frFlags”的值是奇数，“deFlags”的值是偶数，那么可以 把“frFlags”的值改为“deFlags”的值，然后解压查看结果。</p>
+<p>使“frFlags”和“deFlags”都是同一个奇数，我们仍然怀疑该ZIP文件存 在伪加密，那么可以把这两个字段的值都 减1，改为相同的偶数，然后 进行解压查看其结果。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/image-20241205115502622.png" alt="image-20241205115502622"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/image-20241205115520321.png" alt="image-20241205115520321"></p>
+<p>如图把两个值都改为8 </p>
+<p>成功打开压缩包</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/image-20241205115606936.png" alt="image-20241205115606936"></p>
+<p>得到最终flag</p>
+<p>hgame{W0w!_y0U_Kn0w_z1p_3ncrYpt!}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/12/05/%E8%BF%99%E4%B8%AA%E5%8E%8B%E7%BC%A9%E5%8C%85%E6%9C%89%E7%82%B9%E9%BA%BB%E7%83%A6/" data-id="cm4atal1o0000vkv2ak9v1p4r" data-title="这个压缩包有点麻烦" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-ctf介绍" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/10/27/ctf%E4%BB%8B%E7%BB%8D/" class="article-date">
@@ -315,7 +409,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li></ul>
     </div>
   </div>
 
@@ -326,6 +420,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/12/05/%E8%BF%99%E4%B8%AA%E5%8E%8B%E7%BC%A9%E5%8C%85%E6%9C%89%E7%82%B9%E9%BA%BB%E7%83%A6/">这个压缩包有点麻烦</a>
+          </li>
         
           <li>
             <a href="/2024/10/27/ctf%E4%BB%8B%E7%BB%8D/">ctf介绍</a>
