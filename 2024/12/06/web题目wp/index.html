@@ -19,21 +19,42 @@
   <meta name="author" content="everythingis-ok">
   <meta name="keywords" content="">
   
-    <meta name="description" content="CTF入门  可选方向webreverse(二进制方向)pwn(二进制方向)   必选crypto(密码学)misc（杂项）   CTF竞赛 攻防模式 每队运维3-4个存在漏洞的网络服务 找到漏洞先修复 利用漏洞编写攻击其他队伍 web方向（网络攻防的重要入口） 重点关注：网站的安全 web应用的常见漏洞： SOL注入 文件上传漏洞 文件包含漏洞 反序列化漏洞    Web方向-前端 前台的显示，">
+    <meta name="description" content="web题目wp1.会赢吗 先查看网页源代码 在body部分找到flag第一部分和第二部分地址 ![屏幕截图 2024-11-28 193756](C:\Users\Lenovo\Pictures\Screenshots\屏幕截图 2024-11-28 193756.png) 进入第二部分  提示在控制台进行应用依旧查看网页源代码 可见传一个参数（课程名）调用函数revealFlag课程名 在控制台">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ctf介绍">
-<meta property="og:url" content="http://example.com/2024/10/27/ctf%E4%BB%8B%E7%BB%8D/index.html">
+<meta property="og:title" content="web题目wp">
+<meta property="og:url" content="http://example.com/2024/12/06/web%E9%A2%98%E7%9B%AEwp/index.html">
 <meta property="og:site_name" content="haomeng&#39;s blog^^">
-<meta property="og:description" content="CTF入门  可选方向webreverse(二进制方向)pwn(二进制方向)   必选crypto(密码学)misc（杂项）   CTF竞赛 攻防模式 每队运维3-4个存在漏洞的网络服务 找到漏洞先修复 利用漏洞编写攻击其他队伍 web方向（网络攻防的重要入口） 重点关注：网站的安全 web应用的常见漏洞： SOL注入 文件上传漏洞 文件包含漏洞 反序列化漏洞    Web方向-前端 前台的显示，">
+<meta property="og:description" content="web题目wp1.会赢吗 先查看网页源代码 在body部分找到flag第一部分和第二部分地址 ![屏幕截图 2024-11-28 193756](C:\Users\Lenovo\Pictures\Screenshots\屏幕截图 2024-11-28 193756.png) 进入第二部分  提示在控制台进行应用依旧查看网页源代码 可见传一个参数（课程名）调用函数revealFlag课程名 在控制台">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-10-27T14:05:13.000Z">
-<meta property="article:modified_time" content="2024-10-27T14:11:58.112Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20154344.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20154659.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20194122.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20204212.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20204321.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20225511.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20161927.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20225709.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20230037.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20230131.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE%25202024-11-28%2520230356.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20230356.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20231349.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE%25202024-11-28%2520231625.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20232121.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20232215.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE%25202024-11-28%2520232751.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20232836.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20232942.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20234701.png">
+<meta property="article:published_time" content="2024-12-06T15:21:20.000Z">
+<meta property="article:modified_time" content="2024-12-06T15:22:27.932Z">
 <meta property="article:author" content="everythingis-ok">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20154344.png">
   
   
   
-  <title>ctf介绍 - haomeng&#39;s blog^^</title>
+  <title>web题目wp - haomeng&#39;s blog^^</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +220,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="ctf介绍"></span>
+            <span id="subtitle" data-typed-text="web题目wp"></span>
           
         </div>
 
@@ -210,8 +231,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-10-27 22:05" pubdate>
-          2024年10月27日 晚上
+        <time datetime="2024-12-06 23:21" pubdate>
+          2024年12月6日 晚上
         </time>
       </span>
     
@@ -222,7 +243,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          311 字
+          454 字
         
       </span>
     
@@ -233,7 +254,7 @@
         
         
         
-          3 分钟
+          4 分钟
         
       </span>
     
@@ -270,67 +291,57 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">ctf介绍</h1>
+            <h1 id="seo-header">web题目wp</h1>
             
             
               <div class="markdown-body">
                 
-                <p>CTF入门</p>
-<blockquote>
-<p>可选方向<br>web<br>reverse(二进制方向)<br>pwn(二进制方向)</p>
-</blockquote>
-<blockquote>
-<p>必选<br>crypto(密码学)<br>misc（杂项）</p>
-</blockquote>
-<p> CTF竞赛 攻防模式<br> 每队运维3-4个存在漏洞的网络服务 找到漏洞先修复 利用漏洞编写攻击其他队伍</p>
-<h2 id="web方向（网络攻防的重要入口）"><a href="#web方向（网络攻防的重要入口）" class="headerlink" title="web方向（网络攻防的重要入口）"></a>web方向（网络攻防的重要入口）</h2><ul>
-<li>重点关注：网站的安全</li>
-<li>web应用的常见漏洞：<ul>
-<li>SOL注入</li>
-<li>文件上传漏洞</li>
-<li>文件包含漏洞</li>
-<li>反序列化漏洞</li>
-</ul>
-</li>
-</ul>
-<h2 id="Web方向-前端"><a href="#Web方向-前端" class="headerlink" title="Web方向-前端"></a>Web方向-前端</h2><ul>
-<li>前台的显示，外观以及前台的简单交互</li>
-<li>代码实现<ul>
-<li>JaveScript</li>
-<li>HTML</li>
-<li>CSS</li>
-</ul>
-</li>
-</ul>
-<h2 id="cypto方向-密文的安全"><a href="#cypto方向-密文的安全" class="headerlink" title="cypto方向(密文的安全)"></a>cypto方向(密文的安全)</h2><ul>
-<li>重点关注：密文的安全</li>
-<li>密码学常见类型<ul>
-<li>凯撒密码&#x2F;维吉尼亚密码</li>
-<li>DES&#x2F;AES&#x2F;RSA&#x2F;…</li>
-</ul>
-</li>
-</ul>
-<h2 id="Misc方向（现实中广泛应用的安全技术）"><a href="#Misc方向（现实中广泛应用的安全技术）" class="headerlink" title="Misc方向（现实中广泛应用的安全技术）"></a>Misc方向（现实中广泛应用的安全技术）</h2><ul>
-<li><h2 id="Misc题目常见类型：-压缩包破解-隐写-流量分析-…"><a href="#Misc题目常见类型：-压缩包破解-隐写-流量分析-…" class="headerlink" title="Misc题目常见类型：  - 压缩包破解&#x2F;隐写&#x2F;流量分析&#x2F;…"></a>Misc题目常见类型：<br>  - 压缩包破解&#x2F;隐写&#x2F;流量分析&#x2F;…</h2></li>
-</ul>
-<h2 id="Reverse方向（程序破解的基础）"><a href="#Reverse方向（程序破解的基础）" class="headerlink" title="Reverse方向（程序破解的基础）"></a>Reverse方向（程序破解的基础）</h2><ul>
-<li>重点关注：程序运行的逻辑</li>
-<li>逆向还原程序的编程逻辑<ul>
-<li>脱壳&#x2F;加壳</li>
-<li>加密算法程序</li>
-<li>IDA Pro</li>
-</ul>
-</li>
-</ul>
-<h2 id="Pwn方向（二进制漏洞利用的基础）"><a href="#Pwn方向（二进制漏洞利用的基础）" class="headerlink" title="Pwn方向（二进制漏洞利用的基础）"></a>Pwn方向（二进制漏洞利用的基础）</h2><ul>
-<li>重点关注：二进制漏洞的利用</li>
-<li>利用程序的漏洞实现攻击<ul>
-<li>栈溢出</li>
-<li>格式化字符串溢出</li>
-<li>堆溢出</li>
-</ul>
-</li>
-</ul>
+                <h2 id="web题目wp"><a href="#web题目wp" class="headerlink" title="web题目wp"></a>web题目wp</h2><h2 id="1-会赢吗"><a href="#1-会赢吗" class="headerlink" title="1.会赢吗"></a>1.会赢吗</h2><p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20154344.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2024-11-28 154344"></p>
+<p>先查看网页源代码</p>
+<p>在body部分找到flag第一部分和第二部分地址</p>
+<p>![屏幕截图 2024-11-28 193756](C:\Users\Lenovo\Pictures\Screenshots\屏幕截图 2024-11-28 193756.png)</p>
+<p>进入第二部分</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20154659.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2024-11-28 154659"></p>
+<p>提示在控制台进行应用<br>依旧查看网页源代码<img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20194122.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2024-11-28 194122"></p>
+<p>可见传一个参数（课程名）调用函数revealFlag<br>课程名</p>
+<p>在控制台输入命令</p>
+<p>![屏幕截图 2024-11-28 203252](C:\Users\Lenovo\Pictures\Screenshots\屏幕截图 2024-11-28 203252.png)<br>revealFlag（’4cqu1siti0n‘)<br>得到第二部分flag 和进入第三部分的网址</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20204212.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2024-11-28 204212"></p>
+<p>进入第三部分</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20204321.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2024-11-28 204321"></p>
+<p>依旧是查看网页源代码 复制主体部分给ai</p>
+<p>可见我们要把状态改为解封然后点击解封按钮</p>
+<p>把前端代<img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20225511.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2024-11-28 225511"></p>
+<p>码修改一下保存</p>
+<p>得到第三部分flag和第四部分地址</p>
+<p>进入第四部分</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20161927.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2024-11-28 161927"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20225709.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2024-11-28 225709"></p>
+<p>查看网页源代码发现 noscript代码部分执行后会显示出flag<br>搜索后得知可以在网页中禁用JavaScript<br>更改后刷新</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20230037.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2024-11-28 230037"></p>
+<p>得到最后一部分flag</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20230131.png" srcset="/img/loading.gif" lazyload></p>
+<p>将每一部分获得的flag拼接在一起 推测是base64编码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE%25202024-11-28%2520230356.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2024-11-28 230356"></p>
+<p>解码后得到flag</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20230356.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2024-11-28 230356"></p>
+<h1 id="2-headache3"><a href="#2-headache3" class="headerlink" title="2.headache3"></a>2.headache3</h1><p>打开后依旧先看一下源代码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20231349.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2024-11-28 231349"></p>
+<p>十分简单没什么内容 但是head大写可能是查看什么文件头</p>
+<p>在刷新一下 network部分得到了一个响应包<br>文件头部分有flag</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE%25202024-11-28%2520231625.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2024-11-28 231625"></p>
+<h1 id="3-get"><a href="#3-get" class="headerlink" title="3.get"></a>3.get</h1><p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20232121.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2024-11-28 232121"></p>
+<p>获得题目后发现是让get传参<br>直接在地址栏里按照要求输入</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20232215.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2024-11-28 232215"></p>
+<h1 id="4-POST"><a href="#4-POST" class="headerlink" title="4.POST"></a>4.POST</h1><p>启用场景后发现是要post传参</p>
+<p>burp抓包一下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE%25202024-11-28%2520232751.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2024-11-28 232751"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20232836.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2024-11-28 232836"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20232942.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2024-11-28 232942"></p>
+<p>右键修改请求方式<br>传参（post传参要先空一行再传参）</p>
+<p>![屏幕截图 2024-11-28 233217](C:\Users\Lenovo\Pictures\Screenshots\屏幕截图 2024-11-28 233217.png)</p>
+<p>但是这样传参只能得到字符串‘flag’ 查看评论后发现输入what&#x3D;flag&amp;&#x3D;<br>可以得到flag</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-11-28%20234701.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2024-11-28 234701"></p>
 
                 
               </div>
@@ -348,8 +359,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>ctf介绍</div>
-      <div>http://example.com/2024/10/27/ctf介绍/</div>
+      <div>web题目wp</div>
+      <div>http://example.com/2024/12/06/web题目wp/</div>
     </div>
     <div class="license-meta">
       
@@ -361,7 +372,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年10月27日</div>
+          <div>2024年12月6日</div>
         </div>
       
       
@@ -393,18 +404,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/12/05/%E8%BF%99%E4%B8%AA%E5%8E%8B%E7%BC%A9%E5%8C%85%E6%9C%89%E7%82%B9%E9%BA%BB%E7%83%A6/" title="这个压缩包有点麻烦">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">这个压缩包有点麻烦</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/10/27/week2/" title="week2">
-                        <span class="hidden-mobile">week2</span>
+                      <a href="/2024/12/05/%E8%BF%99%E4%B8%AA%E5%8E%8B%E7%BC%A9%E5%8C%85%E6%9C%89%E7%82%B9%E9%BA%BB%E7%83%A6/" title="这个压缩包有点麻烦">
+                        <span class="hidden-mobile">这个压缩包有点麻烦</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
