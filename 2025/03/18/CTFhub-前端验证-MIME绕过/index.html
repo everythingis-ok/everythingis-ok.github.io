@@ -19,15 +19,24 @@
   <meta name="author" content="everythingis-ok">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
+    <meta name="description" content="CTFhub 前端验证 MIME绕过前端验证前端验证是在用户提交数据之前，在浏览器端检查输入数据是否符合要求 题目有限制只能上传特定后缀，所以我们在直接修改一句话木马的后缀为png，上传后bp抓包再改为php。这样就饶过了前端验证但是php依旧能在服务器端执行。  上传成功，获得文件上传路径 然后就是连接蚁剑  MIME绕过什么是 MIME 类型？ MIME是一种 标识文件类型的方式 当上传文件时">
+<meta property="og:type" content="article">
 <meta property="og:title" content="CTFhub 前端验证 MIME绕过">
 <meta property="og:url" content="http://example.com/2025/03/18/CTFhub-%E5%89%8D%E7%AB%AF%E9%AA%8C%E8%AF%81-MIME%E7%BB%95%E8%BF%87/index.html">
 <meta property="og:site_name" content="haomeng&#39;s blog^^">
+<meta property="og:description" content="CTFhub 前端验证 MIME绕过前端验证前端验证是在用户提交数据之前，在浏览器端检查输入数据是否符合要求 题目有限制只能上传特定后缀，所以我们在直接修改一句话木马的后缀为png，上传后bp抓包再改为php。这样就饶过了前端验证但是php依旧能在服务器端执行。  上传成功，获得文件上传路径 然后就是连接蚁剑  MIME绕过什么是 MIME 类型？ MIME是一种 标识文件类型的方式 当上传文件时">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-03-18T13:20:18.000Z">
-<meta property="article:modified_time" content="2025-03-18T13:20:18.496Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-41-57.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-39-17.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-39-45.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-45-52.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-47-18.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-47-35.png">
+<meta property="article:published_time" content="2025-03-18T12:00:49.000Z">
+<meta property="article:modified_time" content="2025-03-18T13:23:38.739Z">
 <meta property="article:author" content="everythingis-ok">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-41-57.png">
   
   
   
@@ -208,7 +217,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-03-18 21:20" pubdate>
+        <time datetime="2025-03-18 20:00" pubdate>
           2025年3月18日 晚上
         </time>
       </span>
@@ -220,7 +229,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          332 字
         
       </span>
     
@@ -231,7 +240,7 @@
         
         
         
-          1 分钟
+          3 分钟
         
       </span>
     
@@ -273,7 +282,43 @@
             
               <div class="markdown-body">
                 
-                
+                <h1 id="CTFhub-前端验证-MIME绕过"><a href="#CTFhub-前端验证-MIME绕过" class="headerlink" title="CTFhub 前端验证 MIME绕过"></a>CTFhub 前端验证 MIME绕过</h1><h2 id="前端验证"><a href="#前端验证" class="headerlink" title="前端验证"></a>前端验证</h2><p>前端验证是在用户提交数据之前，在<strong>浏览器端</strong>检查输入数据是否符合要求</p>
+<p>题目有限制只能上传特定后缀，所以我们在直接修改一句话木马的后缀为png，上传后bp抓包再改为php。这样就饶过了前端验证但是php依旧能在服务器端执行。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-41-57.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-03-17_16-41-57"></p>
+<p>上传成功，获得文件上传路径</p>
+<p>然后就是连接蚁剑<img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-39-17.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-03-17_16-39-17"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-39-45.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-03-17_16-39-45"></p>
+<h2 id="MIME绕过"><a href="#MIME绕过" class="headerlink" title="MIME绕过"></a>MIME绕过</h2><p>什么是 MIME 类型？</p>
+<p>MIME是一种 标识文件类型的方式</p>
+<p>当上传文件时，浏览器会向服务器发送 文件的 MIME 类型，例如：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php">Content-Type: image/png<br></code></pre></td></tr></table></figure>
+
+<p>这样，服务器就能知道 上传的是 PNG 图片。</p>
+<p>MIME 绕过的核心原理</p>
+<p><strong>正常的文件上传逻辑</strong></p>
+<ol>
+<li><p><strong>前端检查 MIME 类型</strong></p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ada">javascript复制编辑<span class="hljs-keyword">if</span>(file.<span class="hljs-keyword">type</span> <span class="hljs-type">!== </span><span class="hljs-string">&quot;image/png&quot;</span>) &#123;<br>    alert(<span class="hljs-string">&quot;只允许上传 PNG 图片！&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>绕过方式</strong>：修改 <code>file.type</code>，或直接禁用 JS 校验。</p>
+</li>
+<li><p><strong>后端检查 MIME 类型</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">if</span>(<span class="hljs-variable">$_FILES</span>[<span class="hljs-string">&#x27;file&#x27;</span>][<span class="hljs-string">&#x27;type&#x27;</span>] !== <span class="hljs-string">&quot;image/png&quot;</span>) &#123;<br>    <span class="hljs-keyword">die</span>(<span class="hljs-string">&quot;上传的文件类型不正确！&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>绕过方式</strong>：</p>
+<ul>
+<li><strong>修改请求头的 <code>Content-Type</code></strong></li>
+<li><strong>伪造文件扩展名</strong></li>
+<li><strong>利用 PHP 解析漏洞</strong></li>
+<li><strong>双扩展名绕过</strong></li>
+</ul>
+</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-45-52.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-03-17_16-45-52"></p>
+<p>这里我们直接更改Content-Type。然后连接蚁剑。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-47-18.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-03-17_16-47-18"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-47-35.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-03-17_16-47-35"></p>
+
                 
               </div>
             
@@ -335,12 +380,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2025/03/18/CTFhub%E6%96%87%E4%BB%B6%E5%A4%B4%E6%A3%80%E6%9F%A5-00%E6%88%AA%E6%96%AD/" title="CTFhub文件头检查 00截断">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">CTFhub文件头检查 00截断</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/03/18/CTFhub%E6%96%87%E4%BB%B6%E5%A4%B4%E6%A3%80%E6%9F%A5-00%E6%88%AA%E6%96%AD/" title="CTFhub文件头检查 00截断">
-                        <span class="hidden-mobile">CTFhub文件头检查 00截断</span>
+                      <a href="/2025/03/18/CTFhub-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%97%A0%E9%99%90%E5%88%B6/" title="CTFhub 文件上传无限制">
+                        <span class="hidden-mobile">CTFhub 文件上传无限制</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
