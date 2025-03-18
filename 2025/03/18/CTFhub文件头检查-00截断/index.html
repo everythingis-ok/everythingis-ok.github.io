@@ -19,26 +19,32 @@
   <meta name="author" content="everythingis-ok">
   <meta name="keywords" content="">
   
-    <meta name="description" content="CTFhub 文件上传无限制 直接上传一句话木马php文件实现任意文件读取                 蚁剑连接 查看目录  找到flag">
+    <meta name="description" content="CTFhub文件头检查 00截断文件头检查绕过原理及方法所有的文件都是以二进制的形式进行存储的，本质上没有差别。在每一个文件的开头实际上都有一片区域来显示这个文件的实际用法，这就是文件头标志。 常见的文件头：注意：下面的文件头的格式是16进制的格式： GIF：47 49 46 38 39 61png：89 50 4E 47 0D 0A 1A 0AJPG：FF D8 FF E0 00 10 4A 4">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CTFhub 文件上传无限制">
-<meta property="og:url" content="http://example.com/2025/03/18/CTFhub-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%97%A0%E9%99%90%E5%88%B6/index.html">
+<meta property="og:title" content="CTFhub文件头检查 00截断">
+<meta property="og:url" content="http://example.com/2025/03/18/CTFhub%E6%96%87%E4%BB%B6%E5%A4%B4%E6%A3%80%E6%9F%A5-00%E6%88%AA%E6%96%AD/index.html">
 <meta property="og:site_name" content="haomeng&#39;s blog^^">
-<meta property="og:description" content="CTFhub 文件上传无限制 直接上传一句话木马php文件实现任意文件读取                 蚁剑连接 查看目录  找到flag">
+<meta property="og:description" content="CTFhub文件头检查 00截断文件头检查绕过原理及方法所有的文件都是以二进制的形式进行存储的，本质上没有差别。在每一个文件的开头实际上都有一片区域来显示这个文件的实际用法，这就是文件头标志。 常见的文件头：注意：下面的文件头的格式是16进制的格式： GIF：47 49 46 38 39 61png：89 50 4E 47 0D 0A 1A 0AJPG：FF D8 FF E0 00 10 4A 4">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-29-19.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-18_19-05-21.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-31-21.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-32-26.png">
-<meta property="article:published_time" content="2025-03-18T11:21:22.000Z">
-<meta property="article:modified_time" content="2025-03-18T11:21:47.720Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_17-08-44.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_17-11-42.png">
+<meta property="og:image" content="e:\temp\PixPin_2025-03-17_17-12-58.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_17-13-44.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_17-14-08.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-18_20-58-01.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_18-25-21.png">
+<meta property="og:image" content="e:\temp\PixPin_2025-03-18_21-07-52.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_18-34-02.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_18-34-23.png">
+<meta property="article:published_time" content="2025-03-18T13:15:47.000Z">
+<meta property="article:modified_time" content="2025-03-18T13:16:20.519Z">
 <meta property="article:author" content="everythingis-ok">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-29-19.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_17-08-44.png">
   
   
   
-  <title>CTFhub 文件上传无限制 - haomeng&#39;s blog^^</title>
+  <title>CTFhub文件头检查 00截断 - haomeng&#39;s blog^^</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -204,7 +210,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="CTFhub 文件上传无限制"></span>
+            <span id="subtitle" data-typed-text="CTFhub文件头检查 00截断"></span>
           
         </div>
 
@@ -215,7 +221,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-03-18 19:21" pubdate>
+        <time datetime="2025-03-18 21:15" pubdate>
           2025年3月18日 晚上
         </time>
       </span>
@@ -227,7 +233,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          37 字
+          732 字
         
       </span>
     
@@ -238,7 +244,7 @@
         
         
         
-          1 分钟
+          7 分钟
         
       </span>
     
@@ -275,32 +281,50 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">CTFhub 文件上传无限制</h1>
+            <h1 id="seo-header">CTFhub文件头检查 00截断</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="CTFhub-文件上传无限制"><a href="#CTFhub-文件上传无限制" class="headerlink" title="CTFhub 文件上传无限制"></a>CTFhub 文件上传无限制</h1><p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-29-19.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-03-17_16-29-19"></p>
-<p>直接上传一句话木马php文件实现任意文件读取</p>
-<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-18_19-05-21.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-03-18_19-05-21"></p>
-<!--我的理解是上传一句话木马后，网站的php源码会新增一个参数，然后我们可以利用这个参数传恶意参数实现任意文件读取-->
+                <h1 id="CTFhub文件头检查-00截断"><a href="#CTFhub文件头检查-00截断" class="headerlink" title="CTFhub文件头检查 00截断"></a>CTFhub文件头检查 00截断</h1><h2 id="文件头检查绕过原理及方法"><a href="#文件头检查绕过原理及方法" class="headerlink" title="文件头检查绕过原理及方法"></a>文件头检查绕过原理及方法</h2><p>所有的文件都是以二进制的形式进行存储的，本质上没有差别。在每一个文件的开头实际上都有一片区域来显示这个文件的实际用法，这就是文件头标志。</p>
+<p>常见的文件头：<br>注意：下面的文件头的格式是16进制的格式：</p>
+<p>GIF：47 49 46 38 39 61<br>png：89 50 4E 47 0D 0A 1A 0A<br>JPG：FF D8 FF E0 00 10 4A 46 49 46</p>
+<p>文件头检查绕过方法：</p>
+<p>第一种： <strong>把上面的文件头添加到我们的一句话木马内容最前面，达到绕过文件头检测的目的。</strong></p>
+<p>方法在：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45588247/article/details/119592213">【文件上传绕过】——后端检测_文件头检测漏洞_【中核检测】【文件】-CSDN博客</a></p>
+<p>第二种：随便找一张图片，用记事本打开然后在后面拼接一句话木马。</p>
+<p>但是这张图片要尽量小一点，不知道为什么同样的操作，比较大的图片一直成功不了。</p>
+<h2 id="文件头检查wp"><a href="#文件头检查wp" class="headerlink" title="文件头检查wp"></a>文件头检查wp</h2><p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_17-08-44.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-03-17_17-08-44"></p>
+<p>拼接</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_17-11-42.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-03-17_17-11-42"></p>
+<p>用010查看可以发现拼接成功了</p>
+<p><img src="E:\temp\PixPin_2025-03-17_17-12-58.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-03-17_17-12-58"></p>
+<p>然后更改后缀，之后的步骤都一样</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_17-13-44.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-03-17_17-13-44"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_17-14-08.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-03-17_17-14-08"></p>
+<h2 id="00截断原理"><a href="#00截断原理" class="headerlink" title="00截断原理"></a>00截断原理</h2><p>在PHP 5.2版本中，存在一个严重的漏洞，即<strong>00截断漏洞</strong>。该漏洞允许恶意用户通过URL参数输入*%00*，导致后续字符被自动忽略，从而绕过文件类型的限制。</p>
+<p>漏洞示例</p>
+<p>例如，假设我们有一个文件上传功能，要求上传的文件必须是*.jpg<em>格式。攻击者可以上传一个名为</em>shell.php%00.jpg<em>的文件。由于</em>%00<em>在URL编码中表示ASCII码中的空字符（NULL字符），PHP在处理文件名时会将其视为字符串的结束符，从而忽略后面的</em>.jpg*</p>
+<p>&#x2F;&#x2F; 上传的文件名为 shell.php%00.jpg</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-variable">$filename</span> = <span class="hljs-string">&quot;shell.php%00.jpg&quot;</span>;<br><br><span class="hljs-regexp">//</span> <span class="hljs-variable constant_">PHP</span> <span class="hljs-number">5.2</span> 解析时会将其视为 shell.php<br><br><span class="hljs-keyword">include</span> <span class="hljs-variable">$filename</span>; <span class="hljs-regexp">//</span> 实际包含的是 shell.php<br></code></pre></td></tr></table></figure>
 
-<!--为什么传<?php @eval($_POST['1']);?>可以被网站解析执行并添加这么一个参数：-->
-
-<!--PHP 代码在 **服务器端** 运行，而不是在客户端（浏览器）执行。-->
- <!--当访问一个 PHP 文件时，服务器会：-->
-
-<ul>
-<li><!--读取 PHP 文件的内容--></li>
-<li><!--交给 PHP 解析器解析--></li>
-<li><!--运行代码，返回结果给用户--></li>
-</ul>
-<!--所以，一旦你上传了 `<?php @eval($_POST['1']); ?>`，它就会被 **服务器执行**，并不会当作普通文本对待。-->
-
-<p>蚁剑连接 查看目录</p>
-<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-31-21.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-03-17_16-31-21"></p>
+<p>在上述代码中，PHP会将*$filename<em>解析为</em>shell.php*，从而执行PHP代码，而不是将其视为一个图片文件</p>
+<h2 id="00截断wp"><a href="#00截断wp" class="headerlink" title="00截断wp"></a>00截断wp</h2><p>上传图片码成功</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-18_20-58-01.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-03-18_20-58-01"></p>
+<p>文件上传成功后只执行了 JavaScript 弹窗 (<code>alert()</code>)，但并没有 <code>echo</code> 文件的完整路径，因此浏览器端不会直接看到文件的存储路径</p>
+<p>我们直接在蚁剑连接后面添加&#x2F;upload&#x2F;3.php（理想中的文件上传路径）连接失败</p>
+<p>查看源代码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_18-25-21.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-03-17_18-25-21"></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Mitchell_Donovan/article/details/115918878">【CTFHub】文件上传漏洞_00截断_ctfhub00截断-CSDN博客</a></p>
+<p><strong>rand()函数显然是生成了随机数，对文件上传的路径进行了拼接</strong></p>
+<p><strong>所以我们在成功上传后还是找不到文件路径已经不是3.php(3.php%00.png)，依旧无法连接</strong></p>
+<p>思路就是用00截断字符把随机数给截断掉，</p>
+<p><img src="E:\temp\PixPin_2025-03-18_21-07-52.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-03-18_21-07-52"></p>
+<p>用用蚁剑连接这个webshell</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_18-34-02.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-03-17_18-34-02"></p>
+<p>（用的第一次做的截图所以显示是2.php）</p>
 <p>找到flag</p>
-<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-32-26.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-03-17_16-32-26"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_18-34-23.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-03-17_18-34-23"></p>
 
                 
               </div>
@@ -318,8 +342,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>CTFhub 文件上传无限制</div>
-      <div>http://example.com/2025/03/18/CTFhub-文件上传无限制/</div>
+      <div>CTFhub文件头检查 00截断</div>
+      <div>http://example.com/2025/03/18/CTFhub文件头检查-00截断/</div>
     </div>
     <div class="license-meta">
       
@@ -363,18 +387,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/03/18/CTFhub-%E5%89%8D%E7%AB%AF%E9%AA%8C%E8%AF%81-MIME%E7%BB%95%E8%BF%87/" title="CTFhub 前端验证 MIME绕过">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">CTFhub 前端验证 MIME绕过</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/03/16/%E4%B8%80%E4%BA%9BSQL%E6%B3%A8%E5%85%A5%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0RCE/" title="一些SQL注入文件上传RCE">
-                        <span class="hidden-mobile">一些SQL注入文件上传RCE</span>
+                      <a href="/2025/03/18/CTFhub-%E5%89%8D%E7%AB%AF%E9%AA%8C%E8%AF%81-MIME%E7%BB%95%E8%BF%87/" title="CTFhub 前端验证 MIME绕过">
+                        <span class="hidden-mobile">CTFhub 前端验证 MIME绕过</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
