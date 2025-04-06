@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>信息泄露</title>
+    <link href="/2025/04/06/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/"/>
+    <url>/2025/04/06/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/</url>
+    
+    <content type="html"><![CDATA[<h2 id="git"><a href="#git" class="headerlink" title=".git"></a>.git</h2><p><code>.git</code>是 Git 版本控制系统使用的隐藏文件夹，它包含了项目的完整版本历史记录、提交记录、分支信息等</p><p>一定要在GitHack目录下</p><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">python2 GitHack.<span class="hljs-keyword">py</span> http://challenge-efb678740fb6553d.<span class="hljs-keyword">sandbox</span>.ctfhub.<span class="hljs-keyword">com</span>:<span class="hljs-number">10800</span>/.git<br></code></pre></td></tr></table></figure><h2 id="备份文件泄露"><a href="#备份文件泄露" class="headerlink" title="备份文件泄露"></a>备份文件泄露</h2><h3 id="index-php-swp"><a href="#index-php-swp" class="headerlink" title="index.php.swp"></a>index.php.swp</h3><p><code>.swp</code> 文件是 Vim 编辑器在编辑文件时生成的****临时文件****，用于保存编辑过程中的中间状态。</p><p>如果编辑过程中 Vim 意外退出（如由于网络中断、服务器重启等原因），<code>.swp</code> 文件可能会保留下来。</p><p>如果这个文件被部署到生产环境中，并且包含了敏感信息（如数据库密码、API 密钥等），就可能导致信息泄露。</p><h3 id="index-php"><a href="#index-php" class="headerlink" title="index.php~"></a><strong><code>index.php~</code></strong></h3><p><code>index.php~</code> 文件通常是某些文本编辑器（如 nano 或某些版本的 vi&#x2F;vim）在编辑文件时生成的临时备份文件。这些文件通常用于在编辑器意外退出或崩溃时恢复未保存的更改。然而，如果这些临时文件被意外地保留在公开可访问的服务器上，就可能导致信息泄露，尤其是当它们包含敏感信息时。</p><h3 id="index-php-bak"><a href="#index-php-bak" class="headerlink" title="index.php.bak"></a><code>index.php.bak</code></h3><p><code>.bak</code> 文件通常是文件的****备份版本****，可能是在编辑或更新文件时由编辑器或开发人员自动生成的。</p><p>如果这些备份文件包含了敏感信息，并且被部署到生产环境中，同样可能导致信息泄露。</p><h3 id="robots-txt"><a href="#robots-txt" class="headerlink" title="robots.txt"></a><strong>robots.txt</strong></h3><p><code>robots.txt</code> 是一个放置在网站根目录下的文本文件，用于告诉搜索引擎爬虫（也称为机器人或蜘蛛）哪些页面可以抓取，哪些页面不能抓取。这是网站管理员控制搜索引擎抓取行为的一种标准方式。</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>CTFhub前端验证 MIME绕过</title>
     <link href="/2025/03/18/CTFhub%E5%89%8D%E7%AB%AF%E9%AA%8C%E8%AF%81-MIME%E7%BB%95%E8%BF%87/"/>
     <url>/2025/03/18/CTFhub%E5%89%8D%E7%AB%AF%E9%AA%8C%E8%AF%81-MIME%E7%BB%95%E8%BF%87/</url>
