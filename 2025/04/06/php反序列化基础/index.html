@@ -26,14 +26,18 @@
 <meta property="og:site_name" content="haomeng&#39;s blog^^">
 <meta property="og:description" content="php反序列化基础什么是序列化，反序列化反序列化（Deserialization） 是指将序列化后的数据（通常是字符串或二进制格式）恢复为原始数据结构（如数组、对象）。在 PHP 中，unserialize() 就是用来执行反序列化的，它可以把 serialize() 处理过的字符串还原成原始的 PHP 变量或对象。 示例： 12345678910&lt;?php&#x2F;&#x2F; 序列化对象$data &#x3D; [">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-07_16-35-07.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-07_16-35-17.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-07_16-35-25.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-02_16-35-11.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-02_16-36-03.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-02_17-14-43.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-07_16-40-09.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-07_16-40-18.png">
 <meta property="article:published_time" content="2025-04-06T15:00:55.000Z">
-<meta property="article:modified_time" content="2025-04-06T15:01:36.699Z">
+<meta property="article:modified_time" content="2025-04-07T10:41:58.423Z">
 <meta property="article:author" content="everythingis-ok">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-02_16-35-11.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-07_16-35-07.png">
   
   
   
@@ -226,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.9k 字
+          2k 字
         
       </span>
     
@@ -237,7 +241,7 @@
         
         
         
-          16 分钟
+          17 分钟
         
       </span>
     
@@ -377,8 +381,14 @@
 <li><code>s:12:&quot;Userpassword&quot;;s:9:&quot;secret123&quot;;</code> → <code>private $password</code> 的值是 <code>&quot;secret123&quot;</code>。</li>
 </ul>
 <p>🔹 <strong>但 <code>sayHello()</code> 方法并没有出现在序列化结果中</strong>，说明方法不会被序列化。</p>
-<p><strong>在反序列化的时候要保证有该类存在，因为没有序列化方法，所以我们反序列化回来还要依靠该类的方法进行。</strong></p>
 <p>2. </p>
+<p><strong>在反序列化的时候要保证有该类存在，因为没有序列化方法，所以我们反序列化回来还要依靠该类的方法进行。</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-07_16-35-07.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-04-07_16-35-07"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-07_16-35-17.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-04-07_16-35-17"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-07_16-35-25.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-04-07_16-35-25"></p>
+<p><strong>为什么要序列化对象成字符串呢？在开发中又起到什么作用？</strong></p>
+<p>因为PHP文件执行后会把内存的数据进行销毁，如果下一个文件想用到刚刚销毁对象的<strong>属性</strong>和<strong>值</strong>就还要重新实例化new一次对象，所以才会将对象进行序列化然后存储，也避免重新实例化带来的耗费。</p>
+<p>3. </p>
 <p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-02_16-35-11.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-04-02_16-35-11"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-02_16-36-03.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-04-02_16-36-03"></p>
 <h2 id="什么是魔术方法"><a href="#什么是魔术方法" class="headerlink" title="什么是魔术方法"></a>什么是魔术方法</h2><p>魔术方法是一种特殊的方法，会在对象执行某些操作时覆盖PHP的默认操作</p>
@@ -433,10 +443,10 @@
 
 
 
-
-
-<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-02_17-14-43.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-04-02_17-14-43"></p>
-<h2 id="反序列化漏洞的成因："><a href="#反序列化漏洞的成因：" class="headerlink" title="反序列化漏洞的成因："></a>反序列化漏洞的成因：</h2><p>在 PHP 反序列化的过程中，如果 <code>unserialize()</code> 处理的是<strong>用户可控的输入</strong>，那么攻击者就可以伪造对象的序列化字符串，<strong>修改</strong>原有类的<strong>属性值</strong>，甚至<strong>触发</strong>类中的<strong>魔术方法</strong>，从而执行任意代码。</p>
+<p>魔术方法总结</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-07_16-40-09.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-07_16-40-18.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-04-07_16-40-18"></p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="反序列化漏洞的成因："><a href="#反序列化漏洞的成因：" class="headerlink" title="反序列化漏洞的成因："></a>反序列化漏洞的成因：</h2><p>在 PHP 反序列化的过程中，如果 <code>unserialize()</code> 处理的是<strong>用户可控的输入</strong>，那么攻击者就可以伪造对象的序列化字符串，<strong>修改</strong>原有类的<strong>属性值</strong>，甚至<strong>触发</strong>类中的<strong>魔术方法</strong>，从而执行任意代码。</p>
 <p><strong>反序列化漏洞是由于unserialize函数接收到了恶意的序列化数据篡改成员属性后导致的。</strong></p>
 <h2 id="NewStarCTF-公开赛赛道-UnserializeOne"><a href="#NewStarCTF-公开赛赛道-UnserializeOne" class="headerlink" title="[NewStarCTF 公开赛赛道]UnserializeOne"></a>[NewStarCTF 公开赛赛道]UnserializeOne</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Start</span></span>&#123;<br>  <span class="hljs-keyword">public</span> <span class="hljs-variable">$name</span>;<br>  <span class="hljs-keyword">protected</span> <span class="hljs-variable">$func</span>;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__destruct</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">  </span>&#123;<br>    <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;Welcome to NewStarCTF, &quot;</span>.<span class="hljs-variable language_">$this</span>-&gt;name;<br>  &#125;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__isset</span>(<span class="hljs-params"><span class="hljs-variable">$var</span></span>)</span><br><span class="hljs-function">  </span>&#123;<br>    (<span class="hljs-variable language_">$this</span>-&gt;func)();<br>  &#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sec</span></span>&#123;<br>  <span class="hljs-keyword">private</span> <span class="hljs-variable">$obj</span>;<br>  <span class="hljs-keyword">private</span> <span class="hljs-variable">$var</span>;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__toString</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">  </span>&#123;<br>    <span class="hljs-variable language_">$this</span>-&gt;obj-&gt;<span class="hljs-title function_ invoke__">check</span>(<span class="hljs-variable">$this</span>-&gt;<span class="hljs-keyword">var</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;CTFers&quot;</span>;<br>  &#125;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__invoke</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">  </span>&#123;<br>    <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">file_get_contents</span>(<span class="hljs-string">&#x27;/flag&#x27;</span>);<br>  &#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Easy</span></span>&#123;<br>  <span class="hljs-keyword">public</span> <span class="hljs-variable">$cla</span>;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__call</span>(<span class="hljs-params"><span class="hljs-variable">$fun</span>, <span class="hljs-variable">$var</span></span>)</span><br><span class="hljs-function">  </span>&#123;<br>    <span class="hljs-variable language_">$this</span>-&gt;cla = <span class="hljs-keyword">clone</span> <span class="hljs-variable">$var</span>[<span class="hljs-number">0</span>];<br>  &#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">eeee</span></span>&#123;<br>  <span class="hljs-keyword">public</span> <span class="hljs-variable">$obj</span>;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__clone</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">  </span>&#123;<br>    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">isset</span>(<span class="hljs-variable language_">$this</span>-&gt;obj-&gt;cmd))&#123;<br>      <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;success&quot;</span>;<br>    &#125;<br>  &#125;<br>&#125;<br><br><br><span class="hljs-keyword">if</span>(<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;pop&#x27;</span>]))&#123;<br>  <span class="hljs-title function_ invoke__">unserialize</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;pop&#x27;</span>]);<br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -484,6 +494,8 @@
 
 <p>入手点： ($this-&gt;func)($this-&gt;var); 可以执行任意命令</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-title class_">WhiteGod</span><span class="hljs-symbol">:</span><span class="hljs-symbol">:_unset-&gt;CTF</span><span class="hljs-symbol">:</span><span class="hljs-symbol">:end-&gt;Handle</span><span class="hljs-symbol">:</span><span class="hljs-symbol">:_call-&gt;Super</span><span class="hljs-symbol">:</span><span class="hljs-symbol">:_invoke-&gt;Then</span><span class="hljs-symbol">:</span><span class="hljs-symbol">:toString-&gt;Begin</span><span class="hljs-symbol">:</span><span class="hljs-symbol">:__destruct</span><br></code></pre></td></tr></table></figure>
+
+
 
 
 
