@@ -13,9 +13,9 @@
     
     <categories>
       
-      <category>Misc</category>
-      
       <category>实操</category>
+      
+      <category>Misc</category>
       
     </categories>
     
@@ -44,9 +44,9 @@
       
       <category>web</category>
       
-      <category>实操</category>
-      
       <category>基础知识</category>
+      
+      <category>实操</category>
       
     </categories>
     
@@ -73,9 +73,9 @@
     
     <categories>
       
-      <category>基础知识</category>
-      
       <category>web</category>
+      
+      <category>基础知识</category>
       
     </categories>
     
@@ -129,9 +129,9 @@
     
     <categories>
       
-      <category>基础知识</category>
-      
       <category>web</category>
+      
+      <category>基础知识</category>
       
     </categories>
     
@@ -216,18 +216,18 @@
     
     <categories>
       
-      <category>文件上传</category>
+      <category>web</category>
       
       <category>基础知识</category>
       
       <category>实操</category>
       
-      <category>web</category>
-      
     </categories>
     
     
     <tags>
+      
+      <tag>文件上传</tag>
       
       <tag>00截断</tag>
       
@@ -332,9 +332,9 @@
     
     <categories>
       
-      <category>Misc</category>
-      
       <category>实操</category>
+      
+      <category>Misc</category>
       
     </categories>
     
@@ -365,9 +365,9 @@
     
     <categories>
       
-      <category>Misc</category>
-      
       <category>基础知识</category>
+      
+      <category>Misc</category>
       
     </categories>
     
