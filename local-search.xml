@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Hexo fluid主题-添加分类及标签</title>
+    <link href="/2025/04/24/Hexo-fluid%E4%B8%BB%E9%A2%98-%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB%E5%8F%8A%E6%A0%87%E7%AD%BE/"/>
+    <url>/2025/04/24/Hexo-fluid%E4%B8%BB%E9%A2%98-%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB%E5%8F%8A%E6%A0%87%E7%AD%BE/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Hexo-fluid主题-添加分类及标签"><a href="#Hexo-fluid主题-添加分类及标签" class="headerlink" title="Hexo fluid主题-添加分类及标签"></a>Hexo fluid主题-添加分类及标签</h1><h2 id="1-新建categories，tages页面"><a href="#1-新建categories，tages页面" class="headerlink" title="1.新建categories，tages页面"></a>1.新建categories，tages页面</h2><p><code>hexo new page categories</code><br>该命令在source目录下生成一个categories目录，categories目录下有一个index.md文件。</p><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs actionscript">hexo <span class="hljs-keyword">new</span> page <span class="hljs-string">&quot;tags&quot;</span><br></code></pre></td></tr></table></figure><p>该命令在source目录下生成一个tages目录，目录下有一个index.md文件。</p><p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-24_21-26-48.png" alt="PixPin_2025-04-24_21-26-48"></p><h2 id="2-在文章中添加标签"><a href="#2-在文章中添加标签" class="headerlink" title="2. 在文章中添加标签"></a>2. 在文章中添加标签</h2><p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-24_21-27-48.png" alt="PixPin_2025-04-24_21-27-48"></p><p>需要注意缩进</p><p>tages为</p><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gcode"><span class="hljs-meta">%</span><span class="hljs-number">00</span><span class="hljs-meta">%</span><span class="hljs-number">00</span>-<span class="hljs-meta">%</span><span class="hljs-number">00</span> <br></code></pre></td></tr></table></figure><p>categories为</p><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gcode"><span class="hljs-meta">%</span><span class="hljs-number">00</span><span class="hljs-meta">%</span><span class="hljs-number">00</span>-<span class="hljs-meta">%</span><span class="hljs-number">00</span>[]<br></code></pre></td></tr></table></figure><p>如果不加中括号写多个categories会这样</p><p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-24_20-59-20.png" alt="PixPin_2025-04-24_20-59-20"></p><p>保存以后</p><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dts">hexo g &amp;<span class="hljs-variable">&amp;hexo</span> d&amp;<span class="hljs-variable">&amp;hexo</span> cl<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>博客搭建</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>博客搭建</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>TGCTF ez_zip</title>
     <link href="/2025/04/24/TGCTF-ez-zip/"/>
     <url>/2025/04/24/TGCTF-ez-zip/</url>
