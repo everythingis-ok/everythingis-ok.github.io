@@ -19,21 +19,27 @@
   <meta name="author" content="everythingis-ok">
   <meta name="keywords" content="">
   
-    <meta name="description" content="👋 关于我你好，欢迎来到我的博客！ 我是一个热爱技术与探索的学习者，主要关注以下方向：  💻 Web 安全、CTF 挖掘 🐍 Python &amp; PHP 开发 🌐 前端 &amp; 博客技术（Hexo、主题美化） 📚 喜欢折腾各种新奇技术和工具   ✨ 博客说明这个博客的主要内容包括但不限于：  📌 学习笔记与教程 🧠 技术思考与总结 🕹 CTF 解题记录 🔧 各类工具分">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="http://example.com/about/index.html">
+    <meta name="description" content="CTFhub 文件上传无限制 直接上传一句话木马php文件实现任意文件读取                 蚁剑连接 查看目录  找到flag">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CTFhub 文件上传无限制">
+<meta property="og:url" content="http://example.com/2025/03/18/CTFhub-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%97%A0%E9%99%90%E5%88%B6/index.html">
 <meta property="og:site_name" content="haomeng&#39;s blog^^">
-<meta property="og:description" content="👋 关于我你好，欢迎来到我的博客！ 我是一个热爱技术与探索的学习者，主要关注以下方向：  💻 Web 安全、CTF 挖掘 🐍 Python &amp; PHP 开发 🌐 前端 &amp; 博客技术（Hexo、主题美化） 📚 喜欢折腾各种新奇技术和工具   ✨ 博客说明这个博客的主要内容包括但不限于：  📌 学习笔记与教程 🧠 技术思考与总结 🕹 CTF 解题记录 🔧 各类工具分">
+<meta property="og:description" content="CTFhub 文件上传无限制 直接上传一句话木马php文件实现任意文件读取                 蚁剑连接 查看目录  找到flag">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-12-05T13:07:56.000Z">
-<meta property="article:modified_time" content="2025-04-24T12:50:38.250Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-29-19.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-18_19-05-21.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-31-21.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-32-26.png">
+<meta property="article:published_time" content="2025-03-18T11:21:22.000Z">
+<meta property="article:modified_time" content="2025-04-24T12:47:29.192Z">
 <meta property="article:author" content="everythingis-ok">
+<meta property="article:tag" content="-文件上传">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-29-19.png">
   
   
   
-  <title>关于 - haomeng&#39;s blog^^</title>
+  <title>CTFhub 文件上传无限制 - haomeng&#39;s blog^^</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -93,7 +99,7 @@
   <header>
     
 
-<div class="header-inner" style="height: 60vh;">
+<div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -193,15 +199,55 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/images/hello.png') no-repeat center center; background-size: cover;">
+     style="background: url('/images/zi.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="关于"></span>
+            <span id="subtitle" data-typed-text="CTFhub 文件上传无限制"></span>
           
         </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-03-18 19:21" pubdate>
+          2025年3月18日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          37 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          1 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
 
         
       </div>
@@ -217,102 +263,182 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div id="board"
-          >
-          
-            <div class="about-avatar">
-              <img src="/images/world.jpg" srcset="/img/loading.gif" lazyload class="img-fluid" alt="avatar">
-            </div>
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
-<div class="text-center">
-  <div class="about-info">
-    <div class="about-name">everythingis-ok</div>
-    <div class="about-intro">我只是在风中奔跑的尘埃</div>
-    <div class="about-icons">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
       
-        
-        
-        
-        <a href=https://github.com class="
-           hint--bottom hint--rounded"
-           aria-label="GitHub"
-           target="_blank"
-        >
-          <i class="iconfont icon-github-fill" aria-hidden="true"></i>
-          
-        </a>
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">CTFhub 文件上传无限制</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="CTFhub-文件上传无限制"><a href="#CTFhub-文件上传无限制" class="headerlink" title="CTFhub 文件上传无限制"></a>CTFhub 文件上传无限制</h1><p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-29-19.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-03-17_16-29-19"></p>
+<p>直接上传一句话木马php文件实现任意文件读取</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-18_19-05-21.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-03-18_19-05-21"></p>
+<!--我的理解是上传一句话木马后，网站的php源码会新增一个参数，然后我们可以利用这个参数传恶意参数实现任意文件读取-->
+
+<!--为什么传<?php @eval($_POST['1']);?>可以被网站解析执行并添加这么一个参数：-->
+
+<!--PHP 代码在 **服务器端** 运行，而不是在客户端（浏览器）执行。-->
+ <!--当访问一个 PHP 文件时，服务器会：-->
+
+<ul>
+<li><!--读取 PHP 文件的内容--></li>
+<li><!--交给 PHP 解析器解析--></li>
+<li><!--运行代码，返回结果给用户--></li>
+</ul>
+<!--所以，一旦你上传了 `<?php @eval($_POST['1']); ?>`，它就会被 **服务器执行**，并不会当作普通文本对待。-->
+
+<p>蚁剑连接 查看目录</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-31-21.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-03-17_16-31-21"></p>
+<p>找到flag</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-03-17_16-32-26.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-03-17_16-32-26"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
       
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
         
-        
-        
-        <a href=https://douban.com class="
-           hint--bottom hint--rounded"
-           aria-label="豆瓣"
-           target="_blank"
-        >
-          <i class="iconfont icon-douban-fill" aria-hidden="true"></i>
-          
-        </a>
+  <a href="/categories/web-%E5%AE%9E%E6%93%8D/" class="category-chain-item">-web -实操</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
       
-        
-        
-        
-        <a  class="qr-trigger
-           "
-           
-           target="_self"
-        >
-          <i class="iconfont icon-wechat-fill" aria-hidden="true"></i>
-          
-            <img class="qr-img" src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="qrcode" />
-          
-        </a>
+        <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" class="print-no-link">#-文件上传</a>
       
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>CTFhub 文件上传无限制</div>
+      <div>http://example.com/2025/03/18/CTFhub-文件上传无限制/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>everythingis-ok</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年3月18日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/03/18/CTFhub%E6%96%87%E4%BB%B6%E5%A4%B4%E6%A3%80%E6%9F%A5-00%E6%88%AA%E6%96%AD/" title="CTFhub文件头检查 00截断">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">CTFhub文件头检查 00截断</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/03/16/%E4%B8%80%E4%BA%9BSQL%E6%B3%A8%E5%85%A5%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0RCE/" title="一些SQL注入文件上传RCE">
+                        <span class="hidden-mobile">一些SQL注入文件上传RCE</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
     </div>
   </div>
 </div>
 
-<article class="about-content page-content mt-5">
-  <div class="markdown-body">
-    <hr>
-<h1 id="👋-关于我"><a href="#👋-关于我" class="headerlink" title="👋 关于我"></a>👋 关于我</h1><p>你好，欢迎来到我的博客！</p>
-<p>我是一个热爱技术与探索的学习者，主要关注以下方向：</p>
-<ul>
-<li>💻 Web 安全、CTF 挖掘</li>
-<li>🐍 Python &amp; PHP 开发</li>
-<li>🌐 前端 &amp; 博客技术（Hexo、主题美化）</li>
-<li>📚 喜欢折腾各种新奇技术和工具</li>
-</ul>
-<hr>
-<h1 id="✨-博客说明"><a href="#✨-博客说明" class="headerlink" title="✨ 博客说明"></a>✨ 博客说明</h1><p>这个博客的主要内容包括但不限于：</p>
-<ul>
-<li>📌 学习笔记与教程</li>
-<li>🧠 技术思考与总结</li>
-<li>🕹 CTF 解题记录</li>
-<li>🔧 各类工具分享</li>
-</ul>
-<p>希望能通过这个小站记录成长，也能帮助到路过的你～</p>
-<hr>
-<h1 id="📫-联系我"><a href="#📫-联系我" class="headerlink" title="📫 联系我"></a>📫 联系我</h1><p>如果你想交流或者联系我，可以通过以下方式：</p>
-<ul>
-<li>📮 Email：[<a href="mailto:&#x32;&#x32;&#55;&#48;&#50;&#x33;&#57;&#x34;&#x32;&#x35;&#x40;&#113;&#x71;&#46;&#x63;&#111;&#x6d;">&#x32;&#x32;&#55;&#48;&#50;&#x33;&#57;&#x34;&#x32;&#x35;&#x40;&#113;&#x71;&#46;&#x63;&#111;&#x6d;</a>]</li>
-<li>💬 留言板: 暂无</li>
-<li>📁 GitHub：<a target="_blank" rel="noopener" href="https://github.com/everythingis-ok">github.com&#x2F;everythingis-ok</a></li>
-</ul>
-<hr>
-<p>感谢你的访问与阅读！🍀  </p>
-
-  </div>
-
-  
-</article>
-
 
 
 
@@ -339,11 +465,8 @@
 
 
 
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
+
     
 
     
@@ -435,6 +558,46 @@
   
 
 
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
 
 
   <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>

@@ -1,0 +1,686 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/imags/world.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="everythingis-ok">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="编码解码古典密码【古典密码】是密码学中的其中一个类型，其大部分加密方式都是利用 替换式密码 或 移项式密码，有时则是两者 的混合。 凯撒密码它是一种替换加密的技术，明文中的所有字母都在字母表上向后（或向前）按照一个固定数目进行偏移后被替换成 密文。 例如，当偏移量是3的时候，所有的字母A将被替换成D，B变成E。通过排列明文和密文字母表，密文字母表示通过将明文字母表向左或向右移动一个固定数目的位置。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="week2">
+<meta property="og:url" content="http://example.com/2024/10/27/week2/index.html">
+<meta property="og:site_name" content="haomeng&#39;s blog^^">
+<meta property="og:description" content="编码解码古典密码【古典密码】是密码学中的其中一个类型，其大部分加密方式都是利用 替换式密码 或 移项式密码，有时则是两者 的混合。 凯撒密码它是一种替换加密的技术，明文中的所有字母都在字母表上向后（或向前）按照一个固定数目进行偏移后被替换成 密文。 例如，当偏移量是3的时候，所有的字母A将被替换成D，B变成E。通过排列明文和密文字母表，密文字母表示通过将明文字母表向左或向右移动一个固定数目的位置。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-10-27T04:41:52.000Z">
+<meta property="article:modified_time" content="2025-04-24T12:40:37.091Z">
+<meta property="article:author" content="everythingis-ok">
+<meta property="article:tag" content="-编码解码 -图片隐写 -LSB隐写">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>week2 - haomeng&#39;s blog^^</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>everythingis-ok</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/zi.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="week2"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-10-27 12:41" pubdate>
+          2024年10月27日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          21 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">week2</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="编码解码"><a href="#编码解码" class="headerlink" title="编码解码"></a>编码解码</h1><h2 id="古典密码"><a href="#古典密码" class="headerlink" title="古典密码"></a>古典密码</h2><p>【古典密码】是密码学中的其中一个类型，其大部分加密方式都是利用 <em>替换式密码</em> 或 <em>移项式密码</em>，有时则是两者 的混合。</p>
+<h3 id="凯撒密码"><a href="#凯撒密码" class="headerlink" title="凯撒密码"></a>凯撒密码</h3><p>它是一种替换加密的技术，明文中的所有字母都在字母表上向后（或向前）按照一个固定数目进行偏移后被替换成 密文。 例如，当偏移量是3的时候，所有的字母A将被替换成D，B变成E。<br>通过排列明文和密文字母表，密文字母表示通过将明文字母表向左或向右移动一个固定数目的位置。例如，当偏移 量是左移3的时候（解密时的密钥就是3）<br>![[Pasted image 20241024224947.png]]</p>
+<h3 id="维吉尼亚密码"><a href="#维吉尼亚密码" class="headerlink" title="维吉尼亚密码"></a>维吉尼亚密码</h3><p>是由一些偏移量不同的恺撒密码组成。 为了生成密码，需要使用表格法。 这一表格包括了26行字母表，每一行都由前一行向左偏移一位得到。具体使用哪一行字母表进行编译是基于密钥进 行的，在过程中会不断地变换<br><strong>加密过程</strong>：<br>密钥循环与明文对应表格得到密文<br><strong>解密过程</strong>：找到密钥一列密文对应哪一行<br>![[Pasted image 20241024225437.png]]</p>
+<p>假设明文为：HEETIAN 然后选择某一关键词并重复而得到密钥，如关键词为LAB时，密钥为：LABLABL 对于明文的第一个字母H，对应密钥的第一个字母L，于是使用表格中L行字母表进行加密，得到密文第一个字母S。 类似地，明文第二个字母为E，在表格中使用对应的A行进行加密，得到密文第二个字母E。以此类推，可以得到：<br>明文：HEETIAN 密钥：LABLABL 密文：SEFEIBY<br>解密的过程则与加密相反。 例如：根据密钥第一个字母L所对应的L行字母表，发现密文第一个字母S位于H列，因而明文第一个字母为H。 密钥第二个字母A对应A行字母表，而密文第二个字母E位于此行E列，因而明文第二个字母为E。以此类推便可得到明文</p>
+<h3 id="培根密码"><a href="#培根密码" class="headerlink" title="培根密码"></a>培根密码</h3><p>培根密码的本质是将字母用一串二进制数替换，但是表示的过程中，没有采取0和1的形式，而使用a和b来代替<br><strong>加密的过程</strong><br>首先将要加密的内容根据加密表里的内容进行替换， 如a用AAAAA替换，b用AAAAB替换。 替换完之 后，我们可以把A和B当作两个不同的特征（如大写&#x2F;小写，正体&#x2F;斜体）带入到一个<em>无关的句子</em>中， 这就得到了我 们加密后的结果。 其本质上是将二进制信息通过样式的区别，加在了正常书写之上。<br>![[Pasted image 20241024231439.png]]<br>例如，假设明文为：HEETIAN 然后选择某一关键词并重复而得到密钥，如关键词为LAB时，密钥为：LABLABL 对于明文的第一个字母H，对应密钥的第一个字母L，于是使用表格中L行字母表进行加密，得到密文第一个字母S。 类似地，明文第二个字母为E，在表格中使用对应的A行进行加密，得到密文第二个字母E。以此类推，可以得到： 明文：HEETIAN 密钥：LABLABL 密文：SEFEIBY 解密的过程则与加密相反。 例如：根据密钥第一个字母L所对应的L行字母表，发现密文第一个字母S位于H列，因而明文第一个字母为H。 密钥第二个字母A对应A行字母表，而密文第二个字母E位于此行E列，因而明文第二个字母为E。以此类推便可得到明文。</p>
+<h3 id="栅栏密码"><a href="#栅栏密码" class="headerlink" title="栅栏密码"></a>栅栏密码</h3><p><strong>加密过程</strong>：n栅密码分n组 把每组第一个第二个等分别拿出来形成密文</p>
+<p> 以2栏栅栏密码为例来讲解它的加密和解密过程。 加密过程： 解密过程： 那么如何将2栏密码扩展到多栏呢？在之前的明文中，CIPHER这个单词之后加了一个下划线， 目的就是为了让明文 字符串的长度是2的倍数， 栅栏密码的分栏的一个前提就是分的栏数需是明文长度的因数，这样才会使得分出来的 每个栏长度都一样。 对于多栏，我们还是用上面的例子来讲解。 上面的明文字符串（THERE_IS_A_CIPHER_）的长度是18 所以我们可以把它分为2，3，4，6，9栏，这里我们以6栏为例。 以每个元素相隔6个字符分割出栅栏。 明文：THERE_IS_A_CIPHER_ 两个一组，得到：(TH) (ER) (E_) (IS) (<em>A) (<em>C) (IP) (HE) (R</em>) 先每组中取出第一个字母：TEEI__IHR 再从每组中取出第二个字母：HR_SACPE</em> 连在一起得到密文：TEEI__IHRHR_SACPE_ 而解密的时候，先把密文从中间分开，变为两行： TEEI__IHR HR_SACPE_ 再按上下上下的顺序组合起来： THERE_IS_A_CIPHER_</p>
+<h3 id="希尔密码"><a href="#希尔密码" class="headerlink" title="希尔密码"></a>希尔密码</h3><p>[ASCII码](<a target="_blank" rel="noopener" href="https://www.asciim.cn/">ASCII码 - 基本ASCII码和扩展ASCII码,中文最全ASCII码对照表0~255</a>)</p>
+<h4 id="base16"><a href="#base16" class="headerlink" title="base16"></a>base16</h4><ol>
+<li>使用十六个字符（16进制）0-9 A-F 不区分大小写<br><strong>加密过程</strong> 根据ASCII码转换为二进制 四个一组划分 每组再转化为16进制</li>
+</ol>
+<h3 id="base32"><a href="#base32" class="headerlink" title="base32"></a>base32</h3><ol>
+<li>32个可打印字符 （A-Z 2-7）</li>
+<li>Base32主要用于编码二进制数据，但是Base32也能够编码诸如ASCII之类的二进制文本。<br><strong>加密过程</strong> 根据ASCII码转换为二进制 五个一组划分（不够补0） 不足四十倍数补&#x3D;<br>一个&#x3D;相当于五个字节<br>![[Pasted image 20241024233351.png]]</li>
+</ol>
+<h3 id="base64"><a href="#base64" class="headerlink" title="base64"></a>base64</h3><p>64个可打印字符（a-z A-Z 0-9 + &#x2F;）<br>根据ASCII码转换为二进制 6个一组不够补零 整体不够24的倍数补&#x3D; 一个&#x3D;相当于6bit<br>![[Pasted image 20241024234013.png]]</p>
+<p>区分base16 base32 base64<br>有小写base64<br>有等号base32 base64</p>
+<h1 id="MISC-隐写"><a href="#MISC-隐写" class="headerlink" title="MISC-隐写"></a>MISC-隐写</h1><p>原理：把秘密隐藏到普通的信息中，但是目前的隐写术是将某些秘密信息隐藏于数字媒介中，而又不损害载体原来信息的表达，从而掩盖秘密信息。常见的隐写载体包括文本，图像，音频，视频等。比赛中主要考察两点：隐写方法的识别和信息提取。</p>
+<h2 id="图像隐写"><a href="#图像隐写" class="headerlink" title="图像隐写"></a>图像隐写</h2><p>常见的图像隐写分为两类：插入隐写和替换隐藏</p>
+<p>插入隐写：指利用文件格式的冗余性，在不影响文件的正常使用从而隐藏信息，这种方法会导致文件的大小发生变化，<br>将1.jpg和1.zip进行合并之后，仍然得到一个和1.jpg“一摸一样”的图片，但是我们查看文件大小之后发现，大小正好是两者之和。<br>替换隐写（常考）：也就是将几乎不影响文件内容的数据进行修改，达到隐藏信息的目的，最常见的是最低比特位隐写（LSB隐写）。因为有损压缩会损毁修改掉的微小信息</p>
+<h4 id="LSB隐写：在图像中，每一个通道由8比特构成，像素值在0-255之间，在单通道图像中，通过不同的黑白比例达到不同的灰度，三通道图像中（RGB），每个通道代表红，绿，蓝，在RGBA图像中，多出一个透明度通道。因为二进制数据的最后一位大小改变的影响很小，就可以在这里替换数据。"><a href="#LSB隐写：在图像中，每一个通道由8比特构成，像素值在0-255之间，在单通道图像中，通过不同的黑白比例达到不同的灰度，三通道图像中（RGB），每个通道代表红，绿，蓝，在RGBA图像中，多出一个透明度通道。因为二进制数据的最后一位大小改变的影响很小，就可以在这里替换数据。" class="headerlink" title="LSB隐写：在图像中，每一个通道由8比特构成，像素值在0~255之间，在单通道图像中，通过不同的黑白比例达到不同的灰度，三通道图像中（RGB），每个通道代表红，绿，蓝，在RGBA图像中，多出一个透明度通道。因为二进制数据的最后一位大小改变的影响很小，就可以在这里替换数据。"></a>LSB隐写：在图像中，每一个通道由8比特构成，像素值在0~255之间，在单通道图像中，通过不同的黑白比例达到不同的灰度，三通道图像中（RGB），每个通道代表红，绿，蓝，在RGBA图像中，多出一个透明度通道。因为二进制数据的最后一位大小改变的影响很小，就可以在这里替换数据。</h4><p>每一个色素都由RGB（红绿蓝）三种颜色组成，每种颜色的占比不同，所调出来的颜色不同。红218（11011010），绿150（10010110），红（10010101），假如改变每种颜色二进制数字的最后一位，对于整体的颜色改变， 肉眼并不能观察出来，从而达到隐藏信息的目的</p>
+<h3 id="PNG"><a href="#PNG" class="headerlink" title="PNG"></a>PNG</h3><p>PNG图片（无损压缩）<br>PNG图片文件头的16进制表示：89 50 4E 47<br>一个png图片的数据可以分为多个数据块。</p>
+<p>我们之所以能看到图片，就是因为图片查看器将图片所对应的二进制字节流按照它的解释规则将图片转换为色素块，分析一个图片通常是查看它的原始二进制字节流</p>
+<ol>
+<li><p>IHDR数据块：文件头数据块，通常包含图片的高度和宽度等基本属性，可以通过将crc还原出来所对应的&#x3D;&#x3D;高度&#x3D;&#x3D;和&#x3D;&#x3D;宽度&#x3D;&#x3D;来找到flag。<br> ![[Pasted image 20241027121726.png]]</p>
+</li>
+<li><p>cHRM数据块。</p>
+</li>
+<li><p>IDAT数据块（多个）（包含图片内容）：包含了数据的构成参数。如果该数据块有问题，有一种题型是在该数据块中存有压缩包，通过Zlib工具解压缩查看内容。</p>
+</li>
+<li><p>IEAD数据块：图片结束标志。</p>
+</li>
+</ol>
+<h3 id="JPG-（有损或者无损）"><a href="#JPG-（有损或者无损）" class="headerlink" title="JPG （有损或者无损）"></a>JPG （有损或者无损）</h3><p>JPG图片（由一个一个段组成）</p>
+<p>文件头识别：FFD8</p>
+<h3 id="GIF（无损）"><a href="#GIF（无损）" class="headerlink" title="GIF（无损）"></a>GIF（无损）</h3><p>GIF图片文件头：GIF89a&#x2F;GIF87a</p>
+<h1 id="流量分析"><a href="#流量分析" class="headerlink" title="流量分析"></a>流量分析</h1><p><strong>流量捕获</strong> 通常题目会提供一个 .pcap 文件，它是网络数据包的捕获文件，我们需要分析其中的流量数据。<br>流量分析的常见流程</p>
+<ol>
+<li>初步检查流量文件 使用Wireshark打开 </li>
+<li>协议识别与分析 .pcap 文件，查看流量总量、协议类型</li>
+<li>查找最多或者最少流量。 </li>
+<li>筛选和过滤数据包 使用Wireshark的过滤器功能，逐步缩小感兴趣的范围。比如，HTTP流量的过滤条件 是http，DNS是 dns ，通过源&#x2F;目的IP、端口等进一步过滤。</li>
+<li>查找数据流</li>
+</ol>
+<p>搜索格式为frame contains “ “<br>Liunx系统下配置文件放在etc目录 下，</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Misc-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="category-chain-item">-Misc -基础知识</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%BC%96%E7%A0%81%E8%A7%A3%E7%A0%81-%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99-LSB%E9%9A%90%E5%86%99/" class="print-no-link">#-编码解码 -图片隐写 -LSB隐写</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>week2</div>
+      <div>http://example.com/2024/10/27/week2/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>everythingis-ok</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年10月27日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/12/05/%E8%BF%99%E4%B8%AA%E5%8E%8B%E7%BC%A9%E5%8C%85%E6%9C%89%E7%82%B9%E9%BA%BB%E7%83%A6/" title="这个压缩包有点麻烦">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">这个压缩包有点麻烦</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
