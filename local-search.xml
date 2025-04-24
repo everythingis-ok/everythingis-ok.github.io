@@ -13,14 +13,18 @@
     
     <categories>
       
-      <category>-Misc -实操</category>
+      <category>Misc</category>
+      
+      <category>实操</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>-压缩包修复 -TGCTF</tag>
+      <tag>压缩包修复</tag>
+      
+      <tag>TGCTF</tag>
       
     </tags>
     
@@ -38,14 +42,20 @@
     
     <categories>
       
-      <category>-web -实操 -基础知识</category>
+      <category>web</category>
+      
+      <category>实操</category>
+      
+      <category>基础知识</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>-polarctf -session文件包含</tag>
+      <tag>polarctf</tag>
+      
+      <tag>session文件包含</tag>
       
     </tags>
     
@@ -63,14 +73,18 @@
     
     <categories>
       
-      <category>-基础知识 -web</category>
+      <category>基础知识</category>
+      
+      <category>web</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>-php反序列化 -pop链构造</tag>
+      <tag>php反序列化</tag>
+      
+      <tag>pop链构造</tag>
       
     </tags>
     
@@ -88,14 +102,16 @@
     
     <categories>
       
-      <category>-Web -基础知识</category>
+      <category>web</category>
+      
+      <category>基础知识</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>-RCE</tag>
+      <tag>RCE</tag>
       
     </tags>
     
@@ -113,14 +129,16 @@
     
     <categories>
       
-      <category>-基础知识 -web</category>
+      <category>基础知识</category>
+      
+      <category>web</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>-Linux命令</tag>
+      <tag>Linux命令</tag>
       
     </tags>
     
@@ -138,14 +156,16 @@
     
     <categories>
       
-      <category>-web -基础知识</category>
+      <category>web</category>
+      
+      <category>基础知识</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>-信息泄露</tag>
+      <tag>信息泄露</tag>
       
     </tags>
     
@@ -163,14 +183,22 @@
     
     <categories>
       
-      <category>-web -实操</category>
+      <category>web</category>
+      
+      <category>实操</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>-文件上传 -Ctfhub -前端验证 -MIME绕过</tag>
+      <tag>文件上传</tag>
+      
+      <tag>Ctfhub</tag>
+      
+      <tag>前端验证</tag>
+      
+      <tag>MIME绕过</tag>
       
     </tags>
     
@@ -188,14 +216,22 @@
     
     <categories>
       
-      <category>-文件上传 -基础知识 -实操 -web</category>
+      <category>文件上传</category>
+      
+      <category>基础知识</category>
+      
+      <category>实操</category>
+      
+      <category>web</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>-00截断 -CTFhub</tag>
+      <tag>00截断</tag>
+      
+      <tag>CTFhub</tag>
       
     </tags>
     
@@ -213,14 +249,16 @@
     
     <categories>
       
-      <category>-web -实操</category>
+      <category>web</category>
+      
+      <category>实操</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>-文件上传</tag>
+      <tag>文件上传</tag>
       
     </tags>
     
@@ -238,14 +276,18 @@
     
     <categories>
       
-      <category>-web -实操</category>
+      <category>web</category>
+      
+      <category>实操</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>-SQL注入 -RCE绕过</tag>
+      <tag>SQL注入</tag>
+      
+      <tag>RCE绕过</tag>
       
     </tags>
     
@@ -263,14 +305,16 @@
     
     <categories>
       
-      <category>-web -实操</category>
+      <category>web</category>
+      
+      <category>实操</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>-NewStarCTF2024</tag>
+      <tag>NewStarCTF2024</tag>
       
     </tags>
     
@@ -288,14 +332,22 @@
     
     <categories>
       
-      <category>-Misc -实操</category>
+      <category>Misc</category>
+      
+      <category>实操</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>-Misc -已知明文攻击 -文件分离 -zip伪加密</tag>
+      <tag>Misc</tag>
+      
+      <tag>已知明文攻击</tag>
+      
+      <tag>文件分离</tag>
+      
+      <tag>zip伪加密</tag>
       
     </tags>
     
@@ -313,14 +365,20 @@
     
     <categories>
       
-      <category>-Misc -基础知识</category>
+      <category>Misc</category>
+      
+      <category>基础知识</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>-编码解码 -图片隐写 -LSB隐写</tag>
+      <tag>编码解码</tag>
+      
+      <tag>图片隐写</tag>
+      
+      <tag>LSB隐写</tag>
       
     </tags>
     
