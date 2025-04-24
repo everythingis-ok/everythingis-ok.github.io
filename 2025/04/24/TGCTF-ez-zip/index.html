@@ -19,27 +19,30 @@
   <meta name="author" content="everythingis-ok">
   <meta name="keywords" content="">
   
-    <meta name="description" content="polarctf session文件包含Session文件包含漏洞当可以获取session文件路径并且session文件的内容可控的的时候，就可以通过包含session文件进行攻击 利用条件session文件包含的利用条件有两个：  Session的存储位置可以获取 Session的内容可控  一般通过以下两种方式获取session的存储位置：  通过phpinfo的信息获取session的存储位">
+    <meta name="description" content="TGCTF ez_zip前面就是正常爆破，已知明文攻击 结束后发现文件打不开 显示文件已损坏  修复压缩包得到flag 方法一： 题目是修改了文件名长度和压缩方式  flag.txt长度应为8,改回08 00 压缩方式从COMP_DEFLATE改成了COMP_STORED,但很明显文件是压缩过的,把这两个地方修改 各种压缩方式   第二种方法 压缩源文件数据区和压缩源文件目录区在文件头标记后,除了">
 <meta property="og:type" content="article">
-<meta property="og:title" content="polarctf session文件包含">
-<meta property="og:url" content="http://example.com/2025/04/21/polarctf-session%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/index.html">
+<meta property="og:title" content="TGCTF ez_zip">
+<meta property="og:url" content="http://example.com/2025/04/24/TGCTF-ez-zip/index.html">
 <meta property="og:site_name" content="haomeng&#39;s blog^^">
-<meta property="og:description" content="polarctf session文件包含Session文件包含漏洞当可以获取session文件路径并且session文件的内容可控的的时候，就可以通过包含session文件进行攻击 利用条件session文件包含的利用条件有两个：  Session的存储位置可以获取 Session的内容可控  一般通过以下两种方式获取session的存储位置：  通过phpinfo的信息获取session的存储位">
+<meta property="og:description" content="TGCTF ez_zip前面就是正常爆破，已知明文攻击 结束后发现文件打不开 显示文件已损坏  修复压缩包得到flag 方法一： 题目是修改了文件名长度和压缩方式  flag.txt长度应为8,改回08 00 压缩方式从COMP_DEFLATE改成了COMP_STORED,但很明显文件是压缩过的,把这两个地方修改 各种压缩方式   第二种方法 压缩源文件数据区和压缩源文件目录区在文件头标记后,除了">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-21_19-13-32.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-21_19-13-13.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-21_19-35-39.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-21_19-50-28.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-21_19-59-03.png">
-<meta property="article:published_time" content="2025-04-21T12:03:01.000Z">
-<meta property="article:modified_time" content="2025-04-21T12:09:40.896Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-22_21-25-37.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-22_21-51-07.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-23_17-18-03.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-23_17-18-25.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-23_17-50-21.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-23_17-52-29.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-23_18-08-42.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-23_18-09-05.png">
+<meta property="article:published_time" content="2025-04-24T11:38:15.000Z">
+<meta property="article:modified_time" content="2025-04-24T11:38:34.284Z">
 <meta property="article:author" content="everythingis-ok">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-21_19-13-32.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-22_21-25-37.png">
   
   
   
-  <title>polarctf session文件包含 - haomeng&#39;s blog^^</title>
+  <title>TGCTF ez_zip - haomeng&#39;s blog^^</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -205,7 +208,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="polarctf session文件包含"></span>
+            <span id="subtitle" data-typed-text="TGCTF ez_zip"></span>
           
         </div>
 
@@ -216,8 +219,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-04-21 20:03" pubdate>
-          2025年4月21日 晚上
+        <time datetime="2025-04-24 19:38" pubdate>
+          2025年4月24日 晚上
         </time>
       </span>
     
@@ -228,7 +231,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          724 字
+          484 字
         
       </span>
     
@@ -239,7 +242,7 @@
         
         
         
-          7 分钟
+          5 分钟
         
       </span>
     
@@ -276,61 +279,54 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">polarctf session文件包含</h1>
+            <h1 id="seo-header">TGCTF ez_zip</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="polarctf-session文件包含"><a href="#polarctf-session文件包含" class="headerlink" title="polarctf session文件包含"></a>polarctf session文件包含</h1><h2 id="Session文件包含漏洞"><a href="#Session文件包含漏洞" class="headerlink" title="Session文件包含漏洞"></a>Session文件包含漏洞</h2><p>当可以获取session文件路径并且session文件的内容可控的的时候，就可以通过包含session文件进行攻击</p>
-<h3 id="利用条件"><a href="#利用条件" class="headerlink" title="利用条件"></a>利用条件</h3><p>session文件包含的利用条件有两个：</p>
+                <h1 id="TGCTF-ez-zip"><a href="#TGCTF-ez-zip" class="headerlink" title="TGCTF ez_zip"></a>TGCTF ez_zip</h1><p>前面就是正常爆破，已知明文攻击</p>
+<p>结束后发现文件打不开 显示文件已损坏</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-22_21-25-37.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-04-22_21-25-37"></p>
+<p>修复压缩包得到flag</p>
+<p>方法一：</p>
+<p>题目是修改了文件名长度和压缩方式</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-22_21-51-07.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-04-22_21-51-07"></p>
+<p>flag.txt长度应为8,改回08 00</p>
+<p>压缩方式从COMP_DEFLATE改成了COMP_STORED,但很明显文件是压缩过的,把这<br>两个地方修改</p>
+<p>各种压缩方式</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-23_17-18-03.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-04-23_17-18-03"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-23_17-18-25.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-04-23_17-18-25"></p>
+<p>第二种方法</p>
+<p><strong>压缩源文件数据区</strong>和<strong>压缩源文件目录区</strong>在<strong>文件头标记后</strong>,除了压缩源文件目录区<br>多出一条压缩使用的版本 (2 bytes) ,即本题中重复出现的两次14 00,<strong>一直到文件名长度</strong><br>**08 00,都是保持一致的,**所以可以直接将压缩源文件数据区的十六进制数据复制填入压缩源<br>文件目录区表示文件名长度的08 00前即可</p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-23_17-50-21.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-04-23_17-50-21"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-23_17-52-29.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-04-23_17-52-29"></p>
+<p>第三种方法</p>
+<p>因为没有加密压缩包,所以frData字段就是zlib压缩的内容，直接将这部分拿出来，加上zlib头 (789C)，zlib解压也可以得到flag</p>
+<p> 为什么是这样？</p>
+<p>📦 ZIP 中使用的压缩算法</p>
+<p>ZIP 文件最常用的压缩方法编号为：</p>
 <ul>
-<li>Session的存储位置可以获取</li>
-<li>Session的内容可控</li>
+<li><code>0</code> → Store（无压缩）</li>
+<li><code>8</code> → Deflate（zlib 同款压缩方式）</li>
 </ul>
-<p>一般通过以下两种方式获取session的存储位置：</p>
+<p>当使用 Deflate 压缩时，ZIP 文件中的压缩数据其实就是 <strong>raw deflate 流</strong>，<strong>没有 zlib 头</strong>，因为 ZIP 协议自己管理了头部和校验信息。</p>
+<p>那 zlib 是什么？</p>
+<p><code>zlib</code> 是 Deflate 算法的封装。</p>
 <ul>
-<li><p>通过phpinfo的信息获取session的存储位置。<br>通过phpinfo的信息获取<code>session.save_path</code></p>
-</li>
-<li><p>通过猜测默认的session存储位置进行尝试<br>通常Linux中的Session的默认存储位置在<code>/var/lib/php/session</code>目录下</p>
-</li>
-<li><pre><code class="hljs">temp/session
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs shell"><br>  <br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">## 示例分析</span></span><br><br>session文件包含代码如下<br><br>```php<br>session_start();<br><span class="hljs-meta prompt_">$</span><span class="language-bash">ctfs=<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;ctfs&#x27;</span>];</span><br><span class="hljs-meta prompt_">$</span><span class="language-bash">_SESSION[<span class="hljs-string">&#x27;username&#x27;</span>]=<span class="hljs-variable">$ctfs</span></span><br></code></pre></td></tr></table></figure>
-</code></pre>
-</li>
+<li>在 <code>zlib</code> 格式中，前两字节（通常是 <code>0x78 9C</code>）是头信息，说明压缩方式、窗口大小、校验方法等。</li>
+<li>但是 ZIP 格式的文件数据不包含这个头，它只保存 <strong>纯 deflate 数据</strong>。</li>
 </ul>
-<p>此代码可以通过GET型的ctfs参数传入。PHP代码将会获取的值存入到Session中。<br>攻击者可以利用ctfs参数将恶意代码写入到session文件中，然后在利用文件包含漏洞包含此session文件，向系统中传递恶意代码。</p>
-<h3 id="漏洞分析"><a href="#漏洞分析" class="headerlink" title="漏洞分析"></a>漏洞分析</h3><p>上面的代码满足Session文件包含的两个要求</p>
-<ul>
-<li>PHP代码将会获取ctfs变量的值存入到session中</li>
-<li>Session的默认 存储位置是&#x2F;var&#x2F;lib&#x2F;php&#x2F;session</li>
-</ul>
-<p>访问URL：<code>http://www.abc.com/xxx/session.php?ctfs=a</code> 会在&#x2F;var&#x2F;lib&#x2F;php&#x2F;session目录下降ctfs传入的值存储到session中<br>Session的文件名以sess_开头，后跟Sessionid，Sessionid可以通过开发者模式获取：<br>单击右键——检查——存储——Cookie——PHPSESSID 就可以找到内容</p>
-<p>假设通过开发者模式获取到的sessionid的值为hufh7hsdf392eurh4,所以session的文件名为<code>sess_hufh7hsdf392eurh4</code></p>
-<h3 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h3><p>通过上面的分析，可以得知，向ctfs参数传入的内容会存储到session文件中。<br>如果存在本地文件包含漏洞，就可以通过ctfs写入恶意代码到Session文件当中去，然后通过文件包含漏洞执行getshell</p>
-<p>例如：访问代码<code>http://www.abc.com/xxx/session.php?ctfs=&lt;?php phpinfo();?&gt;</code>后，会在&#x2F;var&#x2F;lib&#x2F;php&#x2F;session目录下降ctfs的值写入session文件<br>session文件的内容为：<code>username|s:18:&quot;&lt;?php phpinfo();?&gt;&quot;</code>.</p>
-<p><strong>攻击步骤</strong></p>
-<ul>
-<li>将恶意代码写入session文件</li>
-<li>攻击者可以通过PHPinfo或者猜测到session存放的位置</li>
-<li>通过开发者模式可以获得文件名称</li>
-<li>通过本地文件包含漏洞可以解析session文件达到攻击的目的</li>
-</ul>
-<p>比如：<code>http://www.abc.com/xxx/file.php?file=../../var/lib/php/session/sess_7sdfysdfywy9323cew2</code></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Zeker62/p/15322771.html#session%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E">✔PHP文件包含漏洞全面总结 - Zeker62 - 博客园</a></p>
-<h2 id="wp"><a href="#wp" class="headerlink" title="wp"></a>wp</h2><p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-21_19-13-32.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-04-21_19-13-32"></p>
-<p>利用php伪协议读取action.php</p>
-<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-21_19-13-13.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-04-21_19-13-13"></p>
-<p>base64解码得到源码，跟session文件包含实例几乎一样</p>
-<p>PHP代码将会获取POST型name变量的值存入到session中</p>
-<p>利用开发者模式找到了session的值 msd07aqckf2mag1um8qtjapj50</p>
-<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-21_19-35-39.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-04-21_19-35-39"></p>
-<p>访问代码<code>http://www.abc.com/temp/sess_xxxxx?</code>后，会在&#x2F;session目录下将name的值写入session文件 ,向系统中传递恶意代码。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-21_19-50-28.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-04-21_19-50-28"></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs php">name=<span class="hljs-meta">&lt;?php</span> <span class="hljs-title function_ invoke__">system</span>(<span class="hljs-string">&#x27;ls&#x27;</span>)<span class="hljs-meta">?&gt;</span><br>name=<span class="hljs-meta">&lt;?php</span> <span class="hljs-title function_ invoke__">system</span>(<span class="hljs-string">&#x27;tac flaggggg&#x27;</span>)<span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
+<p>🔧 所以要自己加上 zlib 头！</p>
+<p>是的，如果你把 ZIP 文件里 <code>Local File Header</code> 后面的数据单独拿出来（压缩数据部分），它就是裸 deflate。</p>
+<p>你只要：</p>
+<ol>
+<li><strong>加上 zlib header（比如 <code>0x78 9C</code>）</strong></li>
+<li>然后用 <code>zlib.decompress()</code> 来解压</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-23_18-08-42.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-04-23_18-08-42"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-23_18-09-05.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-04-23_18-09-05"></p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">78</span> <span class="hljs-number">9</span>C <span class="hljs-number">0</span>B <span class="hljs-number">71</span> <span class="hljs-number">77</span> <span class="hljs-number">0</span>E <span class="hljs-number">71</span> AB <span class="hljs-number">0</span>E <span class="hljs-number">4</span>F <span class="hljs-number">2</span>C <span class="hljs-number">2</span>A CA CC <span class="hljs-number">2</span>F <span class="hljs-number">8</span>A<br><span class="hljs-attribute">8F</span> CC <span class="hljs-number">2</span>F <span class="hljs-number">8</span>D CF <span class="hljs-number">48</span> <span class="hljs-number">2</span>C <span class="hljs-number">4</span>B <span class="hljs-number">8</span>D <span class="hljs-number">4</span>F <span class="hljs-number">49</span> <span class="hljs-number">4</span>D <span class="hljs-number">4</span>B <span class="hljs-number">4</span>D <span class="hljs-number">2</span>C <span class="hljs-number">49</span><br><span class="hljs-attribute">4D</span> <span class="hljs-number">89</span> <span class="hljs-number">2</span>F C9 <span class="hljs-number">48</span> <span class="hljs-number">8</span>D <span class="hljs-number">4</span>F CF <span class="hljs-number">4</span>C CC <span class="hljs-number">2</span>B <span class="hljs-number">89</span> <span class="hljs-number">4</span>F <span class="hljs-number">29</span> <span class="hljs-number">4</span>A <span class="hljs-number">4</span>C<br><span class="hljs-attribute">CF</span> CF <span class="hljs-number">53</span> AC <span class="hljs-number">05</span> <span class="hljs-number">00</span><br></code></pre></td></tr></table></figure>
 
-
-
-<p><img src="https://cdn.jsdelivr.net/gh/everythingis-ok/inage/PixPin_2025-04-21_19-59-03.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-04-21_19-59-03"></p>
 
                 
               </div>
@@ -348,8 +344,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>polarctf session文件包含</div>
-      <div>http://example.com/2025/04/21/polarctf-session文件包含/</div>
+      <div>TGCTF ez_zip</div>
+      <div>http://example.com/2025/04/24/TGCTF-ez-zip/</div>
     </div>
     <div class="license-meta">
       
@@ -361,7 +357,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年4月21日</div>
+          <div>2025年4月24日</div>
         </div>
       
       
@@ -393,18 +389,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/04/24/TGCTF-ez-zip/" title="TGCTF ez_zip">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">TGCTF ez_zip</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/04/06/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%9F%BA%E7%A1%80/" title="php反序列化基础">
-                        <span class="hidden-mobile">php反序列化基础</span>
+                      <a href="/2025/04/21/polarctf-session%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" title="polarctf session文件包含">
+                        <span class="hidden-mobile">polarctf session文件包含</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
