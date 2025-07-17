@@ -1,0 +1,761 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/imags/world.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="everythingis-ok">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="windows11系统下搭建搭建获取 Vulhub靶场前提条件（请确保以下都已安装）： Windows 11 Docker Desktop 官网下载：https:&#x2F;&#x2F;www.docker.com&#x2F;products&#x2F;docker-desktop&#x2F; ⚠️ 如果你的公司符合“需付费”的条件，请参考订阅协议。   Git（用于克隆 Vulhub） 官网下载：https:&#x2F;&#x2F;git-scm.com&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="windows11系统下搭建获取 Vulhub靶场">
+<meta property="og:url" content="http://example.com/2025/07/17/windows11%E7%B3%BB%E7%BB%9F%E4%B8%8B%E6%90%AD%E5%BB%BA%E8%8E%B7%E5%8F%96-Vulhub%E9%9D%B6%E5%9C%BA/index.html">
+<meta property="og:site_name" content="haomeng&#39;s blog^^">
+<meta property="og:description" content="windows11系统下搭建搭建获取 Vulhub靶场前提条件（请确保以下都已安装）： Windows 11 Docker Desktop 官网下载：https:&#x2F;&#x2F;www.docker.com&#x2F;products&#x2F;docker-desktop&#x2F; ⚠️ 如果你的公司符合“需付费”的条件，请参考订阅协议。   Git（用于克隆 Vulhub） 官网下载：https:&#x2F;&#x2F;git-scm.com&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-16_10-06-00.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-16_10-06-15.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-16_14-06-01.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-16_14-07-40.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-16_14-08-11.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-16_14-38-59.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-16_14-38-59-1752649574996-5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-16_15-04-44.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-16_15-06-38.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-16_21-00-22.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-17_15-13-22.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-17_15-13-34.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-17_15-20-37.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-17_15-26-14.png">
+<meta property="article:published_time" content="2025-07-17T07:25:44.000Z">
+<meta property="article:modified_time" content="2025-07-17T07:27:35.163Z">
+<meta property="article:author" content="everythingis-ok">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-16_10-06-00.png">
+  
+  
+  
+  <title>windows11系统下搭建获取 Vulhub靶场 - haomeng&#39;s blog^^</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>everythingis-ok</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/zi.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="windows11系统下搭建获取 Vulhub靶场"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-07-17 15:25" pubdate>
+          2025年7月17日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          9 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">windows11系统下搭建获取 Vulhub靶场</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="windows11系统下搭建搭建获取-Vulhub靶场"><a href="#windows11系统下搭建搭建获取-Vulhub靶场" class="headerlink" title="windows11系统下搭建搭建获取 Vulhub靶场"></a>windows11系统下搭建搭建获取 Vulhub靶场</h1><h2 id="前提条件（请确保以下都已安装）："><a href="#前提条件（请确保以下都已安装）：" class="headerlink" title="前提条件（请确保以下都已安装）："></a>前提条件（请确保以下都已安装）：</h2><ol>
+<li><strong>Windows 11</strong></li>
+<li><strong>Docker Desktop</strong><ul>
+<li>官网下载：<a target="_blank" rel="noopener" href="https://www.docker.com/products/docker-desktop/">https://www.docker.com/products/docker-desktop/</a></li>
+<li>⚠️ 如果你的公司符合“需付费”的条件，请参考订阅协议。</li>
+</ul>
+</li>
+<li><strong>Git</strong>（用于克隆 Vulhub）<ul>
+<li>官网下载：<a target="_blank" rel="noopener" href="https://git-scm.com/">https://git-scm.com/</a></li>
+</ul>
+</li>
+</ol>
+<h2 id="启动-Docker-Desktop"><a href="#启动-Docker-Desktop" class="headerlink" title="启动 Docker Desktop"></a>启动 Docker Desktop</h2><ul>
+<li>安装后，启动 Docker Desktop。</li>
+<li>进入设置 → <code>General</code>，确认已勾选 **”Use the WSL 2 based engine”**。</li>
+</ul>
+<h2 id="安装一个-Linux-发行版（推荐-Ubuntu）"><a href="#安装一个-Linux-发行版（推荐-Ubuntu）" class="headerlink" title="安装一个 Linux 发行版（推荐 Ubuntu）"></a>安装一个 Linux 发行版（推荐 Ubuntu）</h2><p>安装一个 Linux 发行版（推荐 Ubuntu），然后才能运行 Vulhub。</p>
+<p>在 PowerShell 中输入以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wsl --list --online<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-16_10-06-00.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-07-16_10-06-00"></p>
+<p>然后执行以下命令来安装 Ubuntu：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wsl --install -d Ubuntu<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-16_10-06-15.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-07-16_10-06-15"></p>
+<p>等待几分钟，它会自动下载并安装 Ubuntu。</p>
+<p>安装完成后会弹出一个终端窗口，提示你设置用户名和密码（随便设置一个你记得住的即可）。</p>
+<h2 id="启用-Docker-Desktop-的-WSL-集成"><a href="#启用-Docker-Desktop-的-WSL-集成" class="headerlink" title="启用 Docker Desktop 的 WSL 集成"></a>启用 Docker Desktop 的 WSL 集成</h2><p><strong>步骤 1：打开 Docker Desktop 设置</strong></p>
+<p><strong>步骤 2：启用 WSL 集成</strong></p>
+<p>在设置界面中依次操作：</p>
+<ul>
+<li>点击左侧菜单中的：<strong>Resources &gt; WSL Integration</strong></li>
+<li>在右侧你会看到一个 Linux 发行版列表（如 <code>Ubuntu</code>）</li>
+<li>✅ <strong>勾选你安装的 Ubuntu</strong></li>
+<li>确保右上角 <strong>“Enable integration with my default WSL distro”</strong> 也被勾选</li>
+<li>点击 <strong>“Apply &amp; Restart”</strong></li>
+</ul>
+<blockquote>
+<p>⚠️ 这一步非常关键，它允许你在 WSL 子系统中使用 Docker。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-16_14-06-01.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-07-16_14-06-01"></p>
+<p>步骤 3：重启 Ubuntu 终端</p>
+<p>关闭当前的 Ubuntu 终端，重新打开它，然后输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker --version<br></code></pre></td></tr></table></figure>
+
+<p>如果输出 Docker 的版本信息，说明一切正常，你现在可以运行 Vulhub 了！</p>
+<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-16_14-07-40.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-07-16_14-07-40"></p>
+<h2 id="安装-docker-compose（如果还没装）"><a href="#安装-docker-compose（如果还没装）" class="headerlink" title="安装 docker-compose（如果还没装）"></a>安装 docker-compose（如果还没装）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt install -y docker-compose<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>有时新版本的 Docker Desktop 已经内置了 <code>docker compose</code> 命令（注意没有短横线），也可以试试看：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker compose version<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-16_14-08-11.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-07-16_14-08-11"></p>
+<h2 id="克隆-Vulhub-项目"><a href="#克隆-Vulhub-项目" class="headerlink" title="克隆 Vulhub 项目"></a>克隆 Vulhub 项目</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/vulhub/vulhub.git<br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> vulhub<br></code></pre></td></tr></table></figure>
+
+
+
+<p>不过我这里报错了</p>
+<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-16_14-38-59.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-07-16_14-38-59"></p>
+<p>因为 <strong>网络环境屏蔽或干扰了对 <code>ghproxy.com</code> 的访问</strong>。这是在中国大陆地区访问 GitHub 或代理常见的问题。</p>
+<p> 最稳妥的解决方案：<strong>下载 Vulhub 的 .zip 文件，手动导入</strong></p>
+<h3 id="第一步：下载-Vulhub-压缩包"><a href="#第一步：下载-Vulhub-压缩包" class="headerlink" title="第一步：下载 Vulhub 压缩包"></a>第一步：下载 Vulhub 压缩包</h3><p>请用浏览器打开以下链接下载 Vulhub（GitHub 的打包 <code>.zip</code> 文件）：</p>
+<p>🔗 <a target="_blank" rel="noopener" href="https://github.com/vulhub/vulhub/archive/refs/heads/master.zip">https://github.com/vulhub/vulhub/archive/refs/heads/master.zip</a></p>
+<p>下载完成后，你会得到一个文件名类似：<code>master.zip</code></p>
+<hr>
+<h3 id="第二步：将-master-zip-拷贝到-WSL（Ubuntu）中"><a href="#第二步：将-master-zip-拷贝到-WSL（Ubuntu）中" class="headerlink" title="第二步：将 master.zip 拷贝到 WSL（Ubuntu）中"></a>第二步：将 <code>master.zip</code> 拷贝到 WSL（Ubuntu）中</h3><ol>
+<li>按下 <code>Win + R</code>，输入：<code>\\wsl$\Ubuntu\home\seora</code> 回车</li>
+<li>将刚才下载的 <code>master.zip</code> 拖进去</li>
+</ol>
+<p>你现在已经把文件放到了 WSL Ubuntu 的 <code>~/</code> 目录中。</p>
+<hr>
+<h3 id="第三步：解压并开始使用-Vulhub"><a href="#第三步：解压并开始使用-Vulhub" class="headerlink" title="第三步：解压并开始使用 Vulhub"></a>第三步：解压并开始使用 Vulhub</h3><p>打开 Ubuntu 终端，执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> ~<br>unzip master.zip<br><span class="hljs-built_in">mv</span> vulhub-master vulhub<br><span class="hljs-built_in">cd</span> vulhub<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-16_14-38-59-1752649574996-5.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-07-16_14-38-59"></p>
+<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-16_15-04-44.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-07-16_15-04-44"></p>
+<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-16_15-06-38.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-07-16_15-06-38"></p>
+<p>你现在就在 Vulhub 根目录了</p>
+<h2 id="运行一个漏洞环境（示例：Tomcat-漏洞）"><a href="#运行一个漏洞环境（示例：Tomcat-漏洞）" class="headerlink" title="运行一个漏洞环境（示例：Tomcat 漏洞）"></a>运行一个漏洞环境（示例：Tomcat 漏洞）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> tomcat/CVE-2017-12615<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker-compose up -d<br></code></pre></td></tr></table></figure>
+
+<p>等待几秒或几十秒，环境部署完成！</p>
+<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-16_21-00-22.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-07-16_21-00-22"></p>
+<p><strong>Docker 无法连接到 Docker Hub 的服务器</strong>，本质上是 <strong>网络问题（被墙、超时、无代理）</strong>，这在国内很常见。</p>
+<p>解决方法：<a target="_blank" rel="noopener" href="https://blog.csdn.net/ph12345687/article/details/141923393">下载docker-compose并更新（可国内镜像在线和离线下载）_docker-compose 国内下载-CSDN博客</a></p>
+<h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><h4 id="第一步：创建配置目录（如果没有）"><a href="#第一步：创建配置目录（如果没有）" class="headerlink" title="第一步：创建配置目录（如果没有）"></a>第一步：创建配置目录（如果没有）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">mkdir</span> -p /etc/docker<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="第二步：创建或修改镜像加速配置文件-daemon-json"><a href="#第二步：创建或修改镜像加速配置文件-daemon-json" class="headerlink" title="第二步：创建或修改镜像加速配置文件 daemon.json"></a>第二步：创建或修改镜像加速配置文件 <code>daemon.json</code></h4><p>将下面命令复制粘贴到你的终端，它会写入加速器地址：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">tee</span> /etc/docker/daemon.json &lt;&lt;<span class="hljs-string">EOF</span><br><span class="hljs-string">&#123;</span><br><span class="hljs-string">    &quot;registry-mirrors&quot;: [</span><br><span class="hljs-string">        &quot;https://docker.1ms.run&quot;</span><br><span class="hljs-string">    ]</span><br><span class="hljs-string">&#125;</span><br><span class="hljs-string">EOF</span><br></code></pre></td></tr></table></figure>
+
+<p>你可以替换成其他地址，比如：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-string">&quot;https://docker.m.daocloud.io&quot;</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="第三步：重启-Docker-服务"><a href="#第三步：重启-Docker-服务" class="headerlink" title="第三步：重启 Docker 服务"></a>第三步：重启 Docker 服务</h4><p>⚠️ WSL 中不能用 <code>systemctl</code>，用下面这个命令来重启 Docker：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wsl.exe --shutdown<br></code></pre></td></tr></table></figure>
+
+<p>然后在 <strong>Windows 中重新打开 Docker Desktop</strong>，或直接重启电脑也可以。</p>
+<hr>
+<h4 id="第四步：验证是否成功（选做）"><a href="#第四步：验证是否成功（选做）" class="headerlink" title="第四步：验证是否成功（选做）"></a>第四步：验证是否成功（选做）</h4><p>你可以试着拉个镜像看看速度：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker pull docker.1ms.run/library/mysql<br></code></pre></td></tr></table></figure>
+
+<p>不过我使用了方法一还是没行。</p>
+<h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>我搞到这里发现终端一直有提示<code>wsl: 检测到 localhost 代理配置，但未镜像到 WSL。NAT 模式下的 WSL 不支持 localhost 代理。 这是什么意思</code></p>
+<p>不知道之前一直不成功会不会跟这个有关，解决了一下然后尝试下面的就可以正常运行漏洞环境了。</p>
+<h4 id="先手动拉取镜像以避免-compose-报错"><a href="#先手动拉取镜像以避免-compose-报错" class="headerlink" title="先手动拉取镜像以避免 compose 报错"></a><strong>先手动拉取镜像以避免 compose 报错</strong></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker pull vulhub/tomcat:8.5.19<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-17_15-13-22.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-07-17_15-13-22"></p>
+<p>然后</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker-compose up -d</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-17_15-13-34.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-07-17_15-13-34"></p>
+<h2 id="访问漏洞服务"><a href="#访问漏洞服务" class="headerlink" title="访问漏洞服务"></a>访问漏洞服务</h2><p>打开浏览器，访问：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">http:<span class="hljs-comment">//localhost:8080</span><br></code></pre></td></tr></table></figure>
+
+<p>你应该能看到 Tomcat 的欢迎页面，说明漏洞环境已部署成功 🎉。</p>
+<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-17_15-20-37.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-07-17_15-20-37"></p>
+<h3 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明"></a>补充说明</h3><ul>
+<li><p>要关闭环境：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker-compose down<br></code></pre></td></tr></table></figure></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-17_15-26-14.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-07-17_15-26-14"></p>
+<ul>
+<li><p>要查看所有运行中的环境：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker ps<br></code></pre></td></tr></table></figure></li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>windows11系统下搭建获取 Vulhub靶场</div>
+      <div>http://example.com/2025/07/17/windows11系统下搭建获取-Vulhub靶场/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>everythingis-ok</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年7月17日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/07/15/2025%E5%BE%A1%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8B%E8%B5%9B/" title="2025御网杯线下赛">
+                        <span class="hidden-mobile">2025御网杯线下赛</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
