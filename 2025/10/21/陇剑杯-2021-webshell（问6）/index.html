@@ -19,21 +19,25 @@
   <meta name="author" content="everythingis-ok">
   <meta name="keywords" content="">
   
-    <meta name="description" content="👋 关于我你好，欢迎来到我的博客！ 我是一个热爱技术与探索的学习者，主要关注以下方向：  💻 Web 安全、CTF 挖掘 🐍 Python &amp; PHP 开发 🌐 前端 &amp; 博客技术（Hexo、主题美化） 📚 喜欢折腾各种新奇技术和工具   ✨ 博客说明这个博客的主要内容包括但不限于：  📌 学习笔记与教程 🧠 技术思考与总结 🕹 CTF 解题记录 🔧 各类工具分">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="http://example.com/about/index.html">
+    <meta name="description" content="[陇剑杯 2021]webshell（问6）黑客代理工具的回连服务端IP是_____________。 追踪 [^tcp流]: 为什么要追踪TCP流，在网络流量分析中，“追踪 TCP 流”（Follow TCP Stream）能把原本零散的网络数据包还原成一条逻辑上的“会话”，也就是通信双方之间的完整数据交换。TCP 流能揭示攻击手法、命令序列、数据泄露路径。 ，在流38中发现一串十六进制代码，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[陇剑杯 2021]webshell（问6）">
+<meta property="og:url" content="http://example.com/2025/10/21/%E9%99%87%E5%89%91%E6%9D%AF-2021-webshell%EF%BC%88%E9%97%AE6%EF%BC%89/index.html">
 <meta property="og:site_name" content="haomeng&#39;s blog^^">
-<meta property="og:description" content="👋 关于我你好，欢迎来到我的博客！ 我是一个热爱技术与探索的学习者，主要关注以下方向：  💻 Web 安全、CTF 挖掘 🐍 Python &amp; PHP 开发 🌐 前端 &amp; 博客技术（Hexo、主题美化） 📚 喜欢折腾各种新奇技术和工具   ✨ 博客说明这个博客的主要内容包括但不限于：  📌 学习笔记与教程 🧠 技术思考与总结 🕹 CTF 解题记录 🔧 各类工具分">
+<meta property="og:description" content="[陇剑杯 2021]webshell（问6）黑客代理工具的回连服务端IP是_____________。 追踪 [^tcp流]: 为什么要追踪TCP流，在网络流量分析中，“追踪 TCP 流”（Follow TCP Stream）能把原本零散的网络数据包还原成一条逻辑上的“会话”，也就是通信双方之间的完整数据交换。TCP 流能揭示攻击手法、命令序列、数据泄露路径。 ，在流38中发现一串十六进制代码，">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-12-05T13:07:56.000Z">
-<meta property="article:modified_time" content="2025-04-24T12:54:22.000Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251021133955923.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251021134900099.png">
+<meta property="article:published_time" content="2025-10-21T05:49:58.000Z">
+<meta property="article:modified_time" content="2025-10-21T05:53:47.148Z">
 <meta property="article:author" content="everythingis-ok">
+<meta property="article:tag" content="流量分析">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251021133955923.png">
   
   
   
-  <title>关于 - haomeng&#39;s blog^^</title>
+  <title>[陇剑杯 2021]webshell（问6） - haomeng&#39;s blog^^</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -93,7 +97,7 @@
   <header>
     
 
-<div class="header-inner" style="height: 60vh;">
+<div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -193,15 +197,55 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/images/hello.png') no-repeat center center; background-size: cover;">
+     style="background: url('/images/zi.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="关于"></span>
+            <span id="subtitle" data-typed-text="[陇剑杯 2021]webshell（问6）"></span>
           
         </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-10-21 13:49" pubdate>
+          2025年10月21日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          430 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          4 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
 
         
       </div>
@@ -217,102 +261,219 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div id="board"
-          >
-          
-            <div class="about-avatar">
-              <img src="/images/world.jpg" srcset="/img/loading.gif" lazyload class="img-fluid" alt="avatar">
-            </div>
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
-<div class="text-center">
-  <div class="about-info">
-    <div class="about-name">everythingis-ok</div>
-    <div class="about-intro">我只是在风中奔跑的尘埃</div>
-    <div class="about-icons">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
       
-        
-        
-        
-        <a href=https://github.com class="
-           hint--bottom hint--rounded"
-           aria-label="GitHub"
-           target="_blank"
-        >
-          <i class="iconfont icon-github-fill" aria-hidden="true"></i>
-          
-        </a>
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">[陇剑杯 2021]webshell（问6）</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="陇剑杯-2021-webshell（问6）"><a href="#陇剑杯-2021-webshell（问6）" class="headerlink" title="[陇剑杯 2021]webshell（问6）"></a>[陇剑杯 2021]webshell（问6）</h1><p>黑客代理工具的回连服务端IP是_____________。</p>
+<p>追踪</p>
+<p>[^tcp流]: 为什么要追踪TCP流，在网络流量分析中，<code>“追踪 TCP 流”（Follow TCP Stream）</code>能把原本零散的网络数据包还原成一条逻辑上的“会话”，也就是通信双方之间的完整数据交换。TCP 流能揭示攻击手法、命令序列、数据泄露路径。</p>
+<p>，在流38中发现一串十六进制代码，</p>
+<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251021133955923.png" srcset="/img/loading.gif" lazyload alt="image-20251021133955923">这是</p>
+<p>[^蚁剑特征]: 蚁剑的 PHP 端马（默认马）在通信上固定的特征：</p>
+<table>
+<thead>
+<tr>
+<th>特征位置</th>
+<th>内容说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>@ini_set(&quot;display_errors&quot;,&quot;0&quot;)</code>、<code>@set_time_limit(0)</code></td>
+<td>禁错+不限时，这是几乎所有蚁剑马的开头</td>
+</tr>
+<tr>
+<td><code>asenc()</code> &#x2F; <code>asoutput()</code></td>
+<td>这是蚁剑默认通信输出函数名，分别对应<strong>编码输出</strong>与<strong>HTTP边界分隔输出</strong>，用于分割返回内容</td>
+</tr>
+<tr>
+<td>输出包裹符 <code>&quot;28f72&quot;</code> 与 <code>&quot;f48611f4&quot;</code></td>
+<td>这是蚁剑用来标识返回数据边界的随机常量（每个马略有不同，但形态固定）</td>
+</tr>
+<tr>
+<td>POST 参数名如 <code>j68071301598f</code>、<code>xa5d606e67883a</code></td>
+<td>这些是蚁剑自动生成的随机变量名，典型特征：16位十六进制字符串，常用在蚁剑通信协议中</td>
+</tr>
+<tr>
+<td><code>$f=base64_decode(substr($_POST[&quot;j...&quot;],2))</code></td>
+<td>蚁剑的文件写入&#x2F;命令执行&#x2F;插件操作模块里，都会用“base64解码路径 + 数据分块写入”形式</td>
+</tr>
+<tr>
+<td><code>$buf.=urldecode(&quot;%&quot;.substr(...))</code></td>
+<td>这是蚁剑发送文件内容时对 payload 做的 URL 十六进制编码还原过程（典型）</td>
+</tr>
+<tr>
+<td><code>&quot;ERROR://&quot;</code></td>
+<td>蚁剑的异常输出标识符；客户端看到这个前缀就知道是执行错误</td>
+</tr>
+</tbody></table>
+<p>的数据流 ，将&#x3D;号后面的内容进行base16解码，找到答案。</p>
+<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251021134900099.png" srcset="/img/loading.gif" lazyload alt="image-20251021134900099"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
       
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
         
+  <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="category-chain-item">基础知识</a>
+  
+  
+
+      </span>
+    
+  
+    
+      <span class="category-chain">
         
+  <a href="/categories/%E5%AE%9E%E6%93%8D/" class="category-chain-item">实操</a>
+  
+  
+
+      </span>
+    
+  
+    
+      <span class="category-chain">
         
-        <a href=https://douban.com class="
-           hint--bottom hint--rounded"
-           aria-label="豆瓣"
-           target="_blank"
-        >
-          <i class="iconfont icon-douban-fill" aria-hidden="true"></i>
-          
-        </a>
+  <a href="/categories/Misc/" class="category-chain-item">Misc</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
       
-        
-        
-        
-        <a  class="qr-trigger
-           "
-           
-           target="_self"
-        >
-          <i class="iconfont icon-wechat-fill" aria-hidden="true"></i>
-          
-            <img class="qr-img" src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="qrcode" />
-          
-        </a>
+        <a href="/tags/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/" class="print-no-link">#流量分析</a>
       
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>[陇剑杯 2021]webshell（问6）</div>
+      <div>http://example.com/2025/10/21/陇剑杯-2021-webshell（问6）/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>everythingis-ok</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年10月21日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/10/20/SUSCTF-2022-Tanner/" title="[SUSCTF 2022]Tanner">
+                        <span class="hidden-mobile">[SUSCTF 2022]Tanner</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
     </div>
   </div>
 </div>
 
-<article class="about-content page-content mt-5">
-  <div class="markdown-body">
-    <hr>
-<h1 id="👋-关于我"><a href="#👋-关于我" class="headerlink" title="👋 关于我"></a>👋 关于我</h1><p>你好，欢迎来到我的博客！</p>
-<p>我是一个热爱技术与探索的学习者，主要关注以下方向：</p>
-<ul>
-<li>💻 Web 安全、CTF 挖掘</li>
-<li>🐍 Python &amp; PHP 开发</li>
-<li>🌐 前端 &amp; 博客技术（Hexo、主题美化）</li>
-<li>📚 喜欢折腾各种新奇技术和工具</li>
-</ul>
-<hr>
-<h1 id="✨-博客说明"><a href="#✨-博客说明" class="headerlink" title="✨ 博客说明"></a>✨ 博客说明</h1><p>这个博客的主要内容包括但不限于：</p>
-<ul>
-<li>📌 学习笔记与教程</li>
-<li>🧠 技术思考与总结</li>
-<li>🕹 CTF 解题记录</li>
-<li>🔧 各类工具分享</li>
-</ul>
-<p>希望能通过这个小站记录成长，也能帮助到路过的你～</p>
-<hr>
-<h1 id="📫-联系我"><a href="#📫-联系我" class="headerlink" title="📫 联系我"></a>📫 联系我</h1><p>如果你想交流或者联系我，可以通过以下方式：</p>
-<ul>
-<li>📮 Email：[<a href="mailto:&#50;&#x32;&#55;&#48;&#50;&#51;&#57;&#x34;&#50;&#53;&#x40;&#113;&#113;&#x2e;&#x63;&#x6f;&#x6d;">&#50;&#x32;&#55;&#48;&#50;&#51;&#57;&#x34;&#50;&#53;&#x40;&#113;&#113;&#x2e;&#x63;&#x6f;&#x6d;</a>]</li>
-<li>💬 留言板: 暂无</li>
-<li>📁 GitHub：<a target="_blank" rel="noopener" href="https://github.com/everythingis-ok">github.com&#x2F;everythingis-ok</a></li>
-</ul>
-<hr>
-<p>感谢你的访问与阅读！🍀  </p>
-
-  </div>
-
-  
-</article>
-
 
 
 
@@ -339,11 +500,8 @@
 
 
 
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
+
     
 
     
@@ -435,6 +593,46 @@
   
 
 
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
 
 
   <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>

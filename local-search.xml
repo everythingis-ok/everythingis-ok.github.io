@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>[陇剑杯 2021]webshell（问6）</title>
+    <link href="/2025/10/21/%E9%99%87%E5%89%91%E6%9D%AF-2021-webshell%EF%BC%88%E9%97%AE6%EF%BC%89/"/>
+    <url>/2025/10/21/%E9%99%87%E5%89%91%E6%9D%AF-2021-webshell%EF%BC%88%E9%97%AE6%EF%BC%89/</url>
+    
+    <content type="html"><![CDATA[<h1 id="陇剑杯-2021-webshell（问6）"><a href="#陇剑杯-2021-webshell（问6）" class="headerlink" title="[陇剑杯 2021]webshell（问6）"></a>[陇剑杯 2021]webshell（问6）</h1><p>黑客代理工具的回连服务端IP是_____________。</p><p>追踪</p><p>[^tcp流]: 为什么要追踪TCP流，在网络流量分析中，<code>“追踪 TCP 流”（Follow TCP Stream）</code>能把原本零散的网络数据包还原成一条逻辑上的“会话”，也就是通信双方之间的完整数据交换。TCP 流能揭示攻击手法、命令序列、数据泄露路径。</p><p>，在流38中发现一串十六进制代码，</p><p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251021133955923.png" alt="image-20251021133955923">这是</p><p>[^蚁剑特征]: 蚁剑的 PHP 端马（默认马）在通信上固定的特征：</p><table><thead><tr><th>特征位置</th><th>内容说明</th></tr></thead><tbody><tr><td><code>@ini_set(&quot;display_errors&quot;,&quot;0&quot;)</code>、<code>@set_time_limit(0)</code></td><td>禁错+不限时，这是几乎所有蚁剑马的开头</td></tr><tr><td><code>asenc()</code> &#x2F; <code>asoutput()</code></td><td>这是蚁剑默认通信输出函数名，分别对应<strong>编码输出</strong>与<strong>HTTP边界分隔输出</strong>，用于分割返回内容</td></tr><tr><td>输出包裹符 <code>&quot;28f72&quot;</code> 与 <code>&quot;f48611f4&quot;</code></td><td>这是蚁剑用来标识返回数据边界的随机常量（每个马略有不同，但形态固定）</td></tr><tr><td>POST 参数名如 <code>j68071301598f</code>、<code>xa5d606e67883a</code></td><td>这些是蚁剑自动生成的随机变量名，典型特征：16位十六进制字符串，常用在蚁剑通信协议中</td></tr><tr><td><code>$f=base64_decode(substr($_POST[&quot;j...&quot;],2))</code></td><td>蚁剑的文件写入&#x2F;命令执行&#x2F;插件操作模块里，都会用“base64解码路径 + 数据分块写入”形式</td></tr><tr><td><code>$buf.=urldecode(&quot;%&quot;.substr(...))</code></td><td>这是蚁剑发送文件内容时对 payload 做的 URL 十六进制编码还原过程（典型）</td></tr><tr><td><code>&quot;ERROR://&quot;</code></td><td>蚁剑的异常输出标识符；客户端看到这个前缀就知道是执行错误</td></tr></tbody></table><p>的数据流 ，将&#x3D;号后面的内容进行base16解码，找到答案。</p><p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251021134900099.png" alt="image-20251021134900099"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>基础知识</category>
+      
+      <category>实操</category>
+      
+      <category>Misc</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>流量分析</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>[SUSCTF 2022]Tanner</title>
     <link href="/2025/10/20/SUSCTF-2022-Tanner/"/>
     <url>/2025/10/20/SUSCTF-2022-Tanner/</url>
@@ -49,9 +78,9 @@
     
     <tags>
       
-      <tag>堆叠注入</tag>
-      
       <tag>SQL注入</tag>
+      
+      <tag>堆叠注入</tag>
       
       <tag>报错注入</tag>
       
