@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>[SWPU 2019]伟大的侦探</title>
+    <link href="/2025/10/23/SWPU-2019-%E4%BC%9F%E5%A4%A7%E7%9A%84%E4%BE%A6%E6%8E%A2/"/>
+    <url>/2025/10/23/SWPU-2019-%E4%BC%9F%E5%A4%A7%E7%9A%84%E4%BE%A6%E6%8E%A2/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SWPU-2019-伟大的侦探"><a href="#SWPU-2019-伟大的侦探" class="headerlink" title="[SWPU 2019]伟大的侦探"></a>[SWPU 2019]伟大的侦探</h1><p>打开附件 <code>misc</code>文件夹需要解压密码，<code>密码.txt</code>里有一串乱码，我们尝试一下用各种编码读，使用<code>010 Editor</code> <code>EBCDIC</code>编码即可发现密码明文。</p><p>具体操作为视图-&gt;编辑方式-&gt;EBCDIC</p><p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251023165238456-1761209560001-1-1761209587161-5.png" alt="image-20251023165238456"></p><p>文件夹解压缩之后可以看到里面的内容</p><p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251023165258910-1761209580120-3.png" alt="image-20251023165258910"></p><p>谷歌识图发现是“跳舞的小人”密码，</p><p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251023165459685-1761209700891-11-1761209702113-13-1761209703306-15.png" alt="image-20251023165459685"></p><p>搜索一下对照表对找得到flag。</p><p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251023165401310-1761209643975-9.png" alt="image-20251023165401310"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Misc</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>编码</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>[HNCTF 2022 WEEK3]Fun_php</title>
     <link href="/2025/10/21/HNCTF-2022-WEEK3-Fun-php/"/>
     <url>/2025/10/21/HNCTF-2022-WEEK3-Fun-php/</url>
@@ -13,9 +38,9 @@
     
     <categories>
       
-      <category>Web</category>
-      
       <category>实操</category>
+      
+      <category>Web</category>
       
     </categories>
     
@@ -96,9 +121,9 @@
     
     <categories>
       
-      <category>web</category>
-      
       <category>基础知识</category>
+      
+      <category>web</category>
       
       <category>实操</category>
       
@@ -107,9 +132,9 @@
     
     <tags>
       
-      <tag>堆叠注入</tag>
-      
       <tag>SQL注入</tag>
+      
+      <tag>堆叠注入</tag>
       
       <tag>报错注入</tag>
       
@@ -135,9 +160,9 @@
     
     <categories>
       
-      <category>web</category>
-      
       <category>基础知识</category>
+      
+      <category>web</category>
       
       <category>实操</category>
       
@@ -164,9 +189,9 @@
     
     <categories>
       
-      <category>web</category>
-      
       <category>基础知识</category>
+      
+      <category>web</category>
       
       <category>实操</category>
       
@@ -193,9 +218,9 @@
     
     <categories>
       
-      <category>web</category>
-      
       <category>基础知识</category>
+      
+      <category>web</category>
       
       <category>实操</category>
       
@@ -390,9 +415,9 @@
     
     <categories>
       
-      <category>web</category>
-      
       <category>基础知识</category>
+      
+      <category>web</category>
       
       <category>实操</category>
       
@@ -421,9 +446,9 @@
     
     <categories>
       
-      <category>web</category>
-      
       <category>基础知识</category>
+      
+      <category>web</category>
       
     </categories>
     
@@ -450,9 +475,9 @@
     
     <categories>
       
-      <category>web</category>
-      
       <category>基础知识</category>
+      
+      <category>web</category>
       
     </categories>
     
@@ -477,9 +502,9 @@
     
     <categories>
       
-      <category>web</category>
-      
       <category>基础知识</category>
+      
+      <category>web</category>
       
     </categories>
     
@@ -504,9 +529,9 @@
     
     <categories>
       
-      <category>web</category>
-      
       <category>基础知识</category>
+      
+      <category>web</category>
       
     </categories>
     
@@ -564,9 +589,9 @@
     
     <categories>
       
-      <category>web</category>
-      
       <category>基础知识</category>
+      
+      <category>web</category>
       
       <category>实操</category>
       
@@ -575,11 +600,11 @@
     
     <tags>
       
-      <tag>文件上传</tag>
-      
       <tag>00截断</tag>
       
       <tag>CTFhub</tag>
+      
+      <tag>文件上传</tag>
       
     </tags>
     
