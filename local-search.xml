@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>[SWPUCTF 2022 新生赛]奇妙的MD5</title>
+    <link href="/2025/10/23/%C2%96SWPUCTF-2022-%E6%96%B0%E7%94%9F%E8%B5%9B-%E5%A5%87%E5%A6%99%E7%9A%84MD5/"/>
+    <url>/2025/10/23/%C2%96SWPUCTF-2022-%E6%96%B0%E7%94%9F%E8%B5%9B-%E5%A5%87%E5%A6%99%E7%9A%84MD5/</url>
+    
+    <content type="html"><![CDATA[<h2 id="SWPUCTF-2022-新生赛-奇妙的MD5"><a href="#SWPUCTF-2022-新生赛-奇妙的MD5" class="headerlink" title="[SWPUCTF 2022 新生赛]奇妙的MD5"></a>[SWPUCTF 2022 新生赛]奇妙的MD5</h2><p>题目界面：</p><p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251023171123659-1761210929097-17.png" alt="image-20251023171123659"></p><p>比较熟知的字符串一个是<code>0e215962017</code>md5加密后经过弱比较等于自身</p><p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251023171518437-1761210955203-20.png" alt="image-20251023171518437"></p><p>一个是<code>ffifdyop</code>MD5 加密后变成万能密码00000000。</p><p>提交ffifdyop进入第二关，</p><p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251023171822826-1761211135725-22.png" alt="image-20251023171822826"></p><p>查看源代码</p><p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251023171931756-1761212284205-24.png" alt="image-20251023171931756"></p><p>需要传入的GET型参数x、ymd5值经php弱比较相同，可以搜索相关字符串比如<code>s1885207154a</code> 和<code>s1836677006a</code>也可以使用数组绕过，</p><figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gml">?<span class="hljs-variable language_">x</span>[]=<span class="hljs-number">1</span>&amp;<span class="hljs-variable language_">y</span>[]=<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure><p>然后跳转到下一关</p><p><img src="D:\work\notebook\ontebook\CTF\题目复现\NSSCTF每日一题\assets\image-20251023173631722-1761212287927-26-1761212306106-30.png" alt="image-20251023173631722"></p><p>是要进行md5强比较，这里使用数组绕过</p><p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251023173757201-1761212304166-28.png" alt="image-20251023173757201"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>misc</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>NSSCTF</tag>
+      
+      <tag>md5碰撞</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>[SWPU 2019]伟大的侦探</title>
     <link href="/2025/10/23/SWPU-2019-%E4%BC%9F%E5%A4%A7%E7%9A%84%E4%BE%A6%E6%8E%A2/"/>
     <url>/2025/10/23/SWPU-2019-%E4%BC%9F%E5%A4%A7%E7%9A%84%E4%BE%A6%E6%8E%A2/</url>
@@ -38,9 +65,9 @@
     
     <categories>
       
-      <category>实操</category>
-      
       <category>Web</category>
+      
+      <category>实操</category>
       
     </categories>
     
@@ -121,9 +148,9 @@
     
     <categories>
       
-      <category>基础知识</category>
-      
       <category>web</category>
+      
+      <category>基础知识</category>
       
       <category>实操</category>
       
@@ -132,9 +159,9 @@
     
     <tags>
       
-      <tag>SQL注入</tag>
-      
       <tag>堆叠注入</tag>
+      
+      <tag>SQL注入</tag>
       
       <tag>报错注入</tag>
       
@@ -160,9 +187,9 @@
     
     <categories>
       
-      <category>基础知识</category>
-      
       <category>web</category>
+      
+      <category>基础知识</category>
       
       <category>实操</category>
       
@@ -189,9 +216,9 @@
     
     <categories>
       
-      <category>基础知识</category>
-      
       <category>web</category>
+      
+      <category>基础知识</category>
       
       <category>实操</category>
       
@@ -218,9 +245,9 @@
     
     <categories>
       
-      <category>基础知识</category>
-      
       <category>web</category>
+      
+      <category>基础知识</category>
       
       <category>实操</category>
       
@@ -415,9 +442,9 @@
     
     <categories>
       
-      <category>基础知识</category>
-      
       <category>web</category>
+      
+      <category>基础知识</category>
       
       <category>实操</category>
       
@@ -446,9 +473,9 @@
     
     <categories>
       
-      <category>基础知识</category>
-      
       <category>web</category>
+      
+      <category>基础知识</category>
       
     </categories>
     
@@ -475,9 +502,9 @@
     
     <categories>
       
-      <category>基础知识</category>
-      
       <category>web</category>
+      
+      <category>基础知识</category>
       
     </categories>
     
@@ -502,9 +529,9 @@
     
     <categories>
       
-      <category>基础知识</category>
-      
       <category>web</category>
+      
+      <category>基础知识</category>
       
     </categories>
     
@@ -529,9 +556,9 @@
     
     <categories>
       
-      <category>基础知识</category>
-      
       <category>web</category>
+      
+      <category>基础知识</category>
       
     </categories>
     
@@ -589,9 +616,9 @@
     
     <categories>
       
-      <category>基础知识</category>
-      
       <category>web</category>
+      
+      <category>基础知识</category>
       
       <category>实操</category>
       
@@ -600,11 +627,11 @@
     
     <tags>
       
+      <tag>文件上传</tag>
+      
       <tag>00截断</tag>
       
       <tag>CTFhub</tag>
-      
-      <tag>文件上传</tag>
       
     </tags>
     
