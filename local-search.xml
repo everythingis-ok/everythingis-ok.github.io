@@ -4,7 +4,32 @@
   
   
   <entry>
-    <title>[SWPUCTF 2022 新生赛]奇妙的MD5</title>
+    <title>[SWPU 2020]套娃</title>
+    <link href="/2025/10/24/SWPU-2020-%E5%A5%97%E5%A8%83/"/>
+    <url>/2025/10/24/SWPU-2020-%E5%A5%97%E5%A8%83/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SWPU-2020-套娃"><a href="#SWPU-2020-套娃" class="headerlink" title="[SWPU 2020]套娃"></a>[SWPU 2020]套娃</h1><p>下载好的附件打不开，不过因为xlsx本来就是压缩包的一种，我们直接修改改后缀打开。</p><p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-10-24_13-02-41-1761283497046-5.png" alt="PixPin_2025-10-24_13-02-41"></p><p>得到两个文件</p><p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251024130518471.png" alt="image-20251024130518471"></p><p><code>RCE4data.txt</code>的文件内容是：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">U2FsdGVkX19uI2lzmxYrQ9mc16y7la7qc7VTS8gLaUKa49gzXPclxRXVsRJxWz/p<br></code></pre></td></tr></table></figure><p>根据文件名来看应该是RCE4加密的密文，但是我们没有key。</p><p>另一个swpu.xls我们还是改成zip,然后打开没显示内容用记事本打开居然显示了密码：</p><p><img src="D:\work\notebook\ontebook\CTF\题目复现\NSSCTF每日一题\assets\PixPin_2025-10-24_13-17-46-1761283498591-7.png" alt="PixPin_2025-10-24_13-17-46"></p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">password</span>:<span class="hljs-number">6</span>e4c834d77cba03af41e1562a5bce84e<br></code></pre></td></tr></table></figure><p>zip里还有一个加密的压缩包，应该是它的密码，</p><p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-10-24_13-19-22-1761283501291-9.png" alt="PixPin_2025-10-24_13-19-22"></p><p>根据文件名，这应该就是我们要找的key,直接解密</p><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">key:</span>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br></code></pre></td></tr></table></figure><p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-10-24_13-20-03-1761283510577-11.png" alt="PixPin_2025-10-24_13-20-03"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Misc</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>rce4</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>[SWPUCTF 2022 新生赛]奇妙的MD5</title>
     <link href="/2025/10/23/%C2%96SWPUCTF-2022-%E6%96%B0%E7%94%9F%E8%B5%9B-%E5%A5%87%E5%A6%99%E7%9A%84MD5/"/>
     <url>/2025/10/23/%C2%96SWPUCTF-2022-%E6%96%B0%E7%94%9F%E8%B5%9B-%E5%A5%87%E5%A6%99%E7%9A%84MD5/</url>
     
@@ -94,9 +119,9 @@
     
     <categories>
       
-      <category>基础知识</category>
-      
       <category>实操</category>
+      
+      <category>基础知识</category>
       
       <category>Misc</category>
       
@@ -150,9 +175,9 @@
       
       <category>web</category>
       
-      <category>基础知识</category>
-      
       <category>实操</category>
+      
+      <category>基础知识</category>
       
     </categories>
     
@@ -189,9 +214,9 @@
       
       <category>web</category>
       
-      <category>基础知识</category>
-      
       <category>实操</category>
+      
+      <category>基础知识</category>
       
     </categories>
     
@@ -218,9 +243,9 @@
       
       <category>web</category>
       
-      <category>基础知识</category>
-      
       <category>实操</category>
+      
+      <category>基础知识</category>
       
     </categories>
     
@@ -247,9 +272,9 @@
       
       <category>web</category>
       
-      <category>基础知识</category>
-      
       <category>实操</category>
+      
+      <category>基础知识</category>
       
     </categories>
     
@@ -357,9 +382,9 @@
     
     <categories>
       
-      <category>基础知识</category>
-      
       <category>实操</category>
+      
+      <category>基础知识</category>
       
       <category>Misc</category>
       
@@ -444,9 +469,9 @@
       
       <category>web</category>
       
-      <category>基础知识</category>
-      
       <category>实操</category>
+      
+      <category>基础知识</category>
       
     </categories>
     
@@ -618,9 +643,9 @@
       
       <category>web</category>
       
-      <category>基础知识</category>
-      
       <category>实操</category>
+      
+      <category>基础知识</category>
       
     </categories>
     
