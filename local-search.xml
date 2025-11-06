@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>[BJDCTF 2020]easy_md5</title>
+    <link href="/2025/11/06/BJDCTF-2020-easy-md5/"/>
+    <url>/2025/11/06/BJDCTF-2020-easy-md5/</url>
+    
+    <content type="html"><![CDATA[<h2 id="BJDCTF-2020-easy-md5"><a href="#BJDCTF-2020-easy-md5" class="headerlink" title="[BJDCTF 2020]easy_md5"></a>[BJDCTF 2020]easy_md5</h2><p>因为前不久刚做过一个让传特殊md5字符串的题，这道第一关直接随便传了个<code>ffifdyop</code>交完flag习惯性看了wp发现传参数是有依据的。</p><p>这里注意到请求包响应头有一个hint，有个select查询语句</p><p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-11-06_17-01-14.png" alt="PixPin_2025-11-06_17-01-14"></p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> ‘<span class="hljs-keyword">admin</span>’ <span class="hljs-keyword">where</span> <span class="hljs-keyword">password</span> =md5($pass,ture)<br></code></pre></td></tr></table></figure><p>了解一下md5函数的用法，</p><p>md5 — 计算字符串的 MD5 散列值。</p><p>md5(string<code>$string</code>, bool <code>$binary</code> &#x3D; <strong><code>false</code></strong>): string</p><p>使用 MD5 消息摘要算法计算 <code>string</code> 的 MD5 散列值，并返回该散列值。</p><ul><li><p><code>string</code></p><p>要计算的字符串。</p></li><li><p><code>binary</code></p><p>如果可选的 <code>binary</code> 被设置为 **<code>true</code>**，那么 md5 摘要将以 16 字符长度的原始二进制格式返回。</p></li></ul><p>那我们需要输入password的md5值，这也就用到我们之前了解到的万能密码<code>ffifdtop</code></p><p>它经过md5加密后：276f722736c95d99e921722cf9ed621c</p><p>再转换为字符串：’or’6&lt;乱码&gt; 即  <code>&#39;or&#39;66�]��!r,��b</code> </p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> ‘<span class="hljs-keyword">admin</span>’ <span class="hljs-keyword">where</span> <span class="hljs-keyword">password</span> =<span class="hljs-string">&#x27;or&#x27;</span><span class="hljs-number">6</span><br></code></pre></td></tr></table></figure><p>就可以通过万能密码实现绕过了。</p><h2 id="references"><a href="#references" class="headerlink" title="references"></a>references</h2><p><a href="https://www.cnblogs.com/tqing/p/11852990.html">ffifdyop——绕过中一个奇妙的字符串 - 你知道是我的 - 博客园</a></p><p><a href="https://www.php.net/manual/zh/function.md5.php">PHP: md5 - Manual</a></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>[NSSCTF Round #13]部分题目复现</title>
     <link href="/2025/11/04/NSSCTF-Round-13-%E9%83%A8%E5%88%86%E9%A2%98%E7%9B%AE%E5%A4%8D%E7%8E%B0/"/>
     <url>/2025/11/04/NSSCTF-Round-13-%E9%83%A8%E5%88%86%E9%A2%98%E7%9B%AE%E5%A4%8D%E7%8E%B0/</url>
@@ -231,9 +244,9 @@
     
     <tags>
       
-      <tag>堆叠注入</tag>
-      
       <tag>SQL注入</tag>
+      
+      <tag>堆叠注入</tag>
       
       <tag>报错注入</tag>
       
