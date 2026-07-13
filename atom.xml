@@ -322,8 +322,8 @@
       <name>seora</name>
     </author>
     <category term="web" scheme="https://everythingis-ok.github.io/categories/web/"/>
-    <category term="SQL注入" scheme="https://everythingis-ok.github.io/tags/SQL%E6%B3%A8%E5%85%A5/"/>
     <category term="堆叠注入" scheme="https://everythingis-ok.github.io/tags/%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/"/>
+    <category term="SQL注入" scheme="https://everythingis-ok.github.io/tags/SQL%E6%B3%A8%E5%85%A5/"/>
     <category term="报错注入" scheme="https://everythingis-ok.github.io/tags/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/"/>
     <category term="预编译语句" scheme="https://everythingis-ok.github.io/tags/%E9%A2%84%E7%BC%96%E8%AF%91%E8%AF%AD%E5%8F%A5/"/>
     <category term="更改表名" scheme="https://everythingis-ok.github.io/tags/%E6%9B%B4%E6%94%B9%E8%A1%A8%E5%90%8D/"/>
