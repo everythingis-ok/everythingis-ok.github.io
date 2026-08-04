@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta property="og:type" content="website">
 <meta property="og:title" content="seora&#39;s blog^^">
-<meta property="og:url" content="https://everythingis-ok.github.io/tags/Ctfhub/index.html">
+<meta property="og:url" content="https://everythingis-ok.github.io/tags/CTFhub/index.html">
 <meta property="og:site_name" content="seora&#39;s blog^^">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="seora">
@@ -400,24 +400,16 @@
                 <main class="main index-page">
             
         <article class="index-post">
-            <a class="abstract-title" href="/2025/03/18/CTFhub%E5%89%8D%E7%AB%AF%E9%AA%8C%E8%AF%81-MIME%E7%BB%95%E8%BF%87/">
-                <span class="abstract-title-text">CTFhub前端验证 MIME绕过</span>
+            <a class="abstract-title" href="/2025/03/18/CTFhub%E6%96%87%E4%BB%B6%E5%A4%B4%E6%A3%80%E6%9F%A5-00%E6%88%AA%E6%96%AD/">
+                <span class="abstract-title-text">CTFhub文件头检查 00截断</span>
             </a>
             <div class="abstract-content">
-                CTFhub前端验证 MIME绕过前端验证前端验证是在用户提交数据之前，在浏览器端检查输入数据是否符合要求
-题目有限制只能上传特定后缀，所以我们在直接修改一句话木马的后缀为png，上传后bp抓包再改为php。这样就饶过了前端验证但是php依旧能在服务器端执行。
-
-上传成功，获得文件上传路径
-然后就是连接蚁剑
-
-MIME绕过什么是 MIME 类型？
-MIME是一种 标识文件类型的方式
-当上传文件时，浏览器会向服务器发送 文件的 MIME 类型，例如：
-1Content-Type: image/png
-
-这样，服务器就能知道 上传的是 PNG 图片。
-MIME 绕过的核心原理
-正常的文件上传...
+                CTFhub文件头检查 00截断文件头检查绕过原理及方法所有的文件都是以二进制的形式进行存储的，本质上没有差别。在每一个文件的开头实际上都有一片区域来显示这个文件的实际用法，这就是文件头标志。
+常见的文件头：注意：下面的文件头的格式是16进制的格式：
+GIF：47 49 46 38 39 61png：89 50 4E 47 0D 0A 1A 0AJPG：FF D8 FF E0 00 10 4A 46 49 46
+文件头检查绕过方法：
+第一种： 把上面的文件头添加到我们的一句话木马内容最前面，达到绕过文件头检测的目的。
+方法在：【文件上传绕过】——后端检测_文件头检测漏洞_【中核检测】【文...
             </div>
             <!-- read more -->
             <div class="abstract-post-meta">
@@ -428,9 +420,8 @@ MIME 绕过的核心原理
                 <!-- tags -->
                     <div class="abstract-tags" >
         <a class="post-tag" href="javascript:void(0);" data-tags="文件上传">文件上传</a>
-        <a class="post-tag" href="javascript:void(0);" data-tags="Ctfhub">Ctfhub</a>
-        <a class="post-tag" href="javascript:void(0);" data-tags="前端验证">前端验证</a>
-        <a class="post-tag" href="javascript:void(0);" data-tags="MIME绕过">MIME绕过</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="00截断">00截断</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="CTFhub">CTFhub</a>
 </div>
 
             </div>
@@ -517,15 +508,20 @@ MIME 绕过的核心原理
         
         
         
+        
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 42
+        Total : 43
         </div>
         <!-- search  -->
     </div>
     <div class="post-archive">
             <div class="archive-year"> 2026 </div>
             <ul class="year-list">
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/05</span>
+            <a class="archive-post-title" href="/2026/08/05/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">苍穹外卖项目总结</a>
+        </li>
         <li class="archive-post-item">
             <span class="archive-post-date">05/25</span>
             <a class="archive-post-title" href="/2026/05/25/LitCTF2026-%E5%85%A8%E6%96%B9%E5%90%91wp/">LitCTF2026 全方向wp</a>
@@ -543,11 +539,11 @@ MIME 绕过的核心原理
             <ul class="year-list">
         <li class="archive-post-item">
             <span class="archive-post-date">12/14</span>
-            <a class="archive-post-title" href="/2025/12/14/polarCTFweb%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95/">polarCTFweb刷题记录(简单)</a>
+            <a class="archive-post-title" href="/2025/12/14/polarCTFweb%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95-02/">polarCTFweb刷题记录(简单)02</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">12/14</span>
-            <a class="archive-post-title" href="/2025/12/14/polarCTFweb%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95-02/">polarCTFweb刷题记录(简单)02</a>
+            <a class="archive-post-title" href="/2025/12/14/polarCTFweb%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95/">polarCTFweb刷题记录(简单)</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">12/11</span>
@@ -671,11 +667,11 @@ MIME 绕过的核心原理
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">03/18</span>
-            <a class="archive-post-title" href="/2025/03/18/CTFhub%E6%96%87%E4%BB%B6%E5%A4%B4%E6%A3%80%E6%9F%A5-00%E6%88%AA%E6%96%AD/">CTFhub文件头检查 00截断</a>
+            <a class="archive-post-title" href="/2025/03/18/CTFhub%E5%89%8D%E7%AB%AF%E9%AA%8C%E8%AF%81-MIME%E7%BB%95%E8%BF%87/">CTFhub前端验证 MIME绕过</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">03/18</span>
-            <a class="archive-post-title" href="/2025/03/18/CTFhub%E5%89%8D%E7%AB%AF%E9%AA%8C%E8%AF%81-MIME%E7%BB%95%E8%BF%87/">CTFhub前端验证 MIME绕过</a>
+            <a class="archive-post-title" href="/2025/03/18/CTFhub%E6%96%87%E4%BB%B6%E5%A4%B4%E6%A3%80%E6%9F%A5-00%E6%88%AA%E6%96%AD/">CTFhub文件头检查 00截断</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">03/18</span>
@@ -706,14 +702,6 @@ MIME 绕过的核心原理
 
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
-            <span class="sidebar-tag-name" data-tags="00截断">
-                <span class="iconfont-archer">&#xe606;</span>
-                00截断
-            </span>
-            <span class="sidebar-tag-name" data-tags="CTFhub">
-                <span class="iconfont-archer">&#xe606;</span>
-                CTFhub
-            </span>
             <span class="sidebar-tag-name" data-tags="文件上传">
                 <span class="iconfont-archer">&#xe606;</span>
                 文件上传
@@ -729,6 +717,14 @@ MIME 绕过的核心原理
             <span class="sidebar-tag-name" data-tags="MIME绕过">
                 <span class="iconfont-archer">&#xe606;</span>
                 MIME绕过
+            </span>
+            <span class="sidebar-tag-name" data-tags="00截断">
+                <span class="iconfont-archer">&#xe606;</span>
+                00截断
+            </span>
+            <span class="sidebar-tag-name" data-tags="CTFhub">
+                <span class="iconfont-archer">&#xe606;</span>
+                CTFhub
             </span>
             <span class="sidebar-tag-name" data-tags="博客搭建">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -754,6 +750,10 @@ MIME 绕过的核心原理
                 <span class="iconfont-archer">&#xe606;</span>
                 隐写
             </span>
+            <span class="sidebar-tag-name" data-tags="RCE">
+                <span class="iconfont-archer">&#xe606;</span>
+                RCE
+            </span>
             <span class="sidebar-tag-name" data-tags="NTFS数据隐写">
                 <span class="iconfont-archer">&#xe606;</span>
                 NTFS数据隐写
@@ -762,17 +762,13 @@ MIME 绕过的核心原理
                 <span class="iconfont-archer">&#xe606;</span>
                 python反编译
             </span>
-            <span class="sidebar-tag-name" data-tags="RCE">
+            <span class="sidebar-tag-name" data-tags="rce4">
                 <span class="iconfont-archer">&#xe606;</span>
-                RCE
+                rce4
             </span>
             <span class="sidebar-tag-name" data-tags="编码">
                 <span class="iconfont-archer">&#xe606;</span>
                 编码
-            </span>
-            <span class="sidebar-tag-name" data-tags="rce4">
-                <span class="iconfont-archer">&#xe606;</span>
-                rce4
             </span>
             <span class="sidebar-tag-name" data-tags="压缩包修复">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -830,10 +826,6 @@ MIME 绕过的核心原理
                 <span class="iconfont-archer">&#xe606;</span>
                 LSB隐写
             </span>
-            <span class="sidebar-tag-name" data-tags="md5碰撞">
-                <span class="iconfont-archer">&#xe606;</span>
-                md5碰撞
-            </span>
             <span class="sidebar-tag-name" data-tags="堆叠注入">
                 <span class="iconfont-archer">&#xe606;</span>
                 堆叠注入
@@ -862,6 +854,14 @@ MIME 绕过的核心原理
                 <span class="iconfont-archer">&#xe606;</span>
                 RCE绕过
             </span>
+            <span class="sidebar-tag-name" data-tags="md5碰撞">
+                <span class="iconfont-archer">&#xe606;</span>
+                md5碰撞
+            </span>
+            <span class="sidebar-tag-name" data-tags="信息泄露">
+                <span class="iconfont-archer">&#xe606;</span>
+                信息泄露
+            </span>
             <span class="sidebar-tag-name" data-tags="文件包含">
                 <span class="iconfont-archer">&#xe606;</span>
                 文件包含
@@ -869,10 +869,6 @@ MIME 绕过的核心原理
             <span class="sidebar-tag-name" data-tags="php伪协议">
                 <span class="iconfont-archer">&#xe606;</span>
                 php伪协议
-            </span>
-            <span class="sidebar-tag-name" data-tags="信息泄露">
-                <span class="iconfont-archer">&#xe606;</span>
-                信息泄露
             </span>
             <span class="sidebar-tag-name" data-tags="Misc">
                 <span class="iconfont-archer">&#xe606;</span>

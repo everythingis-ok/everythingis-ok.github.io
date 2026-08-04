@@ -407,6 +407,42 @@
                 <main class="main index-page">
             
         <article class="index-post">
+            <a class="abstract-title" href="/2025/04/24/TGCTF-ez-zip/">
+                <span class="abstract-title-text">TGCTF ez_zip</span>
+            </a>
+            <div class="abstract-content">
+                TGCTF ez_zip前面就是正常爆破，已知明文攻击
+结束后发现文件打不开 显示文件已损坏
+
+修复压缩包得到flag
+方法一：
+题目是修改了文件名长度和压缩方式
+
+flag.txt长度应为8,改回08 00
+压缩方式从COMP_DEFLATE改成了COMP_STORED,但很明显文件是压缩过的,把这两个地方修改
+各种压缩方式
+
+
+第二种方法
+压缩源文件数据区和压缩源文件目录区在文件头标记后,除了压缩源文件目录区多出一条压缩使用的版本 (2 bytes) ,即本题中重复出现的两次14 00,一直到文件名长度**08 00,都是保持一致的,**所以可以直接将压缩源文件数据区的十六进制数据复...
+            </div>
+            <!-- read more -->
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2026/05/08">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2025/04/24</span>
+                </div>
+                <!-- tags -->
+                    <div class="abstract-tags" >
+        <a class="post-tag" href="javascript:void(0);" data-tags="压缩包修复">压缩包修复</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="TGCTF">TGCTF</a>
+</div>
+
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+            
+        <article class="index-post">
             <a class="abstract-title" href="/2025/04/21/polarctf-session%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/">
                 <span class="abstract-title-text">polarctf session文件包含</span>
             </a>
@@ -614,9 +650,9 @@ GIF：47 49 46 38 39 61png：89 50 4E 47 0D 0A 1A 0AJPG：FF D8 FF E0 00 10 4A 4
                 </div>
                 <!-- tags -->
                     <div class="abstract-tags" >
+        <a class="post-tag" href="javascript:void(0);" data-tags="文件上传">文件上传</a>
         <a class="post-tag" href="javascript:void(0);" data-tags="00截断">00截断</a>
         <a class="post-tag" href="javascript:void(0);" data-tags="CTFhub">CTFhub</a>
-        <a class="post-tag" href="javascript:void(0);" data-tags="文件上传">文件上传</a>
 </div>
 
             </div>
@@ -688,37 +724,6 @@ UNION 联合查询数据库信息：确认完显示位可以利用显示位查�
                     <div class="abstract-tags" >
         <a class="post-tag" href="javascript:void(0);" data-tags="SQL注入">SQL注入</a>
         <a class="post-tag" href="javascript:void(0);" data-tags="RCE绕过">RCE绕过</a>
-</div>
-
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-            
-        <article class="index-post">
-            <a class="abstract-title" href="/2024/12/06/web%E9%A2%98%E7%9B%AEwp/">
-                <span class="abstract-title-text">web题目wp</span>
-            </a>
-            <div class="abstract-content">
-                web题目wp1.会赢吗
-先查看网页源代码
-在body部分找到flag第一部分和第二部分地址
-![屏幕截图 2024-11-28 193756](C:\Users\Lenovo\Pictures\Screenshots\屏幕截图 2024-11-28 193756.png)
-进入第二部分
-
-提示在控制台进行应用依旧查看网页源代码
-可见传一个参数（课程名）调用函数revealFlag课程名
-在控制台输入命令
-![屏幕截图 2024-11-28 203252](C:\Users\Lenovo\Pictures\Screenshots\屏幕截图 2024-11-28 203252.png)re...
-            </div>
-            <!-- read more -->
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2026/05/08">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2024/12/06</span>
-                </div>
-                <!-- tags -->
-                    <div class="abstract-tags" >
-        <a class="post-tag" href="javascript:void(0);" data-tags="NewStarCTF2024">NewStarCTF2024</a>
 </div>
 
             </div>
@@ -830,15 +835,20 @@ UNION 联合查询数据库信息：确认完显示位可以利用显示位查�
         
         
         
+        
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 42
+        Total : 43
         </div>
         <!-- search  -->
     </div>
     <div class="post-archive">
             <div class="archive-year"> 2026 </div>
             <ul class="year-list">
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/05</span>
+            <a class="archive-post-title" href="/2026/08/05/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">苍穹外卖项目总结</a>
+        </li>
         <li class="archive-post-item">
             <span class="archive-post-date">05/25</span>
             <a class="archive-post-title" href="/2026/05/25/LitCTF2026-%E5%85%A8%E6%96%B9%E5%90%91wp/">LitCTF2026 全方向wp</a>
@@ -856,11 +866,11 @@ UNION 联合查询数据库信息：确认完显示位可以利用显示位查�
             <ul class="year-list">
         <li class="archive-post-item">
             <span class="archive-post-date">12/14</span>
-            <a class="archive-post-title" href="/2025/12/14/polarCTFweb%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95/">polarCTFweb刷题记录(简单)</a>
+            <a class="archive-post-title" href="/2025/12/14/polarCTFweb%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95-02/">polarCTFweb刷题记录(简单)02</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">12/14</span>
-            <a class="archive-post-title" href="/2025/12/14/polarCTFweb%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95-02/">polarCTFweb刷题记录(简单)02</a>
+            <a class="archive-post-title" href="/2025/12/14/polarCTFweb%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95/">polarCTFweb刷题记录(简单)</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">12/11</span>
@@ -984,11 +994,11 @@ UNION 联合查询数据库信息：确认完显示位可以利用显示位查�
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">03/18</span>
-            <a class="archive-post-title" href="/2025/03/18/CTFhub%E6%96%87%E4%BB%B6%E5%A4%B4%E6%A3%80%E6%9F%A5-00%E6%88%AA%E6%96%AD/">CTFhub文件头检查 00截断</a>
+            <a class="archive-post-title" href="/2025/03/18/CTFhub%E5%89%8D%E7%AB%AF%E9%AA%8C%E8%AF%81-MIME%E7%BB%95%E8%BF%87/">CTFhub前端验证 MIME绕过</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">03/18</span>
-            <a class="archive-post-title" href="/2025/03/18/CTFhub%E5%89%8D%E7%AB%AF%E9%AA%8C%E8%AF%81-MIME%E7%BB%95%E8%BF%87/">CTFhub前端验证 MIME绕过</a>
+            <a class="archive-post-title" href="/2025/03/18/CTFhub%E6%96%87%E4%BB%B6%E5%A4%B4%E6%A3%80%E6%9F%A5-00%E6%88%AA%E6%96%AD/">CTFhub文件头检查 00截断</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">03/18</span>
@@ -1019,14 +1029,6 @@ UNION 联合查询数据库信息：确认完显示位可以利用显示位查�
 
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
-            <span class="sidebar-tag-name" data-tags="00截断">
-                <span class="iconfont-archer">&#xe606;</span>
-                00截断
-            </span>
-            <span class="sidebar-tag-name" data-tags="CTFhub">
-                <span class="iconfont-archer">&#xe606;</span>
-                CTFhub
-            </span>
             <span class="sidebar-tag-name" data-tags="文件上传">
                 <span class="iconfont-archer">&#xe606;</span>
                 文件上传
@@ -1042,6 +1044,14 @@ UNION 联合查询数据库信息：确认完显示位可以利用显示位查�
             <span class="sidebar-tag-name" data-tags="MIME绕过">
                 <span class="iconfont-archer">&#xe606;</span>
                 MIME绕过
+            </span>
+            <span class="sidebar-tag-name" data-tags="00截断">
+                <span class="iconfont-archer">&#xe606;</span>
+                00截断
+            </span>
+            <span class="sidebar-tag-name" data-tags="CTFhub">
+                <span class="iconfont-archer">&#xe606;</span>
+                CTFhub
             </span>
             <span class="sidebar-tag-name" data-tags="博客搭建">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -1067,6 +1077,10 @@ UNION 联合查询数据库信息：确认完显示位可以利用显示位查�
                 <span class="iconfont-archer">&#xe606;</span>
                 隐写
             </span>
+            <span class="sidebar-tag-name" data-tags="RCE">
+                <span class="iconfont-archer">&#xe606;</span>
+                RCE
+            </span>
             <span class="sidebar-tag-name" data-tags="NTFS数据隐写">
                 <span class="iconfont-archer">&#xe606;</span>
                 NTFS数据隐写
@@ -1075,17 +1089,13 @@ UNION 联合查询数据库信息：确认完显示位可以利用显示位查�
                 <span class="iconfont-archer">&#xe606;</span>
                 python反编译
             </span>
-            <span class="sidebar-tag-name" data-tags="RCE">
+            <span class="sidebar-tag-name" data-tags="rce4">
                 <span class="iconfont-archer">&#xe606;</span>
-                RCE
+                rce4
             </span>
             <span class="sidebar-tag-name" data-tags="编码">
                 <span class="iconfont-archer">&#xe606;</span>
                 编码
-            </span>
-            <span class="sidebar-tag-name" data-tags="rce4">
-                <span class="iconfont-archer">&#xe606;</span>
-                rce4
             </span>
             <span class="sidebar-tag-name" data-tags="压缩包修复">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -1143,10 +1153,6 @@ UNION 联合查询数据库信息：确认完显示位可以利用显示位查�
                 <span class="iconfont-archer">&#xe606;</span>
                 LSB隐写
             </span>
-            <span class="sidebar-tag-name" data-tags="md5碰撞">
-                <span class="iconfont-archer">&#xe606;</span>
-                md5碰撞
-            </span>
             <span class="sidebar-tag-name" data-tags="堆叠注入">
                 <span class="iconfont-archer">&#xe606;</span>
                 堆叠注入
@@ -1175,6 +1181,14 @@ UNION 联合查询数据库信息：确认完显示位可以利用显示位查�
                 <span class="iconfont-archer">&#xe606;</span>
                 RCE绕过
             </span>
+            <span class="sidebar-tag-name" data-tags="md5碰撞">
+                <span class="iconfont-archer">&#xe606;</span>
+                md5碰撞
+            </span>
+            <span class="sidebar-tag-name" data-tags="信息泄露">
+                <span class="iconfont-archer">&#xe606;</span>
+                信息泄露
+            </span>
             <span class="sidebar-tag-name" data-tags="文件包含">
                 <span class="iconfont-archer">&#xe606;</span>
                 文件包含
@@ -1182,10 +1196,6 @@ UNION 联合查询数据库信息：确认完显示位可以利用显示位查�
             <span class="sidebar-tag-name" data-tags="php伪协议">
                 <span class="iconfont-archer">&#xe606;</span>
                 php伪协议
-            </span>
-            <span class="sidebar-tag-name" data-tags="信息泄露">
-                <span class="iconfont-archer">&#xe606;</span>
-                信息泄露
             </span>
             <span class="sidebar-tag-name" data-tags="Misc">
                 <span class="iconfont-archer">&#xe606;</span>

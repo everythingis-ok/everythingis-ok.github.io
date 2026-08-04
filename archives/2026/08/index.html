@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta property="og:type" content="website">
 <meta property="og:title" content="seora&#39;s blog^^">
-<meta property="og:url" content="https://everythingis-ok.github.io/categories/misc/index.html">
+<meta property="og:url" content="https://everythingis-ok.github.io/archives/2026/08/index.html">
 <meta property="og:site_name" content="seora&#39;s blog^^">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="seora">
@@ -400,286 +400,22 @@
                 <main class="main index-page">
             
         <article class="index-post">
-            <a class="abstract-title" href="/2025/10/24/SWPU-2020-%E5%A5%97%E5%A8%83/">
-                <span class="abstract-title-text">[SWPU 2020]套娃</span>
+            <a class="abstract-title" href="/2026/08/05/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">
+                <span class="abstract-title-text">苍穹外卖项目总结</span>
             </a>
             <div class="abstract-content">
-                [SWPU 2020]套娃下载好的附件打不开，不过因为xlsx本来就是压缩包的一种，我们直接修改改后缀打开。
-
-得到两个文件
-
-RCE4data.txt的文件内容是：
-1U2FsdGVkX19uI2lzmxYrQ9mc16y7la7qc7VTS8gLaUKa49gzXPclxRXVsRJxWz/p
-
-根据文件名来看应该是RCE4加密的密文，但是我们没有key。
-另一个swpu.xls我们还是改成zip,然后打开没显示内容用记事本打开居然显示了密码：
-
-1password:6e4c834d77cba03af41e1562a5bce84e
-
-zip里还有一个加密的压缩包，应该是它的密码，
-
-...
+                前言博主写苍穹外卖本来是打算熟悉一下java环境和基本框架，为后续写其他项目积累一点经验，本来没有留下什么关于技术栈的总结，偶然看到这篇博客https://blog.csdn.net/m0_73612206/article/details/141526550，发现因为没有及时总结，只凭印象对各种技术栈其实并没有多么熟悉。借助ai对项目进行了分析，在大佬的博客里增加了很多关于这个项目的更具体的各种技术栈的使用，作为自用项目总结。
+技术选型技术选型：项目中使用到的技术框架和中间件等
+1）什么是技术框架？
+Java  技术框架是指在 Java 开发中广泛使用的一系列库、工具和结构化代码模式，这...
             </div>
             <!-- read more -->
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date" title="Last updated: 2026/05/08">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2025/10/24</span>
+                <div class="abstract-date" title="Last updated: 2026/08/05">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2026/08/05</span>
                 </div>
                 <!-- tags -->
-                    <div class="abstract-tags" >
-        <a class="post-tag" href="javascript:void(0);" data-tags="rce4">rce4</a>
-</div>
-
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-            
-        <article class="index-post">
-            <a class="abstract-title" href="/2025/10/23/%C2%96SWPUCTF-2022-%E6%96%B0%E7%94%9F%E8%B5%9B-%E5%A5%87%E5%A6%99%E7%9A%84MD5/">
-                <span class="abstract-title-text">[SWPUCTF 2022 新生赛]奇妙的MD5</span>
-            </a>
-            <div class="abstract-content">
-                [SWPUCTF 2022 新生赛]奇妙的MD5题目界面：
-
-比较熟知的字符串一个是0e215962017md5加密后经过弱比较等于自身
-
-一个是ffifdyopMD5 加密后变成万能密码00000000。
-提交ffifdyop进入第二关，
-
-查看源代码
-
-需要传入的GET型参数x、ymd5值经php弱比较相同，可以搜索相关字符串比如s1885207154a 和s1836677006a也可以使用数组绕过，
-1?x[]=1&amp;y[]=1
-
-然后跳转到下一关
-
-是要进行md5强比较，这里使用数组绕过
-
-
-            </div>
-            <!-- read more -->
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2025/10/24">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2025/10/23</span>
-                </div>
-                <!-- tags -->
-                    <div class="abstract-tags" >
-        <a class="post-tag" href="javascript:void(0);" data-tags="NSSCTF">NSSCTF</a>
-        <a class="post-tag" href="javascript:void(0);" data-tags="md5碰撞">md5碰撞</a>
-</div>
-
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-            
-        <article class="index-post">
-            <a class="abstract-title" href="/2025/10/23/SWPU-2019-%E4%BC%9F%E5%A4%A7%E7%9A%84%E4%BE%A6%E6%8E%A2/">
-                <span class="abstract-title-text">[SWPU 2019]伟大的侦探</span>
-            </a>
-            <div class="abstract-content">
-                [SWPU 2019]伟大的侦探打开附件 misc文件夹需要解压密码，密码.txt里有一串乱码，我们尝试一下用各种编码读，使用010 Editor EBCDIC编码即可发现密码明文。
-具体操作为视图-&gt;编辑方式-&gt;EBCDIC
-
-文件夹解压缩之后可以看到里面的内容
-
-谷歌识图发现是“跳舞的小人”密码，
-
-搜索一下对照表对找得到flag。
-
-
-            </div>
-            <!-- read more -->
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2026/05/08">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2025/10/23</span>
-                </div>
-                <!-- tags -->
-                    <div class="abstract-tags" >
-        <a class="post-tag" href="javascript:void(0);" data-tags="编码">编码</a>
-</div>
-
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-            
-        <article class="index-post">
-            <a class="abstract-title" href="/2025/10/21/%E9%99%87%E5%89%91%E6%9D%AF-2021-webshell%EF%BC%88%E9%97%AE6%EF%BC%89/">
-                <span class="abstract-title-text">[陇剑杯 2021]webshell（问6）</span>
-            </a>
-            <div class="abstract-content">
-                [陇剑杯 2021]webshell（问6）黑客代理工具的回连服务端IP是_____________。
-追踪
-[^tcp流]: 为什么要追踪TCP流，在网络流量分析中，“追踪 TCP 流”（Follow TCP Stream）能把原本零散的网络数据包还原成一条逻辑上的“会话”，也就是通信双方之间的完整数据交换。TCP 流能揭示攻击手法、命令序列、数据泄露路径。
-，在流38中发现一串十六进制代码，
-这是
-[^蚁剑特征]: 蚁剑的 PHP 端马（默认马）在通信上固定的特征：
-
-
-
-特征位置
-内容说明
-
-
-
-@ini_set(&quot;display_errors&quot;,&quot;0...
-            </div>
-            <!-- read more -->
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2026/05/08">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2025/10/21</span>
-                </div>
-                <!-- tags -->
-                    <div class="abstract-tags" >
-        <a class="post-tag" href="javascript:void(0);" data-tags="流量分析">流量分析</a>
-</div>
-
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-            
-        <article class="index-post">
-            <a class="abstract-title" href="/2025/10/20/SUSCTF-2022-Tanner/">
-                <span class="abstract-title-text">[SUSCTF 2022]Tanner</span>
-            </a>
-            <div class="abstract-content">
-                [SUSCTF 2022]Tanner题目描述中提到:There is a special graph which describe one check matrix, find out where is the hint(maybe in the binary data?) and what is the flag.
-我们查看到Png文件结束标志[49 45 4E 44 AE 42 60 82]后有信息信息：THE FLAG IS the sha256 of the sum ofthe proper codewords(binary plus)which satisfy the con...
-            </div>
-            <!-- read more -->
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2026/05/08">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2025/10/20</span>
-                </div>
-                <!-- tags -->
-                    <div class="abstract-tags" >
-        <a class="post-tag" href="javascript:void(0);" data-tags="NSSCTF">NSSCTF</a>
-</div>
-
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-            
-        <article class="index-post">
-            <a class="abstract-title" href="/2025/05/20/NTFS%E6%95%B0%E6%8D%AE%E6%B5%81%E9%9A%90%E5%86%99/">
-                <span class="abstract-title-text">NTFS数据流隐写</span>
-            </a>
-            <div class="abstract-content">
-                NTFS数据流隐写什么是NTFSNTFS（New Technology File System）是微软开发的一种文件系统，用于在Windows操作系统中管理磁盘上的数据。它是在1993年随Windows NT 3.1首次引入的，是FAT（如FAT16、FAT32）的继任者。
-NTFS交换数据流(简称ADS)是NTFS磁盘格式的一个特性，在NTFS文件系统下，每个文件都可以存在多个数据流，就是说除了主文件流之外还可以有许多非主文件流寄宿在主文件流中。它使用资源派生来维持与文件相关的信息。————百度百科
-在 NTFS 文件系统中，文件可以有 多个数据流（Data Streams），而普通用...
-            </div>
-            <!-- read more -->
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2026/05/08">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2025/05/20</span>
-                </div>
-                <!-- tags -->
-                    <div class="abstract-tags" >
-        <a class="post-tag" href="javascript:void(0);" data-tags="NTFS数据隐写">NTFS数据隐写</a>
-        <a class="post-tag" href="javascript:void(0);" data-tags="python反编译">python反编译</a>
-</div>
-
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-            
-        <article class="index-post">
-            <a class="abstract-title" href="/2025/04/24/TGCTF-ez-zip/">
-                <span class="abstract-title-text">TGCTF ez_zip</span>
-            </a>
-            <div class="abstract-content">
-                TGCTF ez_zip前面就是正常爆破，已知明文攻击
-结束后发现文件打不开 显示文件已损坏
-
-修复压缩包得到flag
-方法一：
-题目是修改了文件名长度和压缩方式
-
-flag.txt长度应为8,改回08 00
-压缩方式从COMP_DEFLATE改成了COMP_STORED,但很明显文件是压缩过的,把这两个地方修改
-各种压缩方式
-
-
-第二种方法
-压缩源文件数据区和压缩源文件目录区在文件头标记后,除了压缩源文件目录区多出一条压缩使用的版本 (2 bytes) ,即本题中重复出现的两次14 00,一直到文件名长度**08 00,都是保持一致的,**所以可以直接将压缩源文件数据区的十六进制数据复...
-            </div>
-            <!-- read more -->
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2026/05/08">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2025/04/24</span>
-                </div>
-                <!-- tags -->
-                    <div class="abstract-tags" >
-        <a class="post-tag" href="javascript:void(0);" data-tags="压缩包修复">压缩包修复</a>
-        <a class="post-tag" href="javascript:void(0);" data-tags="TGCTF">TGCTF</a>
-</div>
-
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-            
-        <article class="index-post">
-            <a class="abstract-title" href="/2024/12/05/%E8%BF%99%E4%B8%AA%E5%8E%8B%E7%BC%A9%E5%8C%85%E6%9C%89%E7%82%B9%E9%BA%BB%E7%83%A6/">
-                <span class="abstract-title-text">这个压缩包有点麻烦</span>
-            </a>
-            <div class="abstract-content">
-                wp1.这个压缩包有点麻烦下载压缩包可以看到有注释，提示是六位数字的暴力破解
-暴力破解得到密码
-密码为 483279
-打开文档后看到提示
-可以确定是使用字典爆破
-​    得到压缩包密码    &amp;-&#96;;qpCKliw2yTR\
-zip压缩包里面还有一个文件和之前的readme是一样的文件（已知部分明文），所以直接明文攻击根据提示：注意将明文压缩时，压缩包的属性要设置为仅储存
-确保压缩后的zip与同名文档CRC32码一致
-已知明文攻击的方法已知明文攻击的特点是已知一个ZIP压缩包中某个文件的原文件（也就是明文），利用已知文件和其压缩加密后的数据获取到压缩包的解压密码或者能对...
-            </div>
-            <!-- read more -->
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2026/05/08">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2024/12/05</span>
-                </div>
-                <!-- tags -->
-                    <div class="abstract-tags" >
-        <a class="post-tag" href="javascript:void(0);" data-tags="Misc">Misc</a>
-        <a class="post-tag" href="javascript:void(0);" data-tags="已知明文攻击">已知明文攻击</a>
-        <a class="post-tag" href="javascript:void(0);" data-tags="文件分离">文件分离</a>
-        <a class="post-tag" href="javascript:void(0);" data-tags="zip伪加密">zip伪加密</a>
-</div>
-
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-            
-        <article class="index-post">
-            <a class="abstract-title" href="/2024/10/27/week2/">
-                <span class="abstract-title-text">week2</span>
-            </a>
-            <div class="abstract-content">
-                编码解码古典密码【古典密码】是密码学中的其中一个类型，其大部分加密方式都是利用 替换式密码 或 移项式密码，有时则是两者 的混合。
-凯撒密码它是一种替换加密的技术，明文中的所有字母都在字母表上向后（或向前）按照一个固定数目进行偏移后被替换成 密文。 例如，当偏移量是3的时候，所有的字母A将被替换成D，B变成E。通过排列明文和密文字母表，密文字母表示通过将明文字母表向左或向右移动一个固定数目的位置。例如，当偏移 量是左移3的时候（解密时的密钥就是3）![[Pasted image 20241024224947.png]]
-维吉尼亚密码是由一些偏移量不同的恺撒密码组成。 为了生成密码，需要使...
-            </div>
-            <!-- read more -->
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2026/05/08">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2024/10/27</span>
-                </div>
-                <!-- tags -->
-                    <div class="abstract-tags" >
-        <a class="post-tag" href="javascript:void(0);" data-tags="编码解码">编码解码</a>
-        <a class="post-tag" href="javascript:void(0);" data-tags="图片隐写">图片隐写</a>
-        <a class="post-tag" href="javascript:void(0);" data-tags="LSB隐写">LSB隐写</a>
-</div>
-
             </div>
         </article>
         <div class="index-post-divider"></div>
