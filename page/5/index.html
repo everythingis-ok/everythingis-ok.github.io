@@ -766,6 +766,7 @@
         <body class="home-body">
         <!-- aurora background -->
         <div class="aurora-bg" aria-hidden="true">
+    <div class="aurora-bg-image"></div>
     <canvas id="aurora-canvas"></canvas>
 </div>
 
@@ -775,15 +776,40 @@
         inset: 0;
         z-index: -1;
         overflow: hidden;
-        filter: blur(70px) saturate(1.2);
-        opacity: 0.85;
         pointer-events: none;
+        background-color: #121212;  /* 深色兜底，图片加载失败时也不突兀 */
+    }
+
+    /* 深色背景图（极光/星空），仅深色模式显示 */
+    .aurora-bg-image {
+        position: absolute;
+        inset: 0;
+        background-image: url('https://images.unsplash.com/photo-1483347756197-71ef80e95f73?w=1920&q=80&auto=format&fit=crop');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+
+    html[data-preloader='dark'] .aurora-bg-image {
+        opacity: 0.55;
     }
 
     #aurora-canvas {
+        position: absolute;
+        inset: 0;
         width: 100%;
         height: 100%;
         display: block;
+        filter: blur(70px) saturate(1.2);
+        opacity: 0.85;
+    }
+
+    html[data-preloader='dark'] #aurora-canvas {
+        opacity: 0.95;
+        filter: blur(80px) saturate(1.4);
     }
 
     /* 让 body 背景透明，露出极光层 */
@@ -795,13 +821,10 @@
         background-color: transparent !important;
     }
 
-    html[data-preloader='dark'] .aurora-bg {
-        opacity: 0.95;
-        filter: blur(80px) saturate(1.4);
-    }
-
     @media (prefers-reduced-motion: reduce) {
-        .aurora-bg {
+        .aurora-bg,
+        .aurora-bg-image,
+        #aurora-canvas {
             display: none;
         }
         body {
@@ -814,9 +837,12 @@
 
     /* 移动端降低模糊半径，减少性能开销 */
     @media (max-width: 600px) {
-        .aurora-bg {
+        #aurora-canvas {
             filter: blur(50px) saturate(1.1);
             opacity: 0.7;
+        }
+        html[data-preloader='dark'] .aurora-bg-image {
+            opacity: 0.4;
         }
     }
 </style>
@@ -955,7 +981,7 @@
                 <i class="fas fa-laptop-code pl-card-icon"></i>
                 <span class="pl-card-name">CTF-Web</span>
                 <span class="pl-card-desc">Web 方向赛题 WriteUp</span>
-                <span class="pl-card-kids">注入与RCE · SSTI模板注入 · PHP杂谈 · 文件上传绕过 · Web综合WP · 文件包含</span>
+                <span class="pl-card-kids">文件上传绕过 · 注入与RCE · SSTI模板注入 · PHP杂谈 · Web综合WP · 文件包含</span>
                 
             </a>
         
@@ -985,7 +1011,7 @@
                 <i class="fas fa-puzzle-piece pl-card-icon"></i>
                 <span class="pl-card-name">Misc杂项</span>
                 <span class="pl-card-desc">隐写 · 编码 · 压缩包</span>
-                <span class="pl-card-kids">隐写术 · 编码与古典密码 · 压缩包与办公文件</span>
+                <span class="pl-card-kids">编码与古典密码 · 隐写术 · 压缩包与办公文件</span>
                 
             </a>
         
@@ -1889,10 +1915,6 @@ zip压缩包里面还有一个文件和之前的readme是一样的文件（已�
                 <span class="iconfont-archer">&#xe606;</span>
                 RCE
             </span>
-            <span class="sidebar-tag-name" data-tags="rce4">
-                <span class="iconfont-archer">&#xe606;</span>
-                rce4
-            </span>
             <span class="sidebar-tag-name" data-tags="编码">
                 <span class="iconfont-archer">&#xe606;</span>
                 编码
@@ -1904,6 +1926,10 @@ zip压缩包里面还有一个文件和之前的readme是一样的文件（已�
             <span class="sidebar-tag-name" data-tags="TGCTF">
                 <span class="iconfont-archer">&#xe606;</span>
                 TGCTF
+            </span>
+            <span class="sidebar-tag-name" data-tags="rce4">
+                <span class="iconfont-archer">&#xe606;</span>
+                rce4
             </span>
             <span class="sidebar-tag-name" data-tags="md5碰撞">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -2046,18 +2072,18 @@ zip压缩包里面还有一个文件和之前的readme是一样的文件（已�
 </style>
 <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
-        <span class="sidebar-category-name" data-categories="赛事WriteUp">
-            <span class="iconfont-archer">&#xe60a;</span>
-            赛事WriteUp
-            
-                <span class="sidebar-category-count">2</span>
-            
-        </span>
         <span class="sidebar-category-name" data-categories="CTF-Web">
             <span class="iconfont-archer">&#xe60a;</span>
             CTF-Web
             
                 <span class="sidebar-category-count">20</span>
+            
+        </span>
+        <span class="sidebar-category-name" data-categories="赛事WriteUp">
+            <span class="iconfont-archer">&#xe60a;</span>
+            赛事WriteUp
+            
+                <span class="sidebar-category-count">2</span>
             
         </span>
         <span class="sidebar-category-name" data-categories="我的项目">
@@ -2095,18 +2121,18 @@ zip压缩包里面还有一个文件和之前的readme是一样的文件（已�
                 <span class="sidebar-category-count">7</span>
             
         </span>
-        <span class="sidebar-category-name" data-categories="数字取证">
-            <span class="iconfont-archer">&#xe60a;</span>
-            数字取证
-            
-                <span class="sidebar-category-count">2</span>
-            
-        </span>
         <span class="sidebar-category-name" data-categories="编程开发">
             <span class="iconfont-archer">&#xe60a;</span>
             编程开发
             
                 <span class="sidebar-category-count">1</span>
+            
+        </span>
+        <span class="sidebar-category-name" data-categories="数字取证">
+            <span class="iconfont-archer">&#xe60a;</span>
+            数字取证
+            
+                <span class="sidebar-category-count">2</span>
             
         </span>
     </div>
