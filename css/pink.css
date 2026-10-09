@@ -98,6 +98,11 @@ html body .article-entry thead tr,
 html body .article-entry tbody tr:hover { background: rgba(238, 133, 181, 0.08); }
 html body .article-entry :not(pre) > code { color: #a63b68; background: rgba(238, 133, 181, 0.1); }
 html body .article-entry figure.highlight { border: 1px solid var(--pink-border); border-radius: 12px; }
+/* Clear each code-block surface without changing text opacity or token colors. */
+html body .article-entry pre,
+html body .article-entry figure.highlight,
+html body .article-entry .highlight :is(table, tbody, tr, td, pre, code),
+html body .article-entry .highlight tbody tr:hover { background: transparent; }
 html body .read-progress { background: var(--pink-accent); box-shadow: 0 0 8px var(--pink-bright); }
 html body .header-sidebar-menu,
 html body .header-sidebar-menu-black { color: var(--pink-accent); border-color: var(--pink-border); background: rgba(255, 245, 249, 0.88); }
