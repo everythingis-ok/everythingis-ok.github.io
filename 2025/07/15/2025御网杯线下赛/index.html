@@ -45,7 +45,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-15_10-54-46.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/PixPin_2025-07-15_10-59-31.png">
 <meta property="article:published_time" content="2025-07-15T05:50:45.000Z">
-<meta property="article:modified_time" content="2026-05-08T13:10:48.638Z">
+<meta property="article:modified_time" content="2026-10-08T11:34:53.022Z">
 <meta property="article:author" content="seora">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/everythingis-ok/image/main/image-20250714215154464.png">
@@ -219,6 +219,560 @@
     }
 </style>
 
+    
+<script>
+    (function () {
+        var mode = 'light';
+        try {
+            mode = localStorage.getItem('preferredThemeMode') ||
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        } catch (e) {}
+        document.documentElement.setAttribute('data-preloader', mode === 'dark' ? 'dark' : 'light');
+    })();
+</script>
+<style>
+    /* ========== elegant page preloader ========== */
+    html[data-preloader='dark'] {
+        background-color: #121212;
+    }
+
+    #page-preloader {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #ffffff;
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    html[data-preloader='dark'] #page-preloader {
+        background-color: #121212;
+    }
+
+    #page-preloader.is-leaving {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    /* top indeterminate progress bar */
+    .pl-progress {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 42%;
+        height: 2px;
+        border-radius: 0 2px 2px 0;
+        background: linear-gradient(90deg, rgba(247, 83, 87, 0), #f75357 55%, rgba(247, 83, 87, 0));
+        filter: progid:DXImageTransform.Microsoft.gradient(enabled='false');
+        box-shadow: 0 0 8px rgba(247, 83, 87, 0.55);
+        animation: pl-slide 1.15s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    }
+
+    @keyframes pl-slide {
+        0% {
+            transform: translateX(-110%);
+        }
+        100% {
+            transform: translateX(260%);
+        }
+    }
+
+    /* center content */
+    .pl-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        animation: pl-rise 0.6s ease-out both;
+        transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    @keyframes pl-rise {
+        from {
+            opacity: 0;
+            transform: translateY(14px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    #page-preloader.is-leaving .pl-inner {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.98);
+    }
+
+    /* dual-ring spinner */
+    .pl-ring {
+        position: relative;
+        width: 56px;
+        height: 56px;
+        margin-bottom: 1.2rem;
+    }
+
+    .pl-ring::before,
+    .pl-ring::after,
+    .pl-ring i {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+    }
+
+    .pl-ring::before {
+        inset: 0;
+        border: 2px solid rgba(0, 0, 0, 0.08);
+    }
+
+    html[data-preloader='dark'] .pl-ring::before {
+        border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .pl-ring::after {
+        inset: 0;
+        border: 2px solid transparent;
+        border-top-color: #f75357;
+        box-shadow: 0 -2px 8px rgba(247, 83, 87, 0.35);
+        animation: pl-spin 0.85s cubic-bezier(0.55, 0.15, 0.45, 0.85) infinite;
+    }
+
+    .pl-ring i {
+        inset: 9px;
+        border: 2px solid transparent;
+        border-bottom-color: rgba(0, 0, 0, 0.18);
+        animation: pl-spin-rev 1.6s linear infinite;
+    }
+
+    html[data-preloader='dark'] .pl-ring i {
+        border-bottom-color: rgba(255, 255, 255, 0.28);
+    }
+
+    @keyframes pl-spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes pl-spin-rev {
+        to {
+            transform: rotate(-360deg);
+        }
+    }
+
+    /* title & hint */
+    .pl-title {
+        margin: 0 0 0.55rem;
+        font-family: 'Oswald-Regular', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        font-size: 1.05rem;
+        font-weight: normal;
+        letter-spacing: 0.35em;
+        text-indent: 0.35em;
+        text-transform: uppercase;
+        white-space: nowrap;
+        max-width: 72vw;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #3a3a3a;
+    }
+
+    html[data-preloader='dark'] .pl-title {
+        color: rgba(255, 255, 255, 0.87);
+    }
+
+    .pl-hint {
+        margin: 0;
+        font-size: 0.7rem;
+        letter-spacing: 0.28em;
+        text-indent: 0.28em;
+        color: #b5b5b5;
+    }
+
+    html[data-preloader='dark'] .pl-hint {
+        color: rgba(255, 255, 255, 0.4);
+    }
+
+    .pl-dots {
+        display: inline-block;
+        letter-spacing: 0.08em;
+    }
+
+    .pl-dots i {
+        font-style: normal;
+        opacity: 0.25;
+        animation: pl-blink 1.4s ease-in-out infinite;
+    }
+
+    .pl-dots i:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .pl-dots i:nth-child(3) {
+        animation-delay: 0.4s;
+    }
+
+    @keyframes pl-blink {
+        0%, 100% {
+            opacity: 0.25;
+        }
+        40% {
+            opacity: 1;
+        }
+    }
+
+    /* ========== category gate ========== */
+    #page-preloader.pl-gate {
+        flex-direction: column;
+        padding: 5vh 16px 84px;
+        overflow-y: auto;
+    }
+
+    .pl-gate-head {
+        text-align: center;
+        margin-bottom: 1.4rem;
+        animation: pl-gate-in 0.5s ease-out both;
+    }
+
+    .pl-gate-eyebrow {
+        margin: 0 0 0.45rem;
+        font-size: 0.68rem;
+        letter-spacing: 0.42em;
+        text-indent: 0.42em;
+        color: #f75357;
+        font-family: 'Oswald-Regular', sans-serif;
+    }
+
+    .pl-gate-title {
+        margin: 0 0 0.5rem;
+        font-family: 'Oswald-Regular', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        font-size: 1.55rem;
+        font-weight: normal;
+        color: #2b2b2b;
+    }
+
+    .pl-gate-sub {
+        margin: 0;
+        font-size: 0.78rem;
+        color: #9a9a9a;
+        letter-spacing: 0.05em;
+    }
+
+    html[data-preloader='dark'] .pl-gate-title {
+        color: rgba(255, 255, 255, 0.92);
+    }
+
+    html[data-preloader='dark'] .pl-gate-sub {
+        color: rgba(255, 255, 255, 0.45);
+    }
+
+    .pl-gate-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+        gap: 12px;
+        width: min(712px, 100%);
+        max-height: 64vh;
+        overflow-y: auto;
+        padding: 4px;
+        align-content: center;
+    }
+
+    .pl-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        min-height: 128px;
+        padding: 18px 12px 14px;
+        border: 1px solid rgba(0, 0, 0, 0.09);
+        border-radius: 14px;
+        background-color: rgba(255, 255, 255, 0.6);
+        color: inherit;
+        text-decoration: none;
+        cursor: pointer;
+        transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+        animation: pl-gate-in 0.5s ease-out both;
+    }
+
+    html[data-preloader='dark'] .pl-card {
+        border-color: rgba(255, 255, 255, 0.12);
+        background-color: rgba(255, 255, 255, 0.035);
+    }
+
+    .pl-card:nth-child(1) { animation-delay: 0.03s; }
+    .pl-card:nth-child(2) { animation-delay: 0.07s; }
+    .pl-card:nth-child(3) { animation-delay: 0.11s; }
+    .pl-card:nth-child(4) { animation-delay: 0.15s; }
+    .pl-card:nth-child(5) { animation-delay: 0.19s; }
+    .pl-card:nth-child(6) { animation-delay: 0.23s; }
+    .pl-card:nth-child(7) { animation-delay: 0.27s; }
+    .pl-card:nth-child(8) { animation-delay: 0.31s; }
+    .pl-card:nth-child(9) { animation-delay: 0.35s; }
+    .pl-card:nth-child(10) { animation-delay: 0.39s; }
+
+    @keyframes pl-gate-in {
+        from {
+            opacity: 0;
+            transform: translateY(14px) scale(0.98);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    .pl-card:hover,
+    .pl-card:focus-visible {
+        outline: none;
+        transform: translateY(-3px);
+        border-color: rgba(247, 83, 87, 0.55);
+        box-shadow: 0 10px 24px -12px rgba(247, 83, 87, 0.45);
+        background-color: #fff;
+    }
+
+    html[data-preloader='dark'] .pl-card:hover,
+    html[data-preloader='dark'] .pl-card:focus-visible {
+        background-color: rgba(255, 255, 255, 0.07);
+    }
+
+    .pl-card-icon {
+        font-size: 1.35rem;
+        margin-bottom: 0.55rem;
+        color: #5a5a5a;
+        transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    html[data-preloader='dark'] .pl-card-icon {
+        color: rgba(255, 255, 255, 0.75);
+    }
+
+    .pl-card:hover .pl-card-icon {
+        color: #f75357;
+        transform: scale(1.08);
+    }
+
+    .pl-card-name {
+        font-size: 0.92rem;
+        font-weight: 600;
+        color: #2b2b2b;
+        line-height: 1.3;
+    }
+
+    html[data-preloader='dark'] .pl-card-name {
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .pl-card-desc {
+        margin-top: 0.3rem;
+        font-size: 0.68rem;
+        color: #9a9a9a;
+        line-height: 1.4;
+    }
+
+    html[data-preloader='dark'] .pl-card-desc {
+        color: rgba(255, 255, 255, 0.42);
+    }
+
+    .pl-card-kids {
+        margin-top: 0.55rem;
+        max-width: 100%;
+        font-size: 0.62rem;
+        color: #b5b5b5;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .pl-card-count {
+        position: absolute;
+        top: 8px;
+        right: 10px;
+        font-size: 0.62rem;
+        color: #bcbcbc;
+    }
+
+    html[data-preloader='dark'] .pl-card-count {
+        color: rgba(255, 255, 255, 0.35);
+    }
+
+    .pl-card-badge {
+        position: absolute;
+        top: -8px;
+        left: -6px;
+        padding: 2px 8px;
+        border-radius: 999px;
+        background: #f75357;
+        color: #fff;
+        font-size: 0.6rem;
+        font-weight: bold;
+        letter-spacing: 0.08em;
+        box-shadow: 0 4px 10px -3px rgba(247, 83, 87, 0.7);
+    }
+
+    .pl-card-accent {
+        border-color: rgba(247, 83, 87, 0.4);
+    }
+
+    .pl-card-accent .pl-card-icon {
+        color: #f75357;
+    }
+
+    .pl-card-repo {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        margin-top: 0.55rem;
+        padding: 2px 10px;
+        border: 1px solid rgba(247, 83, 87, 0.45);
+        border-radius: 999px;
+        font-size: 0.66rem;
+        color: #f75357;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .pl-card-repo:hover {
+        background: #f75357;
+        color: #fff;
+    }
+
+    .pl-card-lucky {
+        border-style: dashed;
+        background: transparent;
+        font-family: inherit;
+    }
+
+    .pl-card-lucky .pl-card-icon {
+        color: #b0b0b0;
+    }
+
+    .pl-card-lucky:hover .pl-card-icon {
+        color: #f75357;
+    }
+
+    /* countdown skip ring */
+    .pl-skip {
+        position: fixed;
+        right: 26px;
+        bottom: 22px;
+        display: block;
+        padding: 0;
+        border: 0;
+        background: none;
+        cursor: pointer;
+        color: #8a8a8a;
+        z-index: 1;
+        animation: pl-gate-in 0.5s 0.4s ease-out both;
+    }
+
+    html[data-preloader='dark'] .pl-skip {
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .pl-skip-svg {
+        display: block;
+        width: 52px;
+        height: 52px;
+    }
+
+    .pl-skip-track {
+        fill: none;
+        stroke: rgba(0, 0, 0, 0.08);
+        stroke-width: 2.5;
+    }
+
+    html[data-preloader='dark'] .pl-skip-track {
+        stroke: rgba(255, 255, 255, 0.14);
+    }
+
+    .pl-skip-bar {
+        fill: none;
+        stroke: #f75357;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-dasharray: 100;
+        stroke-dashoffset: 0;
+        transform-box: fill-box;
+        transform-origin: center;
+        transform: rotate(-90deg);
+    }
+
+    .pl-skip-num {
+        fill: currentColor;
+        font-family: 'Oswald-Regular', sans-serif;
+        font-size: 16px;
+    }
+
+    .pl-skip-label {
+        display: block;
+        margin-top: 2px;
+        font-size: 0.6rem;
+        letter-spacing: 0.12em;
+        color: #b0b0b0;
+    }
+
+    html[data-preloader='dark'] .pl-skip-label {
+        color: rgba(255, 255, 255, 0.4);
+    }
+
+    .pl-skip:hover .pl-skip-bar {
+        stroke-width: 3.2;
+    }
+
+    #page-preloader.is-paused .pl-skip-bar {
+        opacity: 0.45;
+    }
+
+    @media (max-width: 600px) {
+        #page-preloader.pl-gate {
+            padding: 3.5vh 12px 76px;
+        }
+        .pl-gate-title {
+            font-size: 1.25rem;
+        }
+        .pl-gate-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .pl-card {
+            min-height: 112px;
+            padding: 14px 8px 12px;
+        }
+        .pl-card-kids {
+            display: none;
+        }
+        .pl-skip {
+            right: 14px;
+            bottom: 12px;
+        }
+        .pl-skip-label {
+            display: none;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .pl-progress,
+        .pl-inner,
+        .pl-ring::after,
+        .pl-ring i,
+        .pl-dots i,
+        .pl-gate-head,
+        .pl-card,
+        .pl-skip {
+            animation: none !important;
+        }
+        #page-preloader,
+        .pl-inner,
+        .pl-card {
+            transition: opacity 0.2s linear;
+        }
+    }
+</style>
+
     <link id="stylesheet-fancybox" rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link id="stylesheet-base" rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link id="stylesheet-mobile" rel="preload" href="/css/mobile.css" as="style" onload="this.onload=null;this.rel='stylesheet';this.media='screen and (max-width: 960px)'">
@@ -242,6 +796,60 @@
         }
     </script>
         <body class="post-body">
+        <!-- elegant page preloader -->
+        
+
+<div id="page-preloader" role="status" aria-live="polite" aria-label="Loading">
+    <div class="pl-progress"></div>
+    <div class="pl-inner">
+        <div class="pl-ring"><i></i></div>
+        <p class="pl-title">seora&#39;s Studio</p>
+        <p class="pl-hint">LOADING<span class="pl-dots"><i>.</i><i>.</i><i>.</i></span></p>
+    </div>
+</div>
+<script>
+    (function () {
+        var el = document.getElementById('page-preloader');
+        if (!el) return;
+
+        var start = Date.now();
+        var done = false;
+        // minimum visible time to avoid flicker on very fast loads
+        var MIN_VISIBLE = 350;
+        // hard fallback in case window 'load' never fires (blocked trackers, etc.)
+        var MAX_VISIBLE = 4500;
+
+        function leave() {
+            if (done) return;
+            done = true;
+            var wait = Math.max(0, MIN_VISIBLE - (Date.now() - start));
+            setTimeout(function () {
+                el.classList.add('is-leaving');
+                setTimeout(function () {
+                    if (el.parentNode) el.parentNode.removeChild(el);
+                }, 600);
+            }, wait);
+        }
+
+        if (document.readyState === 'complete') {
+            leave();
+        } else {
+            window.addEventListener('load', function () {
+                setTimeout(leave, 120);
+            });
+        }
+
+        // bfcache restore
+        window.addEventListener('pageshow', function (e) {
+            if (e.persisted) leave();
+        });
+
+        // safety cap
+        setTimeout(leave, MAX_VISIBLE);
+    })();
+</script>
+
+
         <!-- header -->
         <header class="header header-mobile">
     <!-- top read progress line -->
@@ -492,7 +1100,6 @@
   )
 </script>
 
-            <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" alt="loading">
             <div class="container container-unloaded">
                 <main class="main post-page">
     <article class="article-entry">
@@ -563,8 +1170,8 @@
         <div class="license-wrapper">
             <p>原文作者：<a href="https://everythingis-ok.github.io">seora</a>
             <p>原文链接：<a href="https://everythingis-ok.github.io/2025/07/15/2025%E5%BE%A1%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8B%E8%B5%9B/">https://everythingis-ok.github.io/2025/07/15/2025%E5%BE%A1%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8B%E8%B5%9B/</a>
-            <p>发表日期：<a href="https://everythingis-ok.github.io/2025/07/15/2025%E5%BE%A1%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8B%E8%B5%9B/">七月 15日 2025, 1:50:45 下午</a>
-            <p>更新日期：<a href="https://everythingis-ok.github.io/2025/07/15/2025%E5%BE%A1%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8B%E8%B5%9B/">May 8th 2026, 9:10:48 pm</a>
+            <p>发表日期：<a href="https://everythingis-ok.github.io/2025/07/15/2025%E5%BE%A1%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8B%E8%B5%9B/">July 15th 2025, 1:50:45 pm</a>
+            <p>更新日期：<a href="https://everythingis-ok.github.io/2025/07/15/2025%E5%BE%A1%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8B%E8%B5%9B/">October 8th 2026, 7:34:53 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     <!-- paginator -->
@@ -689,15 +1296,20 @@
         
         
         
+        
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 43
+        Total : 44
         </div>
         <!-- search  -->
     </div>
     <div class="post-archive">
             <div class="archive-year"> 2026 </div>
             <ul class="year-list">
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/08</span>
+            <a class="archive-post-title" href="/2026/10/08/DOVideo-AI%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/">DOVideo-AI · 面向长视频理解的 Video Agent</a>
+        </li>
         <li class="archive-post-item">
             <span class="archive-post-date">08/05</span>
             <a class="archive-post-title" href="/2026/08/05/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">苍穹外卖项目总结</a>
@@ -708,7 +1320,7 @@
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">05/24</span>
-            <a class="archive-post-title" href="/2026/05/24/%C2%96-NSSRound-6-Team-%E9%A2%98%E7%9B%AE%E5%A4%8D%E7%8E%B0/">[NSSRound#6 Team] 题目复现</a>
+            <a class="archive-post-title" href="/2026/05/24/NSSRound-6-Team-%E9%A2%98%E7%9B%AE%E5%A4%8D%E7%8E%B0/">[NSSRound#6 Team] 题目复现</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">05/08</span>
@@ -719,11 +1331,11 @@
             <ul class="year-list">
         <li class="archive-post-item">
             <span class="archive-post-date">12/14</span>
-            <a class="archive-post-title" href="/2025/12/14/polarCTFweb%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95-02/">polarCTFweb刷题记录(简单)02</a>
+            <a class="archive-post-title" href="/2025/12/14/polarCTFweb%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95/">polarCTFweb刷题记录(简单)</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">12/14</span>
-            <a class="archive-post-title" href="/2025/12/14/polarCTFweb%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95/">polarCTFweb刷题记录(简单)</a>
+            <a class="archive-post-title" href="/2025/12/14/polarCTFweb%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95-02/">polarCTFweb刷题记录(简单)02</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">12/11</span>
@@ -759,7 +1371,7 @@
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">10/23</span>
-            <a class="archive-post-title" href="/2025/10/23/%C2%96SWPUCTF-2022-%E6%96%B0%E7%94%9F%E8%B5%9B-%E5%A5%87%E5%A6%99%E7%9A%84MD5/">[SWPUCTF 2022 新生赛]奇妙的MD5</a>
+            <a class="archive-post-title" href="/2025/10/23/SWPUCTF-2022-%E6%96%B0%E7%94%9F%E8%B5%9B-%E5%A5%87%E5%A6%99%E7%9A%84MD5/">[SWPUCTF 2022 新生赛]奇妙的MD5</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">10/23</span>
@@ -779,7 +1391,7 @@
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">10/19</span>
-            <a class="archive-post-title" href="/2025/10/19/%C2%96%E5%BC%BA%E7%BD%91%E6%9D%AF-2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8-1%E3%80%90SQL%E6%B3%A8%E5%85%A5%E3%80%91/">[强网杯 2019]随便注 1【SQL注入】</a>
+            <a class="archive-post-title" href="/2025/10/19/%E5%BC%BA%E7%BD%91%E6%9D%AF-2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8-1%E3%80%90SQL%E6%B3%A8%E5%85%A5%E3%80%91/">[强网杯 2019]随便注 1【SQL注入】</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">10/18</span>
@@ -882,6 +1494,10 @@
 
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
+            <span class="sidebar-tag-name" data-tags="文件上传">
+                <span class="iconfont-archer">&#xe606;</span>
+                文件上传
+            </span>
             <span class="sidebar-tag-name" data-tags="00截断">
                 <span class="iconfont-archer">&#xe606;</span>
                 00截断
@@ -889,10 +1505,6 @@
             <span class="sidebar-tag-name" data-tags="CTFhub">
                 <span class="iconfont-archer">&#xe606;</span>
                 CTFhub
-            </span>
-            <span class="sidebar-tag-name" data-tags="文件上传">
-                <span class="iconfont-archer">&#xe606;</span>
-                文件上传
             </span>
             <span class="sidebar-tag-name" data-tags="Ctfhub">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -905,6 +1517,30 @@
             <span class="sidebar-tag-name" data-tags="MIME绕过">
                 <span class="iconfont-archer">&#xe606;</span>
                 MIME绕过
+            </span>
+            <span class="sidebar-tag-name" data-tags="Java">
+                <span class="iconfont-archer">&#xe606;</span>
+                Java
+            </span>
+            <span class="sidebar-tag-name" data-tags="Spring Boot">
+                <span class="iconfont-archer">&#xe606;</span>
+                Spring Boot
+            </span>
+            <span class="sidebar-tag-name" data-tags="Vue">
+                <span class="iconfont-archer">&#xe606;</span>
+                Vue
+            </span>
+            <span class="sidebar-tag-name" data-tags="LangChain4j">
+                <span class="iconfont-archer">&#xe606;</span>
+                LangChain4j
+            </span>
+            <span class="sidebar-tag-name" data-tags="Video Agent">
+                <span class="iconfont-archer">&#xe606;</span>
+                Video Agent
+            </span>
+            <span class="sidebar-tag-name" data-tags="RAG">
+                <span class="iconfont-archer">&#xe606;</span>
+                RAG
             </span>
             <span class="sidebar-tag-name" data-tags="php代码审计">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -922,18 +1558,6 @@
                 <span class="iconfont-archer">&#xe606;</span>
                 Linux命令
             </span>
-            <span class="sidebar-tag-name" data-tags="NTFS数据隐写">
-                <span class="iconfont-archer">&#xe606;</span>
-                NTFS数据隐写
-            </span>
-            <span class="sidebar-tag-name" data-tags="python反编译">
-                <span class="iconfont-archer">&#xe606;</span>
-                python反编译
-            </span>
-            <span class="sidebar-tag-name" data-tags="RCE">
-                <span class="iconfont-archer">&#xe606;</span>
-                RCE
-            </span>
             <span class="sidebar-tag-name" data-tags="NSSCTF">
                 <span class="iconfont-archer">&#xe606;</span>
                 NSSCTF
@@ -942,13 +1566,29 @@
                 <span class="iconfont-archer">&#xe606;</span>
                 隐写
             </span>
-            <span class="sidebar-tag-name" data-tags="编码">
+            <span class="sidebar-tag-name" data-tags="RCE">
                 <span class="iconfont-archer">&#xe606;</span>
-                编码
+                RCE
+            </span>
+            <span class="sidebar-tag-name" data-tags="NTFS数据隐写">
+                <span class="iconfont-archer">&#xe606;</span>
+                NTFS数据隐写
+            </span>
+            <span class="sidebar-tag-name" data-tags="python反编译">
+                <span class="iconfont-archer">&#xe606;</span>
+                python反编译
             </span>
             <span class="sidebar-tag-name" data-tags="rce4">
                 <span class="iconfont-archer">&#xe606;</span>
                 rce4
+            </span>
+            <span class="sidebar-tag-name" data-tags="编码">
+                <span class="iconfont-archer">&#xe606;</span>
+                编码
+            </span>
+            <span class="sidebar-tag-name" data-tags="md5碰撞">
+                <span class="iconfont-archer">&#xe606;</span>
+                md5碰撞
             </span>
             <span class="sidebar-tag-name" data-tags="压缩包修复">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -962,10 +1602,6 @@
                 <span class="iconfont-archer">&#xe606;</span>
                 XXE
             </span>
-            <span class="sidebar-tag-name" data-tags="create_function()函数">
-                <span class="iconfont-archer">&#xe606;</span>
-                create_function()函数
-            </span>
             <span class="sidebar-tag-name" data-tags="php反序列化">
                 <span class="iconfont-archer">&#xe606;</span>
                 php反序列化
@@ -973,6 +1609,10 @@
             <span class="sidebar-tag-name" data-tags="pop链构造">
                 <span class="iconfont-archer">&#xe606;</span>
                 pop链构造
+            </span>
+            <span class="sidebar-tag-name" data-tags="create_function()函数">
+                <span class="iconfont-archer">&#xe606;</span>
+                create_function()函数
             </span>
             <span class="sidebar-tag-name" data-tags="SSTI">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -982,10 +1622,6 @@
                 <span class="iconfont-archer">&#xe606;</span>
                 提权
             </span>
-            <span class="sidebar-tag-name" data-tags="NewStarCTF2024">
-                <span class="iconfont-archer">&#xe606;</span>
-                NewStarCTF2024
-            </span>
             <span class="sidebar-tag-name" data-tags="polarctf">
                 <span class="iconfont-archer">&#xe606;</span>
                 polarctf
@@ -993,6 +1629,10 @@
             <span class="sidebar-tag-name" data-tags="session文件包含">
                 <span class="iconfont-archer">&#xe606;</span>
                 session文件包含
+            </span>
+            <span class="sidebar-tag-name" data-tags="NewStarCTF2024">
+                <span class="iconfont-archer">&#xe606;</span>
+                NewStarCTF2024
             </span>
             <span class="sidebar-tag-name" data-tags="编码解码">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -1006,17 +1646,21 @@
                 <span class="iconfont-archer">&#xe606;</span>
                 LSB隐写
             </span>
-            <span class="sidebar-tag-name" data-tags="md5碰撞">
+            <span class="sidebar-tag-name" data-tags="SQL注入">
                 <span class="iconfont-archer">&#xe606;</span>
-                md5碰撞
+                SQL注入
+            </span>
+            <span class="sidebar-tag-name" data-tags="RCE绕过">
+                <span class="iconfont-archer">&#xe606;</span>
+                RCE绕过
+            </span>
+            <span class="sidebar-tag-name" data-tags="信息泄露">
+                <span class="iconfont-archer">&#xe606;</span>
+                信息泄露
             </span>
             <span class="sidebar-tag-name" data-tags="堆叠注入">
                 <span class="iconfont-archer">&#xe606;</span>
                 堆叠注入
-            </span>
-            <span class="sidebar-tag-name" data-tags="SQL注入">
-                <span class="iconfont-archer">&#xe606;</span>
-                SQL注入
             </span>
             <span class="sidebar-tag-name" data-tags="报错注入">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -1033,14 +1677,6 @@
             <span class="sidebar-tag-name" data-tags="handel语句">
                 <span class="iconfont-archer">&#xe606;</span>
                 handel语句
-            </span>
-            <span class="sidebar-tag-name" data-tags="RCE绕过">
-                <span class="iconfont-archer">&#xe606;</span>
-                RCE绕过
-            </span>
-            <span class="sidebar-tag-name" data-tags="信息泄露">
-                <span class="iconfont-archer">&#xe606;</span>
-                信息泄露
             </span>
             <span class="sidebar-tag-name" data-tags="文件包含">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -1084,17 +1720,105 @@
 
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
-        <span class="sidebar-category-name" data-categories="web">
+        <span class="sidebar-category-name" data-categories="赛事WriteUp">
             <span class="iconfont-archer">&#xe60a;</span>
-            web
+            赛事WriteUp
+        </span>
+        <span class="sidebar-category-name" data-categories="CTF-Web">
+            <span class="iconfont-archer">&#xe60a;</span>
+            CTF-Web
+        </span>
+        <span class="sidebar-category-name" data-categories="全方向综合WP">
+            <span class="iconfont-archer">&#xe60a;</span>
+            全方向综合WP
+        </span>
+        <span class="sidebar-category-name" data-categories="我的项目">
+            <span class="iconfont-archer">&#xe60a;</span>
+            我的项目
+        </span>
+        <span class="sidebar-category-name" data-categories="注入与RCE">
+            <span class="iconfont-archer">&#xe60a;</span>
+            注入与RCE
+        </span>
+        <span class="sidebar-category-name" data-categories="PHP杂谈">
+            <span class="iconfont-archer">&#xe60a;</span>
+            PHP杂谈
+        </span>
+        <span class="sidebar-category-name" data-categories="SSTI模板注入">
+            <span class="iconfont-archer">&#xe60a;</span>
+            SSTI模板注入
+        </span>
+        <span class="sidebar-category-name" data-categories="文件上传绕过">
+            <span class="iconfont-archer">&#xe60a;</span>
+            文件上传绕过
         </span>
         <span class="sidebar-category-name" data-categories="博客搭建">
             <span class="iconfont-archer">&#xe60a;</span>
             博客搭建
         </span>
-        <span class="sidebar-category-name" data-categories="misc">
+        <span class="sidebar-category-name" data-categories="Linux与运维">
             <span class="iconfont-archer">&#xe60a;</span>
-            misc
+            Linux与运维
+        </span>
+        <span class="sidebar-category-name" data-categories="Web综合WP">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Web综合WP
+        </span>
+        <span class="sidebar-category-name" data-categories="Misc杂项">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Misc杂项
+        </span>
+        <span class="sidebar-category-name" data-categories="Web安全">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Web安全
+        </span>
+        <span class="sidebar-category-name" data-categories="AI视频">
+            <span class="iconfont-archer">&#xe60a;</span>
+            AI视频
+        </span>
+        <span class="sidebar-category-name" data-categories="基础与环境">
+            <span class="iconfont-archer">&#xe60a;</span>
+            基础与环境
+        </span>
+        <span class="sidebar-category-name" data-categories="隐写术">
+            <span class="iconfont-archer">&#xe60a;</span>
+            隐写术
+        </span>
+        <span class="sidebar-category-name" data-categories="漏洞原理笔记">
+            <span class="iconfont-archer">&#xe60a;</span>
+            漏洞原理笔记
+        </span>
+        <span class="sidebar-category-name" data-categories="编码与古典密码">
+            <span class="iconfont-archer">&#xe60a;</span>
+            编码与古典密码
+        </span>
+        <span class="sidebar-category-name" data-categories="压缩包与办公文件">
+            <span class="iconfont-archer">&#xe60a;</span>
+            压缩包与办公文件
+        </span>
+        <span class="sidebar-category-name" data-categories="PHP与反序列化">
+            <span class="iconfont-archer">&#xe60a;</span>
+            PHP与反序列化
+        </span>
+        <span class="sidebar-category-name" data-categories="文件包含">
+            <span class="iconfont-archer">&#xe60a;</span>
+            文件包含
+        </span>
+        <span class="sidebar-category-name" data-categories="编程开发">
+            <span class="iconfont-archer">&#xe60a;</span>
+            编程开发
+        </span>
+        <span class="sidebar-category-name" data-categories="数字取证">
+            <span class="iconfont-archer">&#xe60a;</span>
+            数字取证
+        </span>
+        <span class="sidebar-category-name" data-categories="Java">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Java
+        </span>
+        <span class="sidebar-category-name" data-categories="应急响应取证">
+            <span class="iconfont-archer">&#xe60a;</span>
+            应急响应取证
         </span>
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
