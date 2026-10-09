@@ -763,6 +763,180 @@
             document.write('<script src="/lib/jquery.min.js" />')
         }
     </script>
+        <!-- aurora background -->
+        <div class="aurora-bg" aria-hidden="true">
+    <canvas id="aurora-canvas"></canvas>
+</div>
+
+<style>
+    .aurora-bg {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        overflow: hidden;
+        filter: blur(70px) saturate(1.2);
+        opacity: 0.85;
+        pointer-events: none;
+    }
+
+    #aurora-canvas {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    /* 让 body 背景透明，露出极光层 */
+    body {
+        background-color: transparent !important;
+    }
+
+    .container {
+        background-color: transparent !important;
+    }
+
+    html[data-preloader='dark'] .aurora-bg {
+        opacity: 0.95;
+        filter: blur(80px) saturate(1.4);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .aurora-bg {
+            display: none;
+        }
+        body {
+            background-color: #fff !important;
+        }
+        html[data-preloader='dark'] body {
+            background-color: #121212 !important;
+        }
+    }
+
+    /* 移动端降低模糊半径，减少性能开销 */
+    @media (max-width: 600px) {
+        .aurora-bg {
+            filter: blur(50px) saturate(1.1);
+            opacity: 0.7;
+        }
+    }
+</style>
+
+<script>
+    (function () {
+        var canvas = document.getElementById('aurora-canvas');
+        if (!canvas) return;
+        var ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        var dpr = Math.min(window.devicePixelRatio || 1, 2);
+        var W = 0, H = 0;
+
+        function resize() {
+            W = window.innerWidth;
+            H = window.innerHeight;
+            canvas.width = W * dpr;
+            canvas.height = H * dpr;
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        // 深浅色配色：浅色用低饱和粉橙紫，深色用高饱和
+        var isDark = document.documentElement.getAttribute('data-preloader') === 'dark'
+            || localStorage.getItem('preferredThemeMode') === 'dark';
+
+        function getColors() {
+            isDark = document.documentElement.getAttribute('data-preloader') === 'dark'
+                || localStorage.getItem('preferredThemeMode') === 'dark';
+            return isDark
+                ? [
+                    { r: 247, g: 83, b: 87, a: 0.55 },   // 主题红
+                    { r: 120, g: 81, b: 255, a: 0.45 },   // 紫
+                    { r: 0, g: 180, b: 216, a: 0.40 },    // 青
+                    { r: 255, g: 154, b: 0, a: 0.35 },    // 橙
+                  ]
+                : [
+                    { r: 247, g: 83, b: 87, a: 0.22 },
+                    { r: 120, g: 81, b: 255, a: 0.18 },
+                    { r: 0, g: 180, b: 216, a: 0.16 },
+                    { r: 255, g: 154, b: 0, a: 0.14 },
+                  ];
+        }
+
+        var blobs = [];
+        function initBlobs() {
+            var colors = getColors();
+            blobs = colors.map(function (c, i) {
+                return {
+                    x: Math.random() * W,
+                    y: Math.random() * H,
+                    r: Math.max(W, H) * (0.35 + Math.random() * 0.3),
+                    vx: (Math.random() - 0.5) * 0.25,
+                    vy: (Math.random() - 0.5) * 0.25,
+                    color: c,
+                    phase: Math.random() * Math.PI * 2,
+                };
+            });
+        }
+        initBlobs();
+
+        var t = 0;
+        var running = true;
+
+        function draw() {
+            if (!running) return;
+            ctx.clearRect(0, 0, W, H);
+            t += 0.003;
+
+            blobs.forEach(function (b) {
+                b.x += b.vx + Math.sin(t + b.phase) * 0.3;
+                b.y += b.vy + Math.cos(t + b.phase) * 0.3;
+
+                // 边界环绕
+                if (b.x < -b.r) b.x = W + b.r;
+                if (b.x > W + b.r) b.x = -b.r;
+                if (b.y < -b.r) b.y = H + b.r;
+                if (b.y > H + b.r) b.y = -b.r;
+
+                var g = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, b.r);
+                var c = b.color;
+                g.addColorStop(0, 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',' + c.a + ')');
+                g.addColorStop(1, 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',0)');
+                ctx.fillStyle = g;
+                ctx.beginPath();
+                ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            requestAnimationFrame(draw);
+        }
+
+        requestAnimationFrame(draw);
+
+        // 标签页隐藏时暂停，节省资源
+        document.addEventListener('visibilitychange', function () {
+            if (document.hidden) {
+                running = false;
+            } else {
+                running = true;
+                requestAnimationFrame(draw);
+            }
+        });
+
+        // 深浅色切换时重新初始化配色
+        var observer = new MutationObserver(function () {
+            var nowDark = document.documentElement.getAttribute('data-preloader') === 'dark';
+            if (nowDark !== isDark) {
+                isDark = nowDark;
+                var colors = getColors();
+                blobs.forEach(function (b, i) {
+                    b.color = colors[i];
+                });
+            }
+        });
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-preloader'] });
+    })();
+</script>
+
         <!-- elegant page preloader -->
         
 
@@ -1416,10 +1590,6 @@
                 <span class="iconfont-archer">&#xe606;</span>
                 编码
             </span>
-            <span class="sidebar-tag-name" data-tags="md5碰撞">
-                <span class="iconfont-archer">&#xe606;</span>
-                md5碰撞
-            </span>
             <span class="sidebar-tag-name" data-tags="压缩包修复">
                 <span class="iconfont-archer">&#xe606;</span>
                 压缩包修复
@@ -1427,6 +1597,10 @@
             <span class="sidebar-tag-name" data-tags="TGCTF">
                 <span class="iconfont-archer">&#xe606;</span>
                 TGCTF
+            </span>
+            <span class="sidebar-tag-name" data-tags="md5碰撞">
+                <span class="iconfont-archer">&#xe606;</span>
+                md5碰撞
             </span>
             <span class="sidebar-tag-name" data-tags="XXE">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -1476,10 +1650,6 @@
                 <span class="iconfont-archer">&#xe606;</span>
                 LSB隐写
             </span>
-            <span class="sidebar-tag-name" data-tags="信息泄露">
-                <span class="iconfont-archer">&#xe606;</span>
-                信息泄露
-            </span>
             <span class="sidebar-tag-name" data-tags="SQL注入">
                 <span class="iconfont-archer">&#xe606;</span>
                 SQL注入
@@ -1487,6 +1657,10 @@
             <span class="sidebar-tag-name" data-tags="RCE绕过">
                 <span class="iconfont-archer">&#xe606;</span>
                 RCE绕过
+            </span>
+            <span class="sidebar-tag-name" data-tags="信息泄露">
+                <span class="iconfont-archer">&#xe606;</span>
+                信息泄露
             </span>
             <span class="sidebar-tag-name" data-tags="堆叠注入">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -1654,6 +1828,93 @@
 
         <!-- main func -->
         <script src="/scripts/main.js"></script>
+        <!-- spotlight hover effect -->
+        <style>
+    /* 聚光灯悬停效果：鼠标在卡片内移动时产生跟随光晕 */
+    .index-post {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .index-post::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: radial-gradient(
+            320px circle at var(--mx, 50%) var(--my, 50%),
+            rgba(247, 83, 87, 0.10),
+            transparent 60%
+        );
+        opacity: 0;
+        transition: opacity 0.25s ease;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .index-post:hover::before {
+        opacity: 1;
+    }
+
+    /* 让卡片内容在光晕之上 */
+    .index-post > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    html[data-preloader='dark'] .index-post::before {
+        background: radial-gradient(
+            320px circle at var(--mx, 50%) var(--my, 50%),
+            rgba(247, 83, 87, 0.18),
+            transparent 60%
+        );
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .index-post::before {
+            display: none;
+        }
+    }
+</style>
+
+<script>
+    (function () {
+        function bindSpotlight(el) {
+            el.addEventListener('mousemove', function (e) {
+                var rect = el.getBoundingClientRect();
+                el.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
+                el.style.setProperty('--my', (e.clientY - rect.top) + 'px');
+            });
+            el.addEventListener('mouseleave', function () {
+                el.style.setProperty('--mx', '50%');
+                el.style.setProperty('--my', '50%');
+            });
+        }
+
+        function init() {
+            document.querySelectorAll('.index-post').forEach(bindSpotlight);
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+        // 监听首页无限加载/路由变化时的新卡片
+        var observer = new MutationObserver(function (mutations) {
+            mutations.forEach(function (m) {
+                m.addedNodes.forEach(function (node) {
+                    if (node.nodeType === 1 && node.classList && node.classList.contains('index-post')) {
+                        bindSpotlight(node);
+                    }
+                });
+            });
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+    })();
+</script>
+
         <!-- fancybox -->
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.umd.js" onload="window.Fancybox.bind('[data-fancybox]')" defer></script>
         <!-- algolia -->
