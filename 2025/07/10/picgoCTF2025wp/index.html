@@ -795,7 +795,7 @@
     .aurora-bg {
         position: fixed;
         inset: 0;
-        z-index: -1;
+        z-index: -99999;  /* 低于 sidebar(-9999)，避免遮挡侧边栏 */
         overflow: hidden;
         pointer-events: none;
         background-color: #121212;  /* 深色兜底，图片加载失败时也不突兀 */
@@ -814,7 +814,8 @@
         transition: opacity 0.5s ease;
     }
 
-    html[data-preloader='dark'] .aurora-bg-image {
+    html[data-preloader='dark'] .aurora-bg-image,
+    .aurora-bg.is-dark .aurora-bg-image {
         opacity: 0.55;
     }
 
@@ -828,7 +829,8 @@
         opacity: 0.85;
     }
 
-    html[data-preloader='dark'] #aurora-canvas {
+    html[data-preloader='dark'] #aurora-canvas,
+    .aurora-bg.is-dark #aurora-canvas {
         opacity: 0.95;
         filter: blur(80px) saturate(1.4);
     }
@@ -851,7 +853,8 @@
         body {
             background-color: #fff !important;
         }
-        html[data-preloader='dark'] body {
+        html[data-preloader='dark'] body,
+        .aurora-bg.is-dark ~ body {
             background-color: #121212 !important;
         }
     }
@@ -862,9 +865,36 @@
             filter: blur(50px) saturate(1.1);
             opacity: 0.7;
         }
-        html[data-preloader='dark'] .aurora-bg-image {
+        html[data-preloader='dark'] .aurora-bg-image,
+        .aurora-bg.is-dark .aurora-bg-image {
             opacity: 0.4;
         }
+    }
+
+    /* ===== 自定义鼠标样式：环形光标，跟随主题色 ===== */
+    :root {
+        --cur-d: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><circle cx='12' cy='12' r='8' fill='none' stroke='%23f75357' stroke-width='2'/><circle cx='12' cy='12' r='2' fill='%23f75357'/></svg>") 12 12, auto;
+        --cur-p: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><circle cx='12' cy='12' r='8' fill='%23f75357' fill-opacity='0.25' stroke='%23f75357' stroke-width='2'/><circle cx='12' cy='12' r='2' fill='%23f75357'/></svg>") 12 12, pointer;
+    }
+    html.theme-dark,
+    html[data-preloader='dark'] {
+        --cur-d: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><circle cx='12' cy='12' r='8' fill='none' stroke='%232ecc71' stroke-width='2'/><circle cx='12' cy='12' r='2' fill='%232ecc71'/></svg>") 12 12, auto;
+        --cur-p: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><circle cx='12' cy='12' r='8' fill='%232ecc71' fill-opacity='0.25' stroke='%232ecc71' stroke-width='2'/><circle cx='12' cy='12' r='2' fill='%232ecc71'/></svg>") 12 12, pointer;
+    }
+
+    body, body * {
+        cursor: var(--cur-d);
+    }
+    a, button, .btn, [role="button"], input[type="button"], input[type="submit"],
+    .nav-link, .toc-link, .sidebar-link, .tag-list a, .post-title a,
+    .read-more a, .pl-card, .pl-skip, .index-post, .site-nav a,
+    .header-sidebar-menu, .header-theme-btn, .archives-tag-list a {
+        cursor: var(--cur-p);
+    }
+    input[type="text"], input[type="email"], input[type="password"],
+    input[type="search"], input[type="url"], textarea, select,
+    [contenteditable="true"] {
+        cursor: text;
     }
 </style>
 
@@ -888,19 +918,26 @@
         resize();
         window.addEventListener('resize', resize);
 
-        // 深浅色配色：浅色用低饱和粉橙紫，深色用高饱和
-        var isDark = document.documentElement.getAttribute('data-preloader') === 'dark'
-            || localStorage.getItem('preferredThemeMode') === 'dark';
+        // 判断深色模式：以暗色样式表 link 是否存在为准（主题切换机制）
+        function checkDark() {
+            return !!document.getElementById('stylesheet-theme-dark')
+                || document.documentElement.getAttribute('data-preloader') === 'dark'
+                || localStorage.getItem('preferredThemeMode') === 'dark';
+        }
+
+        var isDark = checkDark();
+        var auroraEl = canvas.parentElement;
+        if (isDark) auroraEl.classList.add('is-dark');
 
         function getColors() {
-            isDark = document.documentElement.getAttribute('data-preloader') === 'dark'
-                || localStorage.getItem('preferredThemeMode') === 'dark';
+            isDark = checkDark();
+            auroraEl.classList.toggle('is-dark', isDark);
             return isDark
                 ? [
-                    { r: 247, g: 83, b: 87, a: 0.55 },   // 主题红
-                    { r: 120, g: 81, b: 255, a: 0.45 },   // 紫
-                    { r: 0, g: 180, b: 216, a: 0.40 },    // 青
-                    { r: 255, g: 154, b: 0, a: 0.35 },    // 橙
+                    { r: 46, g: 204, b: 113, a: 0.55 },   // 翠绿
+                    { r: 0, g: 230, b: 118, a: 0.50 },    // 亮绿
+                    { r: 32, g: 178, b: 170, a: 0.40 },   // 青绿
+                    { r: 124, g: 252, b: 0, a: 0.35 },    // 黄绿
                   ]
                 : [
                     { r: 247, g: 83, b: 87, a: 0.22 },
@@ -970,17 +1007,20 @@
             }
         });
 
-        // 深浅色切换时重新初始化配色
+        // 主题切换时（暗色样式表增删）实时更新配色与背景图
         var observer = new MutationObserver(function () {
-            var nowDark = document.documentElement.getAttribute('data-preloader') === 'dark';
+            var nowDark = checkDark();
             if (nowDark !== isDark) {
                 isDark = nowDark;
+                auroraEl.classList.toggle('is-dark', isDark);
                 var colors = getColors();
                 blobs.forEach(function (b, i) {
                     b.color = colors[i];
                 });
             }
         });
+        observer.observe(document.head, { childList: true });
+        // 同时兼容 data-preloader 属性变化（预加载器阶段）
         observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-preloader'] });
     })();
 </script>
@@ -1560,11 +1600,11 @@
             <ul class="year-list">
         <li class="archive-post-item">
             <span class="archive-post-date">12/14</span>
-            <a class="archive-post-title" href="/2025/12/14/polarCTFweb%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95-02/">polarCTFweb刷题记录(简单)02</a>
+            <a class="archive-post-title" href="/2025/12/14/polarCTFweb%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95/">polarCTFweb刷题记录(简单)</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">12/14</span>
-            <a class="archive-post-title" href="/2025/12/14/polarCTFweb%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95/">polarCTFweb刷题记录(简单)</a>
+            <a class="archive-post-title" href="/2025/12/14/polarCTFweb%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95-02/">polarCTFweb刷题记录(简单)02</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">12/11</span>
@@ -1807,10 +1847,6 @@
                 <span class="iconfont-archer">&#xe606;</span>
                 RCE
             </span>
-            <span class="sidebar-tag-name" data-tags="编码">
-                <span class="iconfont-archer">&#xe606;</span>
-                编码
-            </span>
             <span class="sidebar-tag-name" data-tags="压缩包修复">
                 <span class="iconfont-archer">&#xe606;</span>
                 压缩包修复
@@ -1819,13 +1855,17 @@
                 <span class="iconfont-archer">&#xe606;</span>
                 TGCTF
             </span>
-            <span class="sidebar-tag-name" data-tags="rce4">
+            <span class="sidebar-tag-name" data-tags="编码">
                 <span class="iconfont-archer">&#xe606;</span>
-                rce4
+                编码
             </span>
             <span class="sidebar-tag-name" data-tags="md5碰撞">
                 <span class="iconfont-archer">&#xe606;</span>
                 md5碰撞
+            </span>
+            <span class="sidebar-tag-name" data-tags="rce4">
+                <span class="iconfont-archer">&#xe606;</span>
+                rce4
             </span>
             <span class="sidebar-tag-name" data-tags="XXE">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -1859,10 +1899,6 @@
                 <span class="iconfont-archer">&#xe606;</span>
                 session文件包含
             </span>
-            <span class="sidebar-tag-name" data-tags="NewStarCTF2024">
-                <span class="iconfont-archer">&#xe606;</span>
-                NewStarCTF2024
-            </span>
             <span class="sidebar-tag-name" data-tags="编码解码">
                 <span class="iconfont-archer">&#xe606;</span>
                 编码解码
@@ -1875,6 +1911,14 @@
                 <span class="iconfont-archer">&#xe606;</span>
                 LSB隐写
             </span>
+            <span class="sidebar-tag-name" data-tags="NewStarCTF2024">
+                <span class="iconfont-archer">&#xe606;</span>
+                NewStarCTF2024
+            </span>
+            <span class="sidebar-tag-name" data-tags="信息泄露">
+                <span class="iconfont-archer">&#xe606;</span>
+                信息泄露
+            </span>
             <span class="sidebar-tag-name" data-tags="SQL注入">
                 <span class="iconfont-archer">&#xe606;</span>
                 SQL注入
@@ -1882,10 +1926,6 @@
             <span class="sidebar-tag-name" data-tags="RCE绕过">
                 <span class="iconfont-archer">&#xe606;</span>
                 RCE绕过
-            </span>
-            <span class="sidebar-tag-name" data-tags="信息泄露">
-                <span class="iconfont-archer">&#xe606;</span>
-                信息泄露
             </span>
             <span class="sidebar-tag-name" data-tags="堆叠注入">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -1964,18 +2004,18 @@
 </style>
 <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
-        <span class="sidebar-category-name" data-categories="CTF-Web">
-            <span class="iconfont-archer">&#xe60a;</span>
-            CTF-Web
-            
-                <span class="sidebar-category-count">20</span>
-            
-        </span>
         <span class="sidebar-category-name" data-categories="赛事WriteUp">
             <span class="iconfont-archer">&#xe60a;</span>
             赛事WriteUp
             
                 <span class="sidebar-category-count">2</span>
+            
+        </span>
+        <span class="sidebar-category-name" data-categories="CTF-Web">
+            <span class="iconfont-archer">&#xe60a;</span>
+            CTF-Web
+            
+                <span class="sidebar-category-count">20</span>
             
         </span>
         <span class="sidebar-category-name" data-categories="我的项目">
@@ -2087,10 +2127,11 @@
         z-index: 1;
     }
 
-    html[data-preloader='dark'] .index-post::before {
+    html[data-preloader='dark'] .index-post::before,
+    html.theme-dark .index-post::before {
         background: radial-gradient(
             320px circle at var(--mx, 50%) var(--my, 50%),
-            rgba(247, 83, 87, 0.18),
+            rgba(46, 204, 113, 0.22),
             transparent 60%
         );
     }
@@ -2104,6 +2145,16 @@
 
 <script>
     (function () {
+        // 主题色检测：以暗色样式表 link 是否存在为准
+        function syncTheme() {
+            var dark = !!document.getElementById('stylesheet-theme-dark')
+                || document.documentElement.getAttribute('data-preloader') === 'dark';
+            document.documentElement.classList.toggle('theme-dark', dark);
+        }
+        syncTheme();
+        new MutationObserver(syncTheme).observe(document.head, { childList: true });
+        new MutationObserver(syncTheme).observe(document.documentElement, { attributes: true, attributeFilter: ['data-preloader'] });
+
         function bindSpotlight(el) {
             el.addEventListener('mousemove', function (e) {
                 var rect = el.getBoundingClientRect();
