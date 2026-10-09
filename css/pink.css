@@ -1,0 +1,135 @@
+/* Daylight palette. Loaded after Archer; selectors also win when preloads finish. */
+:root {
+  color-scheme: light;
+  --pink-accent: #c64b80;
+  --pink-bright: #ee85b5;
+  --pink-text: #55515b;
+  --pink-muted: #756b78;
+  --pink-border: rgba(198, 75, 128, 0.18);
+  --pink-cursor: url('../assets/cursor-pink.svg') 3 2, auto;
+  --pink-pointer: url('../assets/cursor-pink-pointer.svg') 12 12, pointer;
+}
+html { background: #fff5f9; }
+html body { background: transparent; color: var(--pink-text); }
+html body .wrapper { background: transparent; box-shadow: none; }
+html body .container { background: transparent; }
+
+.laser-background {
+  position: fixed;
+  inset: 0;
+  z-index: -10000;
+  overflow: hidden;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 15% 30%, #f9ddea 0, transparent 60%),
+    radial-gradient(ellipse at 85% 65%, #f0e3fa 0, transparent 55%), #fff5f9;
+}
+#pink-laser-canvas { width: 100%; height: 100%; display: block; filter: blur(18px); opacity: 0.65; }
+#pink-cursor-trail { position: fixed; inset: 0; z-index: 100000; pointer-events: none; }
+
+/* Let the beams show through the hero and all reading surfaces. */
+html body .site-intro { background: transparent; }
+html body .site-intro-img,
+html body .site-intro-placeholder { opacity: 0; background: transparent; }
+html body .site-intro-meta .intro-title { color: var(--pink-text); text-shadow: none; }
+html body .intro-subtitle,
+html body .post-intro-tags,
+html body .post-intro-tags a,
+html body .post-intro-meta,
+html body .post-intro-read { color: var(--pink-muted); }
+
+html body .index-post {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 24px;
+  padding: 1.5rem 1.7rem;
+  box-shadow: 0 8px 30px rgba(153, 78, 113, 0.045);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+html body .index-post:hover {
+  border-color: var(--pink-border);
+  box-shadow: 0 12px 32px rgba(198, 75, 128, 0.09);
+}
+html body .index-post::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), rgba(238, 133, 181, 0.16), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.25s;
+  pointer-events: none;
+}
+html body .index-post:hover::before { opacity: 1; }
+html body .index-post > * { position: relative; }
+html body .index-post-divider { border: 0; margin: 0; height: 1.25rem; }
+html body .article-entry,
+html body .license-wrapper,
+html body .post-page,
+html body .post-comment { background: transparent; color: var(--pink-text); }
+html body .article-entry { border-radius: 24px 24px 0 0; border: 1px solid var(--pink-border); border-bottom: 0; }
+html body .license-wrapper { border: 1px solid var(--pink-border); border-radius: 0 0 24px 24px; }
+html body .abstract-title,
+html body .abstract-content,
+html body .article-entry :is(h1, h2, h3, h4, h5, h6),
+html body .nextTitle,
+html body .prevTitle,
+html body .nextSlogan,
+html body .prevSlogan { color: var(--pink-text); }
+html body .abstract-title-text { font-size: 1.5rem; font-weight: 500; }
+html body .index-post .abstract-content { color: var(--pink-text); font-weight: 400; }
+html body .article-entry { line-height: 1.85; }
+html body .article-entry p { line-height: 1.85; }
+html body .abstract-post-meta,
+html body .abstract-post-meta a,
+html body .toc a,
+html body .toc-catalog,
+html body .profile,
+html body .footer { color: var(--pink-muted); }
+html body .article-entry a,
+html body .license-wrapper a,
+html body .abstract-title:hover,
+html body .profile a:hover,
+html body .toc .toc-active,
+html body .toc a:hover { color: var(--pink-accent); }
+html body .article-entry blockquote { background: rgba(238, 133, 181, 0.08); border-left-color: var(--pink-accent); }
+html body .article-entry :is(td, th) { border-color: var(--pink-border); }
+html body .article-entry thead tr,
+html body .article-entry tbody tr:hover { background: rgba(238, 133, 181, 0.08); }
+html body .article-entry :not(pre) > code { color: #a63b68; background: rgba(238, 133, 181, 0.1); }
+html body .article-entry figure.highlight { border: 1px solid var(--pink-border); border-radius: 12px; }
+html body .read-progress { background: var(--pink-accent); box-shadow: 0 0 8px var(--pink-bright); }
+html body .header-sidebar-menu,
+html body .header-sidebar-menu-black { color: var(--pink-accent); border-color: var(--pink-border); background: rgba(255, 245, 249, 0.88); }
+html body .banner { background: rgba(255, 245, 249, 0.92); backdrop-filter: blur(12px); }
+html body .header .banner a,
+html body .header .header-actions .home-link a { color: var(--pink-text); }
+html body .footer-fixed-btn { color: var(--pink-accent); background: #fff5f9; border-color: var(--pink-border); }
+html body .sidebar { background: #fff5f9; }
+html body .sidebar :is(a, .sidebar-tabs, .sidebar-archive-year, .sidebar-archive-post, .sidebar-tag-name, .sidebar-category-name) { color: var(--pink-text); }
+html body .sidebar-tabs { border-bottom-color: var(--pink-border); }
+html body .sidebar a:hover { color: var(--pink-accent); }
+html body .sidebar :is(.tag-name, .tag-count, .category-name, .category-count, .archive-post-title, .archive-post-date) { color: var(--pink-muted); }
+html body .page-nav .current { background: var(--pink-accent); color: #fff; }
+html body ::selection { background: #f5bed6; color: #49434d; }
+html body :focus-visible { outline: 2px solid var(--pink-accent); outline-offset: 4px; }
+
+@media (pointer: fine) {
+  html body, html body * { cursor: var(--pink-cursor); }
+  html body :is(a, button, [role='button'], .header-sidebar-menu, .sidebar-tabs li, .post-tag, .post-category, .toc-catalog, .footer-fixed-btn, .share-wrapper, .pl-skip),
+  html body :is(a, button, [role='button'], .header-sidebar-menu, .sidebar-tabs li, .footer-fixed-btn) * { cursor: var(--pink-pointer); }
+  html body :is(input:not([type='button']):not([type='submit']), textarea, [contenteditable='true']),
+  html body [contenteditable='true'] * { cursor: text; }
+}
+@media (max-width: 960px) {
+  html body header.header-mobile { background: rgba(255, 245, 249, 0.9); border-bottom: 1px solid var(--pink-border); }
+  html body .index-post { padding: 1.2rem; border-radius: 20px; }
+  html body .article-entry { padding: 1.4rem 1rem; }
+  html body .abstract-title-text { font-size: 1.3rem; }
+  #pink-laser-canvas { filter: blur(24px); opacity: 0.45; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #pink-laser-canvas, #pink-cursor-trail { display: none; }
+  html body .index-post::before { display: none; }
+  html body .index-post { transition: none; }
+}

@@ -189,29 +189,19 @@
 
     
 <script>
-    (function () {
-        var mode = 'light';
-        try {
-            mode = localStorage.getItem('preferredThemeMode') ||
-                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        } catch (e) {}
-        document.documentElement.setAttribute('data-preloader', mode === 'dark' ? 'dark' : 'light');
-    })();
+    document.documentElement.setAttribute('data-preloader', 'light');
+    try { localStorage.setItem('preferredThemeMode', 'light'); } catch (e) {}
 </script>
 <style>
     /* ========== elegant page preloader ========== */
-    html[data-preloader='dark'] {
-        background-color: #121212;
-    }
-
-    #page-preloader {
+#page-preloader {
         position: fixed;
         inset: 0;
         z-index: 99999;
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #ffffff;
+        background-color: #fff5f9;
         opacity: 1;
         visibility: visible;
         transition: opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.55s cubic-bezier(0.4, 0, 0.2, 1);
@@ -219,11 +209,7 @@
         -moz-osx-font-smoothing: grayscale;
     }
 
-    html[data-preloader='dark'] #page-preloader {
-        background-color: #121212;
-    }
-
-    #page-preloader.is-leaving {
+#page-preloader.is-leaving {
         opacity: 0;
         visibility: hidden;
     }
@@ -236,9 +222,9 @@
         width: 42%;
         height: 2px;
         border-radius: 0 2px 2px 0;
-        background: linear-gradient(90deg, rgba(247, 83, 87, 0), #f75357 55%, rgba(247, 83, 87, 0));
+        background: linear-gradient(90deg, rgba(198, 75, 128, 0), #c64b80 55%, rgba(198, 75, 128, 0));
         filter: progid:DXImageTransform.Microsoft.gradient(enabled='false');
-        box-shadow: 0 0 8px rgba(247, 83, 87, 0.55);
+        box-shadow: 0 0 8px rgba(198, 75, 128, 0.55);
         animation: pl-slide 1.15s cubic-bezier(0.45, 0, 0.55, 1) infinite;
     }
 
@@ -297,15 +283,11 @@
         border: 2px solid rgba(0, 0, 0, 0.08);
     }
 
-    html[data-preloader='dark'] .pl-ring::before {
-        border-color: rgba(255, 255, 255, 0.12);
-    }
-
-    .pl-ring::after {
+.pl-ring::after {
         inset: 0;
         border: 2px solid transparent;
-        border-top-color: #f75357;
-        box-shadow: 0 -2px 8px rgba(247, 83, 87, 0.35);
+        border-top-color: #c64b80;
+        box-shadow: 0 -2px 8px rgba(198, 75, 128, 0.35);
         animation: pl-spin 0.85s cubic-bezier(0.55, 0.15, 0.45, 0.85) infinite;
     }
 
@@ -316,11 +298,7 @@
         animation: pl-spin-rev 1.6s linear infinite;
     }
 
-    html[data-preloader='dark'] .pl-ring i {
-        border-bottom-color: rgba(255, 255, 255, 0.28);
-    }
-
-    @keyframes pl-spin {
+@keyframes pl-spin {
         to {
             transform: rotate(360deg);
         }
@@ -348,11 +326,7 @@
         color: #3a3a3a;
     }
 
-    html[data-preloader='dark'] .pl-title {
-        color: rgba(255, 255, 255, 0.87);
-    }
-
-    .pl-hint {
+.pl-hint {
         margin: 0;
         font-size: 0.7rem;
         letter-spacing: 0.28em;
@@ -360,11 +334,7 @@
         color: #b5b5b5;
     }
 
-    html[data-preloader='dark'] .pl-hint {
-        color: rgba(255, 255, 255, 0.4);
-    }
-
-    .pl-dots {
+.pl-dots {
         display: inline-block;
         letter-spacing: 0.08em;
     }
@@ -410,7 +380,7 @@
         font-size: 0.68rem;
         letter-spacing: 0.42em;
         text-indent: 0.42em;
-        color: #f75357;
+        color: #c64b80;
         font-family: 'Oswald-Regular', sans-serif;
     }
 
@@ -427,14 +397,6 @@
         font-size: 0.78rem;
         color: #9a9a9a;
         letter-spacing: 0.05em;
-    }
-
-    html[data-preloader='dark'] .pl-gate-title {
-        color: rgba(255, 255, 255, 0.92);
-    }
-
-    html[data-preloader='dark'] .pl-gate-sub {
-        color: rgba(255, 255, 255, 0.45);
     }
 
     .pl-gate-grid {
@@ -467,12 +429,7 @@
         animation: pl-gate-in 0.5s ease-out both;
     }
 
-    html[data-preloader='dark'] .pl-card {
-        border-color: rgba(255, 255, 255, 0.12);
-        background-color: rgba(255, 255, 255, 0.035);
-    }
-
-    .pl-card:nth-child(1) { animation-delay: 0.03s; }
+.pl-card:nth-child(1) { animation-delay: 0.03s; }
     .pl-card:nth-child(2) { animation-delay: 0.07s; }
     .pl-card:nth-child(3) { animation-delay: 0.11s; }
     .pl-card:nth-child(4) { animation-delay: 0.15s; }
@@ -498,29 +455,20 @@
     .pl-card:focus-visible {
         outline: none;
         transform: translateY(-3px);
-        border-color: rgba(247, 83, 87, 0.55);
-        box-shadow: 0 10px 24px -12px rgba(247, 83, 87, 0.45);
+        border-color: rgba(198, 75, 128, 0.55);
+        box-shadow: 0 10px 24px -12px rgba(198, 75, 128, 0.45);
         background-color: #fff;
     }
 
-    html[data-preloader='dark'] .pl-card:hover,
-    html[data-preloader='dark'] .pl-card:focus-visible {
-        background-color: rgba(255, 255, 255, 0.07);
-    }
-
-    .pl-card-icon {
+.pl-card-icon {
         font-size: 1.35rem;
         margin-bottom: 0.55rem;
         color: #5a5a5a;
         transition: color 0.25s ease, transform 0.25s ease;
     }
 
-    html[data-preloader='dark'] .pl-card-icon {
-        color: rgba(255, 255, 255, 0.75);
-    }
-
-    .pl-card:hover .pl-card-icon {
-        color: #f75357;
+.pl-card:hover .pl-card-icon {
+        color: #c64b80;
         transform: scale(1.08);
     }
 
@@ -531,22 +479,14 @@
         line-height: 1.3;
     }
 
-    html[data-preloader='dark'] .pl-card-name {
-        color: rgba(255, 255, 255, 0.9);
-    }
-
-    .pl-card-desc {
+.pl-card-desc {
         margin-top: 0.3rem;
         font-size: 0.68rem;
         color: #9a9a9a;
         line-height: 1.4;
     }
 
-    html[data-preloader='dark'] .pl-card-desc {
-        color: rgba(255, 255, 255, 0.42);
-    }
-
-    .pl-card-kids {
+.pl-card-kids {
         margin-top: 0.55rem;
         max-width: 100%;
         font-size: 0.62rem;
@@ -564,30 +504,26 @@
         color: #bcbcbc;
     }
 
-    html[data-preloader='dark'] .pl-card-count {
-        color: rgba(255, 255, 255, 0.35);
-    }
-
-    .pl-card-badge {
+.pl-card-badge {
         position: absolute;
         top: -8px;
         left: -6px;
         padding: 2px 8px;
         border-radius: 999px;
-        background: #f75357;
+        background: #c64b80;
         color: #fff;
         font-size: 0.6rem;
         font-weight: bold;
         letter-spacing: 0.08em;
-        box-shadow: 0 4px 10px -3px rgba(247, 83, 87, 0.7);
+        box-shadow: 0 4px 10px -3px rgba(198, 75, 128, 0.7);
     }
 
     .pl-card-accent {
-        border-color: rgba(247, 83, 87, 0.4);
+        border-color: rgba(198, 75, 128, 0.4);
     }
 
     .pl-card-accent .pl-card-icon {
-        color: #f75357;
+        color: #c64b80;
     }
 
     .pl-card-repo {
@@ -596,15 +532,15 @@
         gap: 4px;
         margin-top: 0.55rem;
         padding: 2px 10px;
-        border: 1px solid rgba(247, 83, 87, 0.45);
+        border: 1px solid rgba(198, 75, 128, 0.45);
         border-radius: 999px;
         font-size: 0.66rem;
-        color: #f75357;
+        color: #c64b80;
         transition: background-color 0.2s ease, color 0.2s ease;
     }
 
     .pl-card-repo:hover {
-        background: #f75357;
+        background: #c64b80;
         color: #fff;
     }
 
@@ -619,7 +555,7 @@
     }
 
     .pl-card-lucky:hover .pl-card-icon {
-        color: #f75357;
+        color: #c64b80;
     }
 
     /* countdown skip ring */
@@ -637,11 +573,7 @@
         animation: pl-gate-in 0.5s 0.4s ease-out both;
     }
 
-    html[data-preloader='dark'] .pl-skip {
-        color: rgba(255, 255, 255, 0.6);
-    }
-
-    .pl-skip-svg {
+.pl-skip-svg {
         display: block;
         width: 52px;
         height: 52px;
@@ -653,13 +585,9 @@
         stroke-width: 2.5;
     }
 
-    html[data-preloader='dark'] .pl-skip-track {
-        stroke: rgba(255, 255, 255, 0.14);
-    }
-
-    .pl-skip-bar {
+.pl-skip-bar {
         fill: none;
-        stroke: #f75357;
+        stroke: #c64b80;
         stroke-width: 2.5;
         stroke-linecap: round;
         stroke-dasharray: 100;
@@ -683,11 +611,7 @@
         color: #b0b0b0;
     }
 
-    html[data-preloader='dark'] .pl-skip-label {
-        color: rgba(255, 255, 255, 0.4);
-    }
-
-    .pl-skip:hover .pl-skip-bar {
+.pl-skip:hover .pl-skip-bar {
         stroke-width: 3.2;
     }
 
@@ -744,7 +668,9 @@
     <link id="stylesheet-fancybox" rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link id="stylesheet-base" rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link id="stylesheet-mobile" rel="preload" href="/css/mobile.css" as="style" onload="this.onload=null;this.rel='stylesheet';this.media='screen and (max-width: 960px)'">
-    <link id="stylesheet-theme-dark" rel="preload" href="/css/dark.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta name="color-scheme" content="light">
+    <meta name="theme-color" content="#fff5f9">
+    <link rel="stylesheet" href="/css/pink.css">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
     <link rel="preload" href="/scripts/main.js" as="script">
     <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
@@ -756,252 +682,12 @@
 <meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="seora's blog^^" type="application/atom+xml">
 </head>
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-    <script type="text/javascript">
-        if (typeof window.$ == undefined) {
-            console.warn('jquery load from jsdelivr failed, will load local script')
-            document.write('<script src="/lib/jquery.min.js" />')
-        }
-    </script>
+    <script src="/lib/jquery.min.js"></script>
+        <body class="page-body">
         <!-- aurora background -->
-        <div class="aurora-bg" aria-hidden="true">
-    <div class="aurora-bg-image"></div>
-    <canvas id="aurora-canvas"></canvas>
+        <div class="laser-background" aria-hidden="true">
+    <canvas id="pink-laser-canvas"></canvas>
 </div>
-
-<style>
-    .aurora-bg {
-        position: fixed;
-        inset: 0;
-        z-index: -99999;  /* 低于 sidebar(-9999)，避免遮挡侧边栏 */
-        overflow: hidden;
-        pointer-events: none;
-        background-color: #121212;  /* 深色兜底，图片加载失败时也不突兀 */
-    }
-
-    /* 深色背景图（极光/星空），仅深色模式显示 */
-    .aurora-bg-image {
-        position: absolute;
-        inset: 0;
-        background-image: url('https://images.unsplash.com/photo-1483347756197-71ef80e95f73?w=1920&q=80&auto=format&fit=crop');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        opacity: 0;
-        transition: opacity 0.5s ease;
-    }
-
-    html[data-preloader='dark'] .aurora-bg-image,
-    .aurora-bg.is-dark .aurora-bg-image {
-        opacity: 0.55;
-    }
-
-    #aurora-canvas {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        display: block;
-        filter: blur(70px) saturate(1.2);
-        opacity: 0.85;
-    }
-
-    html[data-preloader='dark'] #aurora-canvas,
-    .aurora-bg.is-dark #aurora-canvas {
-        opacity: 0.95;
-        filter: blur(80px) saturate(1.4);
-    }
-
-    /* 让 body 背景透明，露出极光层 */
-    body {
-        background-color: transparent !important;
-    }
-
-    .container {
-        background-color: transparent !important;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-        .aurora-bg,
-        .aurora-bg-image,
-        #aurora-canvas {
-            display: none;
-        }
-        body {
-            background-color: #fff !important;
-        }
-        html[data-preloader='dark'] body,
-        .aurora-bg.is-dark ~ body {
-            background-color: #121212 !important;
-        }
-    }
-
-    /* 移动端降低模糊半径，减少性能开销 */
-    @media (max-width: 600px) {
-        #aurora-canvas {
-            filter: blur(50px) saturate(1.1);
-            opacity: 0.7;
-        }
-        html[data-preloader='dark'] .aurora-bg-image,
-        .aurora-bg.is-dark .aurora-bg-image {
-            opacity: 0.4;
-        }
-    }
-
-    /* ===== 自定义鼠标样式：环形光标，跟随主题色 ===== */
-    :root {
-        --cur-d: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><circle cx='12' cy='12' r='8' fill='none' stroke='%23f75357' stroke-width='2'/><circle cx='12' cy='12' r='2' fill='%23f75357'/></svg>") 12 12, auto;
-        --cur-p: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><circle cx='12' cy='12' r='8' fill='%23f75357' fill-opacity='0.25' stroke='%23f75357' stroke-width='2'/><circle cx='12' cy='12' r='2' fill='%23f75357'/></svg>") 12 12, pointer;
-    }
-    html.theme-dark,
-    html[data-preloader='dark'] {
-        --cur-d: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><circle cx='12' cy='12' r='8' fill='none' stroke='%232ecc71' stroke-width='2'/><circle cx='12' cy='12' r='2' fill='%232ecc71'/></svg>") 12 12, auto;
-        --cur-p: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><circle cx='12' cy='12' r='8' fill='%232ecc71' fill-opacity='0.25' stroke='%232ecc71' stroke-width='2'/><circle cx='12' cy='12' r='2' fill='%232ecc71'/></svg>") 12 12, pointer;
-    }
-
-    body, body * {
-        cursor: var(--cur-d);
-    }
-    a, button, .btn, [role="button"], input[type="button"], input[type="submit"],
-    .nav-link, .toc-link, .sidebar-link, .tag-list a, .post-title a,
-    .read-more a, .pl-card, .pl-skip, .index-post, .site-nav a,
-    .header-sidebar-menu, .header-theme-btn, .archives-tag-list a {
-        cursor: var(--cur-p);
-    }
-    input[type="text"], input[type="email"], input[type="password"],
-    input[type="search"], input[type="url"], textarea, select,
-    [contenteditable="true"] {
-        cursor: text;
-    }
-</style>
-
-<script>
-    (function () {
-        var canvas = document.getElementById('aurora-canvas');
-        if (!canvas) return;
-        var ctx = canvas.getContext('2d');
-        if (!ctx) return;
-
-        var dpr = Math.min(window.devicePixelRatio || 1, 2);
-        var W = 0, H = 0;
-
-        function resize() {
-            W = window.innerWidth;
-            H = window.innerHeight;
-            canvas.width = W * dpr;
-            canvas.height = H * dpr;
-            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        }
-        resize();
-        window.addEventListener('resize', resize);
-
-        // 判断深色模式：以暗色样式表 link 是否存在为准（主题切换机制）
-        function checkDark() {
-            return !!document.getElementById('stylesheet-theme-dark')
-                || document.documentElement.getAttribute('data-preloader') === 'dark'
-                || localStorage.getItem('preferredThemeMode') === 'dark';
-        }
-
-        var isDark = checkDark();
-        var auroraEl = canvas.parentElement;
-        if (isDark) auroraEl.classList.add('is-dark');
-
-        function getColors() {
-            isDark = checkDark();
-            auroraEl.classList.toggle('is-dark', isDark);
-            return isDark
-                ? [
-                    { r: 46, g: 204, b: 113, a: 0.55 },   // 翠绿
-                    { r: 0, g: 230, b: 118, a: 0.50 },    // 亮绿
-                    { r: 32, g: 178, b: 170, a: 0.40 },   // 青绿
-                    { r: 124, g: 252, b: 0, a: 0.35 },    // 黄绿
-                  ]
-                : [
-                    { r: 247, g: 83, b: 87, a: 0.22 },
-                    { r: 120, g: 81, b: 255, a: 0.18 },
-                    { r: 0, g: 180, b: 216, a: 0.16 },
-                    { r: 255, g: 154, b: 0, a: 0.14 },
-                  ];
-        }
-
-        var blobs = [];
-        function initBlobs() {
-            var colors = getColors();
-            blobs = colors.map(function (c, i) {
-                return {
-                    x: Math.random() * W,
-                    y: Math.random() * H,
-                    r: Math.max(W, H) * (0.35 + Math.random() * 0.3),
-                    vx: (Math.random() - 0.5) * 0.25,
-                    vy: (Math.random() - 0.5) * 0.25,
-                    color: c,
-                    phase: Math.random() * Math.PI * 2,
-                };
-            });
-        }
-        initBlobs();
-
-        var t = 0;
-        var running = true;
-
-        function draw() {
-            if (!running) return;
-            ctx.clearRect(0, 0, W, H);
-            t += 0.003;
-
-            blobs.forEach(function (b) {
-                b.x += b.vx + Math.sin(t + b.phase) * 0.3;
-                b.y += b.vy + Math.cos(t + b.phase) * 0.3;
-
-                // 边界环绕
-                if (b.x < -b.r) b.x = W + b.r;
-                if (b.x > W + b.r) b.x = -b.r;
-                if (b.y < -b.r) b.y = H + b.r;
-                if (b.y > H + b.r) b.y = -b.r;
-
-                var g = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, b.r);
-                var c = b.color;
-                g.addColorStop(0, 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',' + c.a + ')');
-                g.addColorStop(1, 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',0)');
-                ctx.fillStyle = g;
-                ctx.beginPath();
-                ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
-                ctx.fill();
-            });
-
-            requestAnimationFrame(draw);
-        }
-
-        requestAnimationFrame(draw);
-
-        // 标签页隐藏时暂停，节省资源
-        document.addEventListener('visibilitychange', function () {
-            if (document.hidden) {
-                running = false;
-            } else {
-                running = true;
-                requestAnimationFrame(draw);
-            }
-        });
-
-        // 主题切换时（暗色样式表增删）实时更新配色与背景图
-        var observer = new MutationObserver(function () {
-            var nowDark = checkDark();
-            if (nowDark !== isDark) {
-                isDark = nowDark;
-                auroraEl.classList.toggle('is-dark', isDark);
-                var colors = getColors();
-                blobs.forEach(function (b, i) {
-                    b.color = colors[i];
-                });
-            }
-        });
-        observer.observe(document.head, { childList: true });
-        // 同时兼容 data-preloader 属性变化（预加载器阶段）
-        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-preloader'] });
-    })();
-</script>
 
         <!-- elegant page preloader -->
         
@@ -1061,7 +747,7 @@
         <header class="header header-mobile">
     <!-- top read progress line -->
     <div class="header-element">
-        <div class="read-progress"></div>
+        <div class="read-progress read-progress-feature"></div>
     </div>
     <!-- sidebar menu button -->
     <div class="header-element">
@@ -1071,10 +757,6 @@
     </div>
     <!-- header actions -->
     <div class="header-actions">
-        <!-- theme mode switch button -->
-        <span class="header-theme-btn header-element">
-            <i class="fas fa-adjust"></i>
-        </span>
         <!-- back to home page text -->
         <span class="home-link header-element">
             <a href="/">seora's Studio.</a>
@@ -1106,11 +788,12 @@
             <div class="site-intro" style="">
     <!-- 主页  -->
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/index-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+                seora&#39;s Studio.
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
@@ -1623,11 +1306,11 @@ flag: LitCTF{sstv_p4t13nc3}
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">03/18</span>
-            <a class="archive-post-title" href="/2025/03/18/CTFhub%E5%89%8D%E7%AB%AF%E9%AA%8C%E8%AF%81-MIME%E7%BB%95%E8%BF%87/">CTFhub前端验证 MIME绕过</a>
+            <a class="archive-post-title" href="/2025/03/18/CTFhub%E6%96%87%E4%BB%B6%E5%A4%B4%E6%A3%80%E6%9F%A5-00%E6%88%AA%E6%96%AD/">CTFhub文件头检查 00截断</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">03/18</span>
-            <a class="archive-post-title" href="/2025/03/18/CTFhub%E6%96%87%E4%BB%B6%E5%A4%B4%E6%A3%80%E6%9F%A5-00%E6%88%AA%E6%96%AD/">CTFhub文件头检查 00截断</a>
+            <a class="archive-post-title" href="/2025/03/18/CTFhub%E5%89%8D%E7%AB%AF%E9%AA%8C%E8%AF%81-MIME%E7%BB%95%E8%BF%87/">CTFhub前端验证 MIME绕过</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">03/18</span>
@@ -1662,18 +1345,6 @@ flag: LitCTF{sstv_p4t13nc3}
                 <span class="iconfont-archer">&#xe606;</span>
                 文件上传
             </span>
-            <span class="sidebar-tag-name" data-tags="Ctfhub">
-                <span class="iconfont-archer">&#xe606;</span>
-                Ctfhub
-            </span>
-            <span class="sidebar-tag-name" data-tags="前端验证">
-                <span class="iconfont-archer">&#xe606;</span>
-                前端验证
-            </span>
-            <span class="sidebar-tag-name" data-tags="MIME绕过">
-                <span class="iconfont-archer">&#xe606;</span>
-                MIME绕过
-            </span>
             <span class="sidebar-tag-name" data-tags="00截断">
                 <span class="iconfont-archer">&#xe606;</span>
                 00截断
@@ -1706,6 +1377,18 @@ flag: LitCTF{sstv_p4t13nc3}
                 <span class="iconfont-archer">&#xe606;</span>
                 RAG
             </span>
+            <span class="sidebar-tag-name" data-tags="Ctfhub">
+                <span class="iconfont-archer">&#xe606;</span>
+                Ctfhub
+            </span>
+            <span class="sidebar-tag-name" data-tags="前端验证">
+                <span class="iconfont-archer">&#xe606;</span>
+                前端验证
+            </span>
+            <span class="sidebar-tag-name" data-tags="MIME绕过">
+                <span class="iconfont-archer">&#xe606;</span>
+                MIME绕过
+            </span>
             <span class="sidebar-tag-name" data-tags="php代码审计">
                 <span class="iconfont-archer">&#xe606;</span>
                 php代码审计
@@ -1714,13 +1397,13 @@ flag: LitCTF{sstv_p4t13nc3}
                 <span class="iconfont-archer">&#xe606;</span>
                 0宽隐写
             </span>
-            <span class="sidebar-tag-name" data-tags="博客搭建">
-                <span class="iconfont-archer">&#xe606;</span>
-                博客搭建
-            </span>
             <span class="sidebar-tag-name" data-tags="Linux命令">
                 <span class="iconfont-archer">&#xe606;</span>
                 Linux命令
+            </span>
+            <span class="sidebar-tag-name" data-tags="博客搭建">
+                <span class="iconfont-archer">&#xe606;</span>
+                博客搭建
             </span>
             <span class="sidebar-tag-name" data-tags="NSSCTF">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -1730,6 +1413,10 @@ flag: LitCTF{sstv_p4t13nc3}
                 <span class="iconfont-archer">&#xe606;</span>
                 隐写
             </span>
+            <span class="sidebar-tag-name" data-tags="RCE">
+                <span class="iconfont-archer">&#xe606;</span>
+                RCE
+            </span>
             <span class="sidebar-tag-name" data-tags="NTFS数据隐写">
                 <span class="iconfont-archer">&#xe606;</span>
                 NTFS数据隐写
@@ -1738,9 +1425,13 @@ flag: LitCTF{sstv_p4t13nc3}
                 <span class="iconfont-archer">&#xe606;</span>
                 python反编译
             </span>
-            <span class="sidebar-tag-name" data-tags="RCE">
+            <span class="sidebar-tag-name" data-tags="编码">
                 <span class="iconfont-archer">&#xe606;</span>
-                RCE
+                编码
+            </span>
+            <span class="sidebar-tag-name" data-tags="rce4">
+                <span class="iconfont-archer">&#xe606;</span>
+                rce4
             </span>
             <span class="sidebar-tag-name" data-tags="压缩包修复">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -1749,18 +1440,6 @@ flag: LitCTF{sstv_p4t13nc3}
             <span class="sidebar-tag-name" data-tags="TGCTF">
                 <span class="iconfont-archer">&#xe606;</span>
                 TGCTF
-            </span>
-            <span class="sidebar-tag-name" data-tags="编码">
-                <span class="iconfont-archer">&#xe606;</span>
-                编码
-            </span>
-            <span class="sidebar-tag-name" data-tags="md5碰撞">
-                <span class="iconfont-archer">&#xe606;</span>
-                md5碰撞
-            </span>
-            <span class="sidebar-tag-name" data-tags="rce4">
-                <span class="iconfont-archer">&#xe606;</span>
-                rce4
             </span>
             <span class="sidebar-tag-name" data-tags="XXE">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -1794,25 +1473,13 @@ flag: LitCTF{sstv_p4t13nc3}
                 <span class="iconfont-archer">&#xe606;</span>
                 session文件包含
             </span>
-            <span class="sidebar-tag-name" data-tags="编码解码">
-                <span class="iconfont-archer">&#xe606;</span>
-                编码解码
-            </span>
-            <span class="sidebar-tag-name" data-tags="图片隐写">
-                <span class="iconfont-archer">&#xe606;</span>
-                图片隐写
-            </span>
-            <span class="sidebar-tag-name" data-tags="LSB隐写">
-                <span class="iconfont-archer">&#xe606;</span>
-                LSB隐写
-            </span>
             <span class="sidebar-tag-name" data-tags="NewStarCTF2024">
                 <span class="iconfont-archer">&#xe606;</span>
                 NewStarCTF2024
             </span>
-            <span class="sidebar-tag-name" data-tags="信息泄露">
+            <span class="sidebar-tag-name" data-tags="md5碰撞">
                 <span class="iconfont-archer">&#xe606;</span>
-                信息泄露
+                md5碰撞
             </span>
             <span class="sidebar-tag-name" data-tags="SQL注入">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -1821,6 +1488,10 @@ flag: LitCTF{sstv_p4t13nc3}
             <span class="sidebar-tag-name" data-tags="RCE绕过">
                 <span class="iconfont-archer">&#xe606;</span>
                 RCE绕过
+            </span>
+            <span class="sidebar-tag-name" data-tags="信息泄露">
+                <span class="iconfont-archer">&#xe606;</span>
+                信息泄露
             </span>
             <span class="sidebar-tag-name" data-tags="堆叠注入">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -1841,6 +1512,18 @@ flag: LitCTF{sstv_p4t13nc3}
             <span class="sidebar-tag-name" data-tags="handel语句">
                 <span class="iconfont-archer">&#xe606;</span>
                 handel语句
+            </span>
+            <span class="sidebar-tag-name" data-tags="编码解码">
+                <span class="iconfont-archer">&#xe606;</span>
+                编码解码
+            </span>
+            <span class="sidebar-tag-name" data-tags="图片隐写">
+                <span class="iconfont-archer">&#xe606;</span>
+                图片隐写
+            </span>
+            <span class="sidebar-tag-name" data-tags="LSB隐写">
+                <span class="iconfont-archer">&#xe606;</span>
+                LSB隐写
             </span>
             <span class="sidebar-tag-name" data-tags="文件包含">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -1920,18 +1603,18 @@ flag: LitCTF{sstv_p4t13nc3}
                 <span class="sidebar-category-count">1</span>
             
         </span>
-        <span class="sidebar-category-name" data-categories="博客搭建">
-            <span class="iconfont-archer">&#xe60a;</span>
-            博客搭建
-            
-                <span class="sidebar-category-count">1</span>
-            
-        </span>
         <span class="sidebar-category-name" data-categories="Linux与运维">
             <span class="iconfont-archer">&#xe60a;</span>
             Linux与运维
             
                 <span class="sidebar-category-count">2</span>
+            
+        </span>
+        <span class="sidebar-category-name" data-categories="博客搭建">
+            <span class="iconfont-archer">&#xe60a;</span>
+            博客搭建
+            
+                <span class="sidebar-category-count">1</span>
             
         </span>
         <span class="sidebar-category-name" data-categories="Misc杂项">
@@ -1988,104 +1671,8 @@ flag: LitCTF{sstv_p4t13nc3}
 
         <!-- main func -->
         <script src="/scripts/main.js"></script>
-        <!-- spotlight hover effect -->
-        <style>
-    /* 聚光灯悬停效果：鼠标在卡片内移动时产生跟随光晕 */
-    .index-post {
-        position: relative;
-        overflow: hidden;
-    }
-
-    .index-post::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        border-radius: inherit;
-        background: radial-gradient(
-            320px circle at var(--mx, 50%) var(--my, 50%),
-            rgba(247, 83, 87, 0.10),
-            transparent 60%
-        );
-        opacity: 0;
-        transition: opacity 0.25s ease;
-        pointer-events: none;
-        z-index: 0;
-    }
-
-    .index-post:hover::before {
-        opacity: 1;
-    }
-
-    /* 让卡片内容在光晕之上 */
-    .index-post > * {
-        position: relative;
-        z-index: 1;
-    }
-
-    html[data-preloader='dark'] .index-post::before,
-    html.theme-dark .index-post::before {
-        background: radial-gradient(
-            320px circle at var(--mx, 50%) var(--my, 50%),
-            rgba(46, 204, 113, 0.22),
-            transparent 60%
-        );
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-        .index-post::before {
-            display: none;
-        }
-    }
-</style>
-
-<script>
-    (function () {
-        // 主题色检测：以暗色样式表 link 是否存在为准
-        function syncTheme() {
-            var dark = !!document.getElementById('stylesheet-theme-dark')
-                || document.documentElement.getAttribute('data-preloader') === 'dark';
-            document.documentElement.classList.toggle('theme-dark', dark);
-        }
-        syncTheme();
-        new MutationObserver(syncTheme).observe(document.head, { childList: true });
-        new MutationObserver(syncTheme).observe(document.documentElement, { attributes: true, attributeFilter: ['data-preloader'] });
-
-        function bindSpotlight(el) {
-            el.addEventListener('mousemove', function (e) {
-                var rect = el.getBoundingClientRect();
-                el.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
-                el.style.setProperty('--my', (e.clientY - rect.top) + 'px');
-            });
-            el.addEventListener('mouseleave', function () {
-                el.style.setProperty('--mx', '50%');
-                el.style.setProperty('--my', '50%');
-            });
-        }
-
-        function init() {
-            document.querySelectorAll('.index-post').forEach(bindSpotlight);
-        }
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', init);
-        } else {
-            init();
-        }
-
-        // 监听首页无限加载/路由变化时的新卡片
-        var observer = new MutationObserver(function (mutations) {
-            mutations.forEach(function (m) {
-                m.addedNodes.forEach(function (node) {
-                    if (node.nodeType === 1 && node.classList && node.classList.contains('index-post')) {
-                        bindSpotlight(node);
-                    }
-                });
-            });
-        });
-        observer.observe(document.body, { childList: true, subtree: true });
-    })();
-</script>
-
+        <!-- pink laser background, cursor trail and card spotlight -->
+        <script src="/scripts/pink-effects.js" defer></script>
         <!-- fancybox -->
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.umd.js" onload="window.Fancybox.bind('[data-fancybox]')" defer></script>
         <!-- algolia -->
